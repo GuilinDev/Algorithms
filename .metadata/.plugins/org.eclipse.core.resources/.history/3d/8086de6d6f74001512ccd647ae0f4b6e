@@ -1,0 +1,6 @@
+package com.guilin.leet;
+
+public class StringToIntegerATOILC8 {
+	private static final int MAXDiv10 = Integer.MAX_VALUE / 10;
+
+}

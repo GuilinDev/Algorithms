@@ -1,0 +1,36 @@
+package com.guilin.leet;
+
+public class StringToIntegerATOILC8 {
+	
+	/*
+	 * 
+	 */
+	private static final int MAXDiv10 = Integer.MAX_VALUE / 10;
+	public int myAtoi(String str) {
+        int i = 0, N = str.length(), sign = +1;
+        //skip the whitespace
+        while (i < N && Character.isWhitespace(str.charAt(i))) {
+            i++;
+        }
+        // find sign
+        if (i < N && str.charAt(i) == '+') {
+            sign = +1;
+            i++;
+        } else if (i < N && str.charAt(i) == '-'){
+            sign = -1;
+            i++;
+        }
+        
+        //convert value (handle out-of-range case)
+        int value = 0;
+        while (i < N && Character.isDigit(str.charAt(i))) {
+            int digit = Character.getNumericValue(str.charAt(i));
+            if (value > MAXDiv10 || value == MAXDiv10 && digit > 7) {
+                return sign == +1 ? Integer.MAX_VALUE :  Integer.MIN_VALUE;
+            }
+            value = value * 10 + digit;
+            i++;
+        }
+        return value * sign;
+    }
+}
