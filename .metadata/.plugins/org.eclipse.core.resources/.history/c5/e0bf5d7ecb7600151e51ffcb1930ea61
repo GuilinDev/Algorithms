@@ -1,0 +1,44 @@
+package com.guilin.leet;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Leet15ThreeSum {
+	
+	public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        
+        List<List<Integer>> listSet = new ArrayList<List<Integer>>();
+        for (int i = 0; i < nums.length - 2; i = increment(nums, i)) {// lo and hi have assigned
+            int a = nums[i], lo = i + 1, hi = nums.length - 1;
+            while (lo < hi) {
+                int b = nums[lo], c = nums[hi];
+                if (a + b + c == 0) {
+                    List<Integer> list = Arrays.asList(a, b, c);
+                    listSet.add(list);
+                    
+                    lo = increment(nums, lo);
+                    hi = decrement(nums, hi);
+                } else if (a + b + c > 0) {
+                    hi = decrement(nums, hi);
+                } else if ( a + b + c < 0) {
+                    lo = increment(nums, lo);
+                }
+            }
+        }
+        return listSet;
+    }
+    
+    private int increment(int[] num, int lo) {
+        //avoid repeat
+        while (lo < num.length - 1 && num[lo] == num[++lo]){}
+        return lo;
+    }
+    private int decrement(int[] num, int hi) {
+        //avoid repeat
+        while (hi > 0 && num[hi] == num[--hi]){}
+        return hi;
+    }
+
+}
