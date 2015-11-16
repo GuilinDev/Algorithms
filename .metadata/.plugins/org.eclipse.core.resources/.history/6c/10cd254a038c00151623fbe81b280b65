@@ -1,0 +1,11 @@
+package com.guilin.leet;
+
+public class Leet018FourSum {
+	/*
+	 * k sum solution
+	 * 1) Sort  array;
+	 * 2) for loop by using k - 2, num[i_1], num[i_2], ..., num[i_{k-2}]
+	 * 3) narrow from two directions, find num[i_{k-1}] and num[i_k]
+	 */
+
+}
