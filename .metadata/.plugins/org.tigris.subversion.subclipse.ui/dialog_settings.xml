@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewLocationWizard">
+		<list key="ConfigurationWizardMainPage.STORE_URL_ID">
+			<item value="http://54.183.176.157/repo/trunk/ums/umsweb"/>
+			<item value="http://54.183.176.157/repo/trunk/ums/base-web"/>
+			<item value="http://54.183.176.157/repo/trunk/ums/base-api"/>
+			<item value="http://54.183.176.157/repo/trunk/ums/base"/>
+			<item value="http://54.183.176.157/repo/trunk/ums/account-web"/>
+		</list>
+	</section>
+</section>

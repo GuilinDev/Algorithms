@@ -1103,3 +1103,2141 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-01-13 23:34:06.438 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-01-13 23:34:32.345
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-01-13 23:34:33.889
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-01-13 23:34:33.895
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-04-09 23:54:57.185 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-04-09 23:55:46.676
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-04-09 23:55:46.746
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-04-09 23:55:46.750
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-04-14 23:29:36.656 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-04-14 23:29:42.701
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-04-14 23:30:08.503
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-04-14 23:30:08.545
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-04-14 23:30:08.551
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-04-30 09:09:21.648 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-04-30 09:09:47.186
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-04-30 09:09:48.990
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-04-30 09:09:48.993
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-07-15 12:32:56.112 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-07-15 12:33:23.123
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 12:33:29.770
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 12:33:29.774
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.epp.mpc.ui 1 0 2016-07-15 13:56:17.644
+!MESSAGE Performing Marketplace install request from http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=1139
+!SESSION 2016-07-15 13:57:45.945 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-07-15 13:58:09.432
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 13:58:12.681
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 13:58:12.685
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:05:29.328
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:05:29.328
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.utility.SVNUtility.validateRepositoryLocation(SVNUtility.java:897)
+	at org.eclipse.team.svn.ui.wizard.shareproject.AddRepositoryLocationPage$3.runImpl(AddRepositoryLocationPage.java:214)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:08:19.841
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:08:19.842
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:77)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:08:19.861
+!MESSAGE SVN: '0x00400107: Get Repository Resource Revision' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:08:19.862
+!MESSAGE Get repository resource revision operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryResource.getRevision(SVNRepositoryResource.java:95)
+	at org.eclipse.team.svn.ui.operation.GetRemoteResourceRevisionOperation.runImpl(GetRemoteResourceRevisionOperation.java:40)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:08:21.952
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:08:21.952
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:77)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:09:00.902
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:09:00.903
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.utility.SVNUtility.validateRepositoryLocation(SVNUtility.java:897)
+	at org.eclipse.team.svn.ui.wizard.shareproject.AddRepositoryLocationPage$3.runImpl(AddRepositoryLocationPage.java:214)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:09:27.062
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:09:27.062
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:77)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:09:27.080
+!MESSAGE SVN: '0x00400107: Get Repository Resource Revision' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:09:27.080
+!MESSAGE Get repository resource revision operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryResource.getRevision(SVNRepositoryResource.java:95)
+	at org.eclipse.team.svn.ui.operation.GetRemoteResourceRevisionOperation.runImpl(GetRemoteResourceRevisionOperation.java:40)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:10:00.383
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:10:00.383
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.utility.SVNUtility.validateRepositoryLocation(SVNUtility.java:897)
+	at org.eclipse.team.svn.ui.wizard.shareproject.AddRepositoryLocationPage$3.runImpl(AddRepositoryLocationPage.java:214)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:10:42.012
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:10:42.012
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:77)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:10:55.110
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:10:55.111
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.utility.SVNUtility.validateRepositoryLocation(SVNUtility.java:897)
+	at org.eclipse.team.svn.ui.wizard.shareproject.AddRepositoryLocationPage$3.runImpl(AddRepositoryLocationPage.java:214)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:25:21.160
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:25:21.160
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:77)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2016-07-15 14:28:14.619 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-07-15 14:28:33.824
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 14:28:35.663
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 14:28:35.689
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-07-15 14:35:38.594 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-07-15 14:35:53.521
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 14:35:54.561
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 14:35:54.567
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:36:39.720
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:36:39.720
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.utility.SVNUtility.validateRepositoryLocation(SVNUtility.java:897)
+	at org.eclipse.team.svn.ui.wizard.shareproject.AddRepositoryLocationPage$3.runImpl(AddRepositoryLocationPage.java:214)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:36:45.519
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:36:45.520
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:77)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:36:45.534
+!MESSAGE SVN: '0x00400107: Get Repository Resource Revision' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:36:45.534
+!MESSAGE Get repository resource revision operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryResource.getRevision(SVNRepositoryResource.java:95)
+	at org.eclipse.team.svn.ui.operation.GetRemoteResourceRevisionOperation.runImpl(GetRemoteResourceRevisionOperation.java:40)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:36:46.709
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:36:46.709
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:77)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:37:03.253
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:37:03.254
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.utility.SVNUtility.validateRepositoryLocation(SVNUtility.java:897)
+	at org.eclipse.team.svn.ui.wizard.shareproject.AddRepositoryLocationPage$3.runImpl(AddRepositoryLocationPage.java:214)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:37:10.119
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:37:10.119
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:77)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2016-07-15 14:40:18.041 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 4 0 2016-07-15 14:40:30.746
+!MESSAGE Unable to resolve plug-in "platform:/plugin/org.eclipse.team.svn.ui/icons/views/repositories.gif".
+!STACK 0
+java.io.IOException: Unable to resolve plug-in "platform:/plugin/org.eclipse.team.svn.ui/icons/views/repositories.gif".
+	at org.eclipse.core.internal.runtime.PlatformURLPluginConnection.parse(PlatformURLPluginConnection.java:64)
+	at org.eclipse.core.internal.runtime.PlatformURLPluginConnection.resolve(PlatformURLPluginConnection.java:75)
+	at org.eclipse.core.internal.boot.PlatformURLHandler.openConnection(PlatformURLHandler.java:67)
+	at org.eclipse.osgi.internal.url.URLStreamHandlerProxy.openConnection(URLStreamHandlerProxy.java:114)
+	at java.net.URL.openConnection(Unknown Source)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:33)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:206)
+	at org.eclipse.jface.resource.URLImageDescriptor.getFilePath(URLImageDescriptor.java:141)
+	at org.eclipse.jface.resource.URLImageDescriptor.createImage(URLImageDescriptor.java:162)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:230)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:208)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.getImageFromURI(SWTPartRenderer.java:223)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.getImage(SWTPartRenderer.java:235)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.createTab(StackRenderer.java:825)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.processContents(LazyStackRenderer.java:139)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:185)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveRenderer.processContents(PerspectiveRenderer.java:49)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.showTab(PerspectiveStackRenderer.java:103)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:103)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.postProcess(PerspectiveStackRenderer.java:77)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:678)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:185)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer.processContents(WBWRenderer.java:663)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1078)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.jface 4 0 2016-07-15 14:40:36.656
+!MESSAGE Unable to resolve plug-in "platform:/plugin/org.eclipse.team.svn.ui/icons/views/repositories/browser.gif".
+!STACK 0
+java.io.IOException: Unable to resolve plug-in "platform:/plugin/org.eclipse.team.svn.ui/icons/views/repositories/browser.gif".
+	at org.eclipse.core.internal.runtime.PlatformURLPluginConnection.parse(PlatformURLPluginConnection.java:64)
+	at org.eclipse.core.internal.runtime.PlatformURLPluginConnection.resolve(PlatformURLPluginConnection.java:75)
+	at org.eclipse.core.internal.boot.PlatformURLHandler.openConnection(PlatformURLHandler.java:67)
+	at org.eclipse.osgi.internal.url.URLStreamHandlerProxy.openConnection(URLStreamHandlerProxy.java:114)
+	at java.net.URL.openConnection(Unknown Source)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:33)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:206)
+	at org.eclipse.jface.resource.URLImageDescriptor.getFilePath(URLImageDescriptor.java:141)
+	at org.eclipse.jface.resource.URLImageDescriptor.createImage(URLImageDescriptor.java:162)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:230)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:208)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.getImageFromURI(SWTPartRenderer.java:223)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.getImage(SWTPartRenderer.java:235)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.createTab(StackRenderer.java:825)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.processContents(LazyStackRenderer.java:139)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:185)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:185)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveRenderer.processContents(PerspectiveRenderer.java:49)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.showTab(PerspectiveStackRenderer.java:103)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:103)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.postProcess(PerspectiveStackRenderer.java:77)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:678)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:185)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer.processContents(WBWRenderer.java:663)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1078)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.jface 4 0 2016-07-15 14:40:36.666
+!MESSAGE Unable to resolve plug-in "platform:/plugin/org.eclipse.team.svn.ui/icons/views/propertiesedit.gif".
+!STACK 0
+java.io.IOException: Unable to resolve plug-in "platform:/plugin/org.eclipse.team.svn.ui/icons/views/propertiesedit.gif".
+	at org.eclipse.core.internal.runtime.PlatformURLPluginConnection.parse(PlatformURLPluginConnection.java:64)
+	at org.eclipse.core.internal.runtime.PlatformURLPluginConnection.resolve(PlatformURLPluginConnection.java:75)
+	at org.eclipse.core.internal.boot.PlatformURLHandler.openConnection(PlatformURLHandler.java:67)
+	at org.eclipse.osgi.internal.url.URLStreamHandlerProxy.openConnection(URLStreamHandlerProxy.java:114)
+	at java.net.URL.openConnection(Unknown Source)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:33)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:206)
+	at org.eclipse.jface.resource.URLImageDescriptor.getFilePath(URLImageDescriptor.java:141)
+	at org.eclipse.jface.resource.URLImageDescriptor.createImage(URLImageDescriptor.java:162)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:230)
+	at org.eclipse.jface.resource.ImageDescriptor.createImage(ImageDescriptor.java:208)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.getImageFromURI(SWTPartRenderer.java:223)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.getImage(SWTPartRenderer.java:235)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.createTab(StackRenderer.java:825)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.processContents(LazyStackRenderer.java:139)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:185)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:185)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveRenderer.processContents(PerspectiveRenderer.java:49)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.showTab(PerspectiveStackRenderer.java:103)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:103)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.postProcess(PerspectiveStackRenderer.java:77)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:678)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:185)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer.processContents(WBWRenderer.java:663)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:674)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1078)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-07-15 14:40:36.979
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 14:40:38.309
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 14:40:38.313
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-07-15 14:41:55.463 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-07-15 14:42:12.484
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 14:42:13.784
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 14:42:13.788
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:42:46.571
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:42:46.571
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.utility.SVNUtility.validateRepositoryLocation(SVNUtility.java:897)
+	at org.eclipse.team.svn.ui.wizard.shareproject.AddRepositoryLocationPage$3.runImpl(AddRepositoryLocationPage.java:214)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:47:22.856
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:47:22.856
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:77)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:47:36.875
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:47:36.875
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.utility.SVNUtility.validateRepositoryLocation(SVNUtility.java:897)
+	at org.eclipse.team.svn.ui.wizard.shareproject.AddRepositoryLocationPage$3.runImpl(AddRepositoryLocationPage.java:214)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:52:17.789
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:52:17.789
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:77)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:58:30.412
+!MESSAGE SVN: '0x00400107: Get Repository Resource Revision' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 14:58:30.412
+!MESSAGE Get repository resource revision operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryResource.getRevision(SVNRepositoryResource.java:95)
+	at org.eclipse.team.svn.ui.operation.GetRemoteResourceRevisionOperation.runImpl(GetRemoteResourceRevisionOperation.java:40)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2016-07-15 15:03:25.903 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 15:04:09.573
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 15:04:09.573
+!MESSAGE SVN: '0x00400006: Validate Repository Location' operation finished with error: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.utility.SVNUtility.validateRepositoryLocation(SVNUtility.java:897)
+	at org.eclipse.team.svn.ui.wizard.shareproject.AddRepositoryLocationPage$3.runImpl(AddRepositoryLocationPage.java:214)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-07-15 15:04:27.612
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 15:04:27.616
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 15:04:27.620
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-07-15 15:04:40.720 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-07-15 15:04:50.842
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 15:04:52.393
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-15 15:04:52.413
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-15 23:38:46.440
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 23:44:26.137
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 23:44:26.137
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:77)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 23:44:26.150
+!MESSAGE SVN: '0x00400107: Get Repository Resource Revision' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 23:44:26.150
+!MESSAGE Get repository resource revision operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryResource.getRevision(SVNRepositoryResource.java:95)
+	at org.eclipse.team.svn.ui.operation.GetRemoteResourceRevisionOperation.runImpl(GetRemoteResourceRevisionOperation.java:40)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 23:44:29.497
+!MESSAGE SVN: '0x00000230: Get Repository Folder Children' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2016-07-15 23:44:29.497
+!MESSAGE Get repository folder children operation failed.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.newProxyInstance(SVNRepositoryLocation.java:847)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryLocation.acquireSVNProxy(SVNRepositoryLocation.java:614)
+	at org.eclipse.team.svn.core.svnstorage.SVNRepositoryContainer.getChildren(SVNRepositoryContainer.java:77)
+	at org.eclipse.team.svn.core.operation.remote.GetRemoteFolderChildrenOperation.runImpl(GetRemoteFolderChildrenOperation.java:76)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.operation.CompositeOperation.runImpl(CompositeOperation.java:99)
+	at org.eclipse.team.svn.core.operation.AbstractActionOperation.run(AbstractActionOperation.java:82)
+	at org.eclipse.team.svn.core.operation.LoggedOperation.run(LoggedOperation.java:40)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTask(ProgressMonitorUtility.java:104)
+	at org.eclipse.team.svn.core.utility.ProgressMonitorUtility.doTaskExternal(ProgressMonitorUtility.java:90)
+	at org.eclipse.team.svn.ui.utility.DefaultCancellableOperationWrapper.run(DefaultCancellableOperationWrapper.java:55)
+	at org.eclipse.team.svn.ui.utility.ScheduledOperationWrapper.run(ScheduledOperationWrapper.java:37)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-15 23:47:21.868
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-15 23:52:07.204
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-15 23:54:18.134
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-15 23:55:21.382
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-15 23:57:38.199
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-15 23:59:29.343
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:01:29.550
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:02:37.830
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:03:28.190
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:05:31.122
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:06:22.846
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:07:04.647
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:08:32.753
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:09:55.294
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:10:37.909
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:14:37.489
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:16:11.407
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:17:06.060
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:17:48.126
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:18:51.556
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:19:20.660
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:19:57.084
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:25:15.756
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:26:33.348
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:27:39.756
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:28:54.497
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:29:51.337
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:30:25.405
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:31:02.536
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:31:37.111
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:32:11.150
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2016-07-16 00:33:06.928
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: Selected SVN connector library is not available or cannot be loaded.
+If you selected native JavaHL connector, please check if binaries are available or install and select pure Java Subversion connector from the plug-in connectors update site.
+If connectors already installed then you can change the selected one at: Window->Preferences->Team->SVN->SVN Connector.
+	at org.eclipse.team.svn.core.extension.factory.ISVNConnectorFactory$1.createConnector(ISVNConnectorFactory.java:118)
+	at org.eclipse.team.svn.core.utility.SVNUtility.getSVNInfoForNotConnected(SVNUtility.java:980)
+	at org.eclipse.team.svn.core.SVNFolderListener$1$1.visit(SVNFolderListener.java:83)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:69)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:80)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:49)
+	at org.eclipse.team.svn.core.SVNFolderListener$1.run(SVNFolderListener.java:59)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.team.svn.core.SVNFolderListener.resourceChanged(SVNFolderListener.java:57)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:364)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2016-07-16 11:19:20.596 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-07-16 11:19:43.340
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-16 11:19:45.736
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-16 11:19:45.741
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-07-17 22:11:18.820 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-07-17 22:11:38.550
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-17 22:11:41.176
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-17 22:11:41.205
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2016-07-18 15:24:32.686
+!MESSAGE No valid Android XML Editor Delegate found for file /commons/build.xml [Res null, type null]
+
+!ENTRY org.eclipse.ui 4 0 2016-07-19 03:09:04.732
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Argument cannot be null
+	at org.eclipse.swt.SWT.error(SWT.java:4422)
+	at org.eclipse.swt.SWT.error(SWT.java:4356)
+	at org.eclipse.swt.SWT.error(SWT.java:4327)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1258)
+	at org.eclipse.swt.widgets.Display.removeFilter(Display.java:4066)
+	at org.eclipse.ui.internal.Workbench.shutdown(Workbench.java:3142)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:1167)
+	at org.eclipse.ui.internal.Workbench.access$21(Workbench.java:1079)
+	at org.eclipse.ui.internal.Workbench$19.run(Workbench.java:1410)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1407)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1380)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1556)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$15(WorkbenchWindow.java:1527)
+	at org.eclipse.ui.internal.WorkbenchWindow$10.run(WorkbenchWindow.java:1592)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1589)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1603)
+	at org.eclipse.ui.internal.WorkbenchWindow$6.close(WorkbenchWindow.java:521)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer$11.shellClosed(WBWRenderer.java:563)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:98)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1085)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1070)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:308)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1696)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4612)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2544)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:498)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4705)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2549)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3759)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+!SESSION 2016-07-19 14:40:14.389 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2016-07-19 14:40:40.325
+!MESSAGE No valid Android XML Editor Delegate found for file /commons/build.xml [Res null, type null]
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-07-19 14:40:46.909
+!MESSAGE Caught exception in FS.readPipe()
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-19 14:40:51.587
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-07-19 14:40:51.687
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Guilin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.php.debug.core 4 4 2016-07-19 23:09:34.351
+!MESSAGE The debug port 10000 is in use. Please select a different port for the debugger.
