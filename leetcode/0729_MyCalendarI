@@ -1,0 +1,27 @@
+class MyCalendar {
+    int [][] total = new int[1000][2]; // since per test case at most 1000; 2 - start and end
+    int count;
+
+    public MyCalendar() {
+        count = 0;
+    }
+    
+    public boolean book(int start, int end) {
+        for (int i = 0; i < count; i++) { // check if there is conflicts for all previous counts
+            if (!(total[i][0] >= end || total[i][1] <= start)) { // assume there is no intersection, and vesa versa
+                return false;
+            }
+        }
+        // after traverse, no conflicts
+        total[count][0] = start;
+        total[count][1] = end;
+        count++;
+      return true;
+    }
+}
+
+/**
+ * Your MyCalendar object will be instantiated and called as such:
+ * MyCalendar obj = new MyCalendar();
+ * boolean param_1 = obj.book(start,end);
+ */
