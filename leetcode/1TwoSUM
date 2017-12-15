@@ -1,13 +1,13 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         if (nums.length >= 2) {
-            HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+            HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>(); // new map to store elements from orginal array
             for (int i = 0; i < nums.length; i++) {
                 if (!hm.isEmpty() && hm.containsKey(target - nums[i])) {
-                    int [] result = {hm.get(target - nums[i]),i};
+                    int [] result = {hm.get(target - nums[i]),i}; //alread added the first element
                     return result;
                 }
-                hm.put(nums[i],i);
+                hm.put(nums[i],i); // add the first element
             }
         }
         
