@@ -1,0 +1,32 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        /*
+             Think: Brute Force: O(N^3); DP: O(N^2); this two pointer: O(2*N) = O(N)
+        */
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        
+        int max = 0, leftPointer = 0, rightPointer = 0;
+        HashSet <Character> set = new HashSet<Character>(); // store longest substring
+        
+        while (rightPointer < s.length()) {
+            if (set.contains(s.charAt(rightPointer))) {// meet the repeating character on the right
+                if (max < rightPointer - leftPointer) {
+                    max = rightPointer - leftPointer;
+                }
+                while (s.charAt(leftPointer) != s.charAt(rightPointer)) {// remove the current substring, until leftPointer catch up with rightPointer
+                    set.remove(s.charAt(leftPointer));
+                    leftPointer++;
+                }
+                
+                leftPointer++;
+            } else {
+                set.add(s.charAt(rightPointer)); // rightPointer starts from position 0
+            }
+            rightPointer++;
+        }
+        max = Math.max(rightPointer-leftPointer, max); // compare substring on the right end
+        return max;
+    }
+}
