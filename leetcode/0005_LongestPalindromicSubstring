@@ -1,0 +1,38 @@
+class Solution {
+    public String longestPalindrome(String s) {
+        //Refer to this link: https://aaronice.gitbooks.io/lintcode/content/dynamic_programming/longest_palindromic_substring.html
+        if (s.isEmpty()) {
+            return null;
+        }
+        if (s.length() == 1) {
+            return s;
+        }
+        
+        String longest = s.substring(0,1);
+        for (int i = 0; i < s. length(); i++) {
+            
+            String tmp;
+            
+            // one center
+            tmp = helper(s, i, i);
+            if (longest.length() < tmp.length()) {
+                longest = tmp;
+            }
+            
+            // two centers
+            tmp = helper(s, i, i+1);
+            if (longest.length() < tmp.length()) {
+                longest = tmp;
+            }
+        }
+        return longest;
+    }
+    
+    private static String helper(String s, int start, int end) {
+        while (start >= 0 && end < s.length() && s.charAt(start) == s.charAt(end)) {
+            start--;
+            end++;
+        }
+        return s.substring(start+1, end); // left contains, right exclude
+    }
+}
