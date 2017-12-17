@@ -1,0 +1,27 @@
+class Solution {
+    public boolean isPalindrome(int x) {
+        // negative number are not palindrom
+        if (x < 0) {
+            return false;
+        }
+        
+        // count how many zeros for left
+        int div = 1;
+        while (x/div >= 10) {
+            div *= 10;
+        }
+        
+        int left = 0, right = 0;
+        while (x != 0) {
+            left = x/div;
+            right = x%10;
+            if (left != right) {
+                return false;
+            }
+            
+            x = (x%div)/10; //exclude left and 1 right position
+            div /= 100; // then change div value
+        }
+        return true;
+    }
+}
