@@ -1,0 +1,18 @@
+class Solution {
+    public int reverse(int x) {
+        //http://blog.csdn.net/linhuanmars/article/details/20024837
+        if (x == Integer.MIN_VALUE) {// greater than MAX_VALUE, so handle separately
+            return 0;
+        }
+        int num = Math.abs(x);
+        int res = 0;
+        while (num != 0) {
+            if (res > (Integer.MAX_VALUE - num%10)/10){ // handle possible overflow for the next two lines
+                return 0;
+            }
+            res = res*10 + num%10;
+            num = num/10;
+        }
+        return x>0?res:-res; // check positive or negative
+    }
+}
