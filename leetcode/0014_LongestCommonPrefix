@@ -1,0 +1,34 @@
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        // http://blog.csdn.net/zsy112371/article/details/52433799
+        // Sort the array first, and then you can simply compare the first and last elements in the sorted array
+        StringBuilder result = new StringBuilder ();
+        
+        if (strs != null && strs.length > 0) {
+            Arrays.sort(strs); // sort the arrays and length should be from shorter to longer if they have common prefix
+            
+            char[] a = strs[0].toCharArray();
+            char[] b = strs[strs.length-1].toCharArray();
+            
+            for (int i = 0; i < a.length; i++) { // if there is a common prefix, Array a should be shorter
+                if (b.length > i && b[i] == a[i]) {
+                    result.append(b[i]);
+                } else {
+                    return result.toString();
+                }
+            }
+        }
+        return result.toString();
+    }
+    /* Another solution
+    public String longestCommonPrefix(String[] strs) {  
+    if (strs.length == 0) return "";  
+        String pre = strs[0];  
+    for (int i = 1; i < strs.length; i++)  
+        while(strs[i].indexOf(pre) != 0) { // find the whole string, if no result, cut one character, Notice: no need to sort
+            pre = pre.substring(0,pre.length()-1); 
+        } 
+        return pre;  
+    }  
+*/
+}
