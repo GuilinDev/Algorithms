@@ -1,0 +1,41 @@
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        // K Sum problems analysist - https://www.sigmainfy.com/blog/summary-of-ksum-problems.html
+        // http://blog.csdn.net/haolexiao/article/details/70768526
+        
+        ArrayList<List<Integer>> res = new ArrayList<List<Integer>>(); // Notice: Take care of the ArrayList and List types
+        if (nums == null || nums.length < 3) {
+            return res;
+        }
+        
+        Arrays.sort(nums); //ascending order
+        HashSet<ArrayList<Integer>> hs = new HashSet<ArrayList<Integer>>(); // put one triplet inside
+       
+        for (int i = 0; i <= nums.length - 3; i++) {
+            int second = i+1;
+            int third = nums.length-1;
+            
+            while (second < third) { // cannot be the same
+                int sum = nums[i] + nums[second] + nums[third];
+                if (sum == 0) {
+                    ArrayList<Integer> unit = new ArrayList<Integer>(); // each unit is a new object
+                    unit.add(nums[i]);
+                    unit.add(nums[second]);
+                    unit.add(nums[third]);
+            
+                    if (!hs.contains(unit)) {// take advantage of HashSet contains() method to remove duplicates
+                        hs.add(unit);
+                        res.add(unit);
+                    }
+                    second++;
+                    third--;
+                } else if(sum > 0) {
+                    third--;
+                } else {
+                    second++;
+                }
+            }
+        }
+        return res;
+    }
+}
