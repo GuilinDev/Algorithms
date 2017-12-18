@@ -1,0 +1,30 @@
+class Solution {
+    public String intToRoman(int num) {
+        /*
+        I = 1;
+        V = 5;
+        X = 10;
+        L = 50;
+        C = 100;
+        D = 500;
+        M = 1000;
+        */
+        String[][] roman = {  
+            {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"},  
+            {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"},  
+            {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"},  
+            {"", "M", "MM", "MMM"}  
+        };  
+          
+        String ret = "";  
+        int digit = 0;  
+        while (num != 0) {  
+            int remain = num % 10;  
+            ret = roman[digit][remain] + ret;  
+            digit++;  
+            num /= 10;  
+        }  
+          
+        return ret;  
+    }
+}
