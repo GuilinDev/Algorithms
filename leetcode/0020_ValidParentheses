@@ -1,0 +1,20 @@
+class Solution {
+    public boolean isValid(String s) {
+        if (s.length() % 2 == 1) { // odd number will be always false
+            return false;
+        }
+        Stack<Character> stack = new Stack<Character>();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') {
+                stack.push(')');
+            } else if (s.charAt(i) == '{') {
+                stack.push('}');
+            } else if (s.charAt(i) =='[') {
+                stack.push(']');
+            } else if (stack.isEmpty() || stack.pop() != s.charAt(i)) { // will execute pop() once here
+                return false;
+            }
+        }
+        return stack.isEmpty(); // if it is empty, true - all are popped out and have matches; not empty, false - some parentheses are left in the stack
+    }
+}
