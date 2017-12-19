@@ -1,0 +1,26 @@
+class Solution {
+    public List<String> letterCombinations(String digits) {
+        ArrayList<String> result = new ArrayList<String>();
+        if (digits == null || digits.length() == 0) {
+            return result;
+        }
+        String[] keyboard={"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        StringBuilder current = new StringBuilder();
+        
+        int index = 0;
+        buildResult(digits, index, current, keyboard, result);
+        return result;
+    }
+    private static void buildResult(String digits, int index, StringBuilder current, String[] keyboard, ArrayList<String> result){
+        if (index == digits.length()) { 
+            result.add(current.toString());
+            return;
+        }
+        int num = digits.charAt(index) - '0'; // get integer number, since "The char data type is a single 16-bit Unicode character." ASCII
+        for (int i = 0; i < keyboard[num].length();i++) {
+            current.append(keyboard[num].charAt(i));
+            buildResult(digits, index+1, current, keyboard, result);// recursive to traverse all the cases
+            current.deleteCharAt(current.length() - 1);
+        }
+    }
+}
