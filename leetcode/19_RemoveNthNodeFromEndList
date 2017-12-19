@@ -1,0 +1,39 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        // http://www.cnblogs.com/springfor/p/3862219.html
+        
+        //head is not a seperate node, its reference to the first node; if the list is empty, the head is a null reference
+        if (head == null || head.next == null) {// null head or empty ListNode
+            return null;
+        }
+        
+        //two pointers
+        ListNode faster = head;
+        ListNode slower = head;
+        
+        for (int i = 0; i < n; i++) {
+            faster = faster.next; //let faster to move from left to right with n steps (n is always valid)
+        }
+        
+        if (faster == null) {//remove head
+            head = head.next;
+            return head;
+        }
+        
+        while (faster.next != null) { // faster does not arrive the end, let slower move together with faster; NOTICE: there are n steps between faster and slower
+            slower = slower.next;
+            faster = faster.next;
+        } // it will stop one step before faster arrives the end, then the position where slower stops is the node one step before needed to be removed (n+1 steps from the end)
+        slower.next = slower.next.next; // other references will not change
+        
+        return head;
+    }
+}
