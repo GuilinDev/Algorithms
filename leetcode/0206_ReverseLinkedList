@@ -1,0 +1,36 @@
+// Iteratily
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+        ListNode newLN;
+        while (head.next != null) {
+            newLN = head.next;
+            newLN.next = head;
+        }
+        return newLN;
+    }
+}
+
+//Recursively
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode nextNode = head.next;
+        ListNode newHead = reverseList(nextNode);
+        nextNode.next = head; // put the original head
+        head.next = null; // remove the original head
+        return newHead;
+    }
+}
