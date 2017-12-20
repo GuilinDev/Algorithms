@@ -5,14 +5,14 @@ class Solution {
         return list;
     }
     public void backtrack(List<String> list, String str, int open, int close, int max) {
-        if (str.length() == max*2){
+        if (str.length() == max*2){// open + close
             list.add(str);
             return;
         }
-        if(open < max) {
+        if(open < max) {//number of parentheses pairs
             backtrack(list, str+"(", open+1, close, max);
         }
-        if(close < open) {
+        if(close < open) {// make the number of "close parentheses" equal to "open parentheses"
             backtrack(list, str+")", open, close+1, max);
         }
     }
