@@ -1,0 +1,17 @@
+class Solution {
+    public int lengthOfLastWord(String s) {
+        // 这道题的意义大概就是考虑到trim()了吧
+        if (s == null || s.trim().length() == 0) {
+            return 0;
+        }
+        int count = 0;
+        for (int i = s.trim().length()- 1; i >= 0; i--) {
+            if (s.trim().charAt(i) == ' ') {
+                return count;
+            } else {
+                count++;
+            }
+        }
+        return count;
+    }
+}
