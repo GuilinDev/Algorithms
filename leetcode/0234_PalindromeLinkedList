@@ -1,0 +1,51 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    //Reference：https://www.jiuzhang.com/solution/palindrome-linked-list/
+    public boolean isPalindrome(ListNode head) {
+        if (head == null) {
+            return true;
+        }
+        ListNode middle = findMiddle(head);
+        middle.next = reverse(middle.next); //将链表中间node右边的半截链表从尾到头倒转，方便后半截和前半截进行下一步比较
+        
+        ListNode p1 = head, p2 = middle.next; //回文结构一个中心?两个中心？将中心后面半截的链表全部翻转
+        while(p1 != null && p2 != null && p1.val == p2.val) {
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        return p2 == null; //如果是一个中心，后半截链表少一个节点，p2会为null；如果是两个中心，刚好一对一比完；所以一或二个中心没有关系
+        // 链表的后半截已经翻转了，如果想恢复原样可以再次reverse一次
+        
+    }
+    
+    private ListNode findMiddle(ListNode head) {
+        if (head == null) {//这里判断头节点是否为null
+            return null;
+        }
+        ListNode slow = head;
+        ListNode fast = head.next; // fast指针初始在第一节点（非头节点）
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+    private ListNode reverse(ListNode head) {
+        ListNode prev = null; // 这个为头节点
+        while (head != null) { // 一直翻转到最后一个node
+            ListNode temp = head.next;//下一个节点的值放到临时变量里面
+            head.next = prev; //下一个节点的作为后半截的第一个节点
+            prev = head; 
+            head = temp;
+            
+        }
+        return prev;
+    }
+}
