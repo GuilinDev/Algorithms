@@ -1,0 +1,38 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+        // 每个节点都有指向，指向头节点是头指针
+        
+        /*
+        方法一: 考察基本的链表遍历和设置指针的知识点，定义几个辅助指针，然后遍历原链表，遇到与给定值相同的元素，将该元素的前后连个节点连接起来，                   然后删除该元素即可，要注意的是还是需要在链表开头加上一个dummy node
+        
+        使用了dummy节点后，原本链表中所有的节点都变为有前置节点的节点，不用担心再单独处理头节点（为空）的特殊情况，最后返回dummy.next就是原来的链表经过处理后的样        子，不用费额外工夫存储原本的头节点，因此，这样做会让删除节点容易很多；同时，while循环可以直接用while (p != null)
+        */
+        ListNode dummy = new ListNode(0); // null design pattern
+        dummy.next = head; // 原本的头节点变为第一节点
+        head = dummy; // dummy为新的头节点
+        
+        while (head.next != null) {
+            if (head.next.val == val) {
+                head.next = head.next.next; // delete the node which has the val
+            } else {
+                head = head.next; //不包含val的正常节点，“后移”一位
+            }
+        }
+        
+        return dummy.next;
+        
+        /*
+        方法二: 也可以用递归来解，写法更简洁，通过递归调用到链表末尾，然后回来，需要要删的元素，将链表next指针指向下一个元素即可
+        */
+        
+        //第二遍写
+    }
+}
