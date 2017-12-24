@@ -13,7 +13,8 @@ public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         /*
         方法一：如果两个链长度相同的话，那么对应的一个个比下去就能找到，所以只需要把长链表变短即可。
-            具体算法为：分别遍历两个链表，得到分别对应的长度。然后求长度的差值，把较长的那个链表向后移动这个差值的个数，然后一一比较。
+            具体算法为：分别遍历两个链表，得到分别对应的长度。然后求长度的差值，把较长的那个链表向后移动这个差值的个数
+            （跳过较长的List前面的nodes，从长度相等的地方开始一个一个的比较，直到找到Intersection或者到末尾都没有Intersection。），然后一一比较。
         */
         if (headA == null || headB == null) {
             return null;
