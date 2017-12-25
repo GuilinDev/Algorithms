@@ -1,0 +1,39 @@
+class NumArray {
+    
+    /*
+    在每个点上存储从0到当前点的值，这样当返回某范围时，就直接nums[j]-nums[i]即可，要注意是否越界。 
+    另外不能直接去修改nums的值，只能再另外开辟一块空间
+    */
+
+    int[] vals;
+    public NumArray(int[] nums) {
+        vals = new int[nums.length]; //在构造器中创建一个新的数组，每个值存储从0到nums当前点的值
+        if(vals.length == 0) {
+            return;
+        }
+        
+        vals[0] = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            vals[i] = vals[i-1] + nums[i];
+        }
+    }
+    
+    public int sumRange(int i, int j) {
+        if (vals.length == 0) {
+            return 0;
+        }
+        if (j > vals.length - 1) {// 上标是否越界
+            j = vals.length - 1;
+        }
+        if (i <= 0) {
+            return vals[j];
+        }
+        return vals[j] - vals[i-1];//注意是inclusive，所以i位置本身是应该包含在sum里面，减去i以前的sum就行了
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray obj = new NumArray(nums);
+ * int param_1 = obj.sumRange(i,j);
+ */
