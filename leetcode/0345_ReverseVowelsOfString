@@ -1,0 +1,37 @@
+class Solution {
+    public String reverseVowels(String s) {
+        /*
+        思路：
+        1）定义两个指针i，j，分别指向字符串最前端和字符串最尾端；
+
+        2）遍历字符串，判断字符串中对应位置字符是否为元音字符，如果是元音字符，停止遍历，然后在另一方向找到对应位置的元音字符位置，找到后，将两个位置字符进行交换，然后继续遍历，直到遍历结束。(字符串转换为数组)
+
+        3）这个遍历方式类似于快速排序中的遍历调整位置。
+        */
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        
+        String sv = "aeiouAEIOU";
+        char [] chars = s.toCharArray();
+        int left = 0, right = s.length() - 1;
+        
+        while (left < right) {// if left == right, no need to reverse
+
+            while(left < right && !sv.contains(chars[left] + "")) { //need to convert char to String
+                left++;
+            }
+            while(left < right && !sv.contains(chars[right] + "")) {
+                right--;
+            }
+            char temp = chars[left];
+            chars[left] = chars[right];
+            chars[right] = temp;
+            
+            left++;
+            right--;
+            
+        }
+        return new String(chars);
+    }
+}
