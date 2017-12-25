@@ -1,0 +1,11 @@
+class Solution {
+    public boolean detectCapitalUse(String word) {
+        int count = 0;
+        for (char ch : word.toCharArray()) {
+            if ('Z' - ch >= 0) { // A~Z；注意大写字符的数值比小写的小，Z-90， a-97
+                count++;
+            }
+        }
+        return (count == word.length() || count == 0 || (count == 1 && 'Z' - word.charAt(0) >= 0)); //全部是大写||全部是小写||第一位是大写
+    }
+}
