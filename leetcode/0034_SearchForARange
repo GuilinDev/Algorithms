@@ -1,0 +1,69 @@
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        /*
+        三种解题思路： 
+        1）暴力法直接遍历（超时）：直接用for循环从左到右遍历，时间复杂度为O(n),超时。先找记录第一次nums[i] = target，array[0] = i,之后继续遍历,直至               nums[i] != target,array[1] = i。 
+        2）二分查找法（可行）：先找到nums[i] == target,不管i是左边界还是右边界，或是中间值，即找到第一个nums[i] = target, 之后在找到的i基础上，向右遍历             找到右边界，向左遍历，找到左边界。注意当找到第一个i =0 （或 i = nums.length - 1）,则左（或右）边界找到，只需找右（或左）边界，加个判断。 
+        3）双指针发(可行)：双指针left和right分别指向数组的起始，即left = 0,right = nums.length - 1,之后,先从左向右遍历，找到第一个nums[i] =                     target,left = i, 此时left为左边界；接着再从右向左遍历，找到第一个nums[i] = target,right = i,此时right为右边界。
+        */
+        
+         int left = 0;
+        int right = nums.length - 1;
+        //term, termq for termporary variable, save the first middle
+        int tem = 0;
+        int tem1 = 0;
+        //sign whether find target
+        int flag = 0;
+        int[] array = new int[] { -1, -1 };
+
+        //Binary search to find first middle nums[middle] = target,先找到target再说
+        while (left <= right) {
+            int middle = (left + right) / 2;
+            if (nums[middle] == target) {
+                tem = middle;
+                tem1 = middle;
+                flag = 1;
+                break;
+            } else if (nums[middle] < target) {
+                left = middle + 1;
+            } else {
+                right = middle - 1;
+            }
+        }
+
+        //if not return[-1,-1]
+        if (flag == 0) {
+            return array;
+        }
+
+        //find the right boundary右侧边界
+        if(tem != nums.length - 1){
+            while (tem < nums.length) {
+                if ((tem + 1 < nums.length) && nums[tem] == nums[tem + 1]) {
+                    tem++;
+                } else {
+                    array[1] = tem;
+                    break;
+                }
+            }
+        }else{
+            array[1] = tem;
+        }
+
+        //find left boundary左侧边界
+        if(tem1 != 0){
+            while (tem1 > -1) {
+                if ((tem1 - 1 > -1) && nums[tem1] == nums[tem1 - 1]) {
+                    tem1--;
+                } else {
+                    array[0] = tem1;
+                    break;
+                }
+            }
+        }else{
+            array[0] = tem1;
+        }
+
+        return array;
+    }
+}
