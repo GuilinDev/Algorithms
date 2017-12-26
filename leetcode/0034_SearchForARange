@@ -7,7 +7,8 @@ class Solution {
         3）双指针发(可行)：双指针left和right分别指向数组的起始，即left = 0,right = nums.length - 1,之后,先从左向右遍历，找到第一个nums[i] =                     target,left = i, 此时left为左边界；接着再从右向左遍历，找到第一个nums[i] = target,right = i,此时right为右边界。
         */
         
-         int left = 0;
+        //二分查找法如下：
+        int left = 0;
         int right = nums.length - 1;
         //term, termq for termporary variable, save the first middle
         int tem = 0;
