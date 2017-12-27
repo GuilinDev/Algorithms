@@ -1,0 +1,37 @@
+class Solution {
+    public String countAndSay(int n) {
+        /*
+        题目描述的不是很清楚，其实就是第i+1个字符串是第i个字符串的读法，第一字符串为 “1”，比如第四个字符串是1211，它的读法是 1个1、1个2,2个1，因此第五个字符串是111221。第五个字符串的读法是：3个1、2个2、1个1，因此第六个字符串是312211，然后模拟即可；
+        
+        发现结果的字符串中永远只会出现1,2,3这三个字符，假设第k个字符串中出现了4，那么第k-1个字符串必定有四个相同的字符连续出现，假设这个字符为1，则第k-1个字符串为x1111y。第k-1个字符串是第k-2个字符串的读法，即第k-2个字符串可以读为“x个1,1个1,1个y” 或者“*个x,1个1,1个1,y个*”，这两种读法分别可以合并成“x+1个1,1个y” 和 “*个x，2个1，y个*”，代表的字符串分别是“(x+1)11y” 和 "x21y"，即k-1个字符串为“(x+1)11y” 或 "x21y"，不可能为“x1111y”
+        */
+        if (n <= 0) {
+            return "";
+        }
+        String res = "1";
+        int i = 1;
+        while (i < n) {
+            res = countAndSayOneString(res);
+            i++;
+        }
+        return res;
+    }
+    
+    public String countAndSayOneString(String inp) {
+        char temp = inp.charAt(0);
+        int num = 1;
+        
+        StringBuilder sb = new StringBuilder("");
+        for (int i = 1; i < inp.length(); i++) {
+            if (inp.charAt(i) == temp) {
+                num++;
+                continue;//有相同先跳过此循环，累加
+            }
+            sb.append(Integer.toString(num) + temp);
+            temp = inp.charAt(i);
+            num = 1;
+        }
+        sb.append(Integer.toString(num) + temp);
+        return (sb.toString());
+    }
+}
