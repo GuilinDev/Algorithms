@@ -1,0 +1,57 @@
+class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        /*
+        判断矩阵是否是一个数独矩阵。所谓的数独矩阵就是9*9的矩阵，每一行一个元素只出现一次、每一列一个元素只出现一次，并且在任意一个小矩阵中一个元素只出现          一次（所说的元素指0-9这九个数字）;
+        思路：注意题目中说的是只要当前已经填充的数字是合法的就可以，不一定要这个数独是有解的，因此依次判断已给定的矩阵每一行、每一列、以及每个小矩阵上是否           是有重复数字即可。
+        */
+        
+        boolean visited[] = new boolean[9];//一行，一列和一个子矩阵均为9个
+        
+        //判断每一行是否有重复数字
+        for (int i = 0; i < 9; i++) {
+            Arrays.fill(visited, false);//每一行重新创建一个数组
+            for (int j = 0; j < 9; j++) {
+                if (!isValid(visited, board[i][j])){
+                    return false;
+                }
+            }
+        }
+        
+        //判断每一列是否有重复数字
+        for (int i = 0; i < 9; i++) {
+            Arrays.fill(visited,false); //每一列重新创建一个数组
+            for (int j = 0; j < 9; j++) {
+                if (!isValid(visited, board[j][i])){
+                    return false;
+                }
+            }
+        }
+        
+        //判断每一个子矩阵是否有重复数字
+        for (int i = 0; i < 9; i += 3){//每个子矩阵最左上角的数字开始
+            for (int j = 0; j < 9; j += 3) {//每次跳三个数字，从一个子矩阵跳到另外一个
+                Arrays.fill(visited, false);//每一个子矩阵重新创建一个数组
+                for (int k = 0; k < 9; k++) {
+                    if (!isValid(visited, board[i+k/3][j+k%3])) {//第一维做除法，向下取整，表示横轴还在某个子矩阵中；第二维取余，向下数， 比如01，02，03， 11， 12，13；也就是随着k的自增1，每三个一组-横轴不变，纵轴每次加1
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    
+    public boolean isValid(boolean[] visited, char ch) {//判断当前位置是否为"."，或者被访问过
+        if(ch == '.') {//当前位置没有数字
+            return true;
+        }
+        
+        int num = ch - '0'; // '0'- 48，是最小的数字或字母的字符 (9 - 57)
+        if (num < 1 || num > 9 || visited[num-1]) { //不是数字，或者已经访问过
+            return false;
+        }
+        
+        visited[num-1] = true; //将数字标记为true，被访问过，这里visited是在每一行/列/子矩阵没变化时，也不会变化的
+        return true;
+    }
+}
