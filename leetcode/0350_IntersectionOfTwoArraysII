@@ -1,0 +1,44 @@
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        /*
+        这个题目是上一个题目的拓展，题目分析：
+        给定两个数组，求数组的交集，输出结果中的元素不唯一，输出数组可以无序；
+        
+        解题思路：
+        1）对数组nums1进行排序；
+        2）对数组nums2进行排序；
+        3）遍历数组nums1和nums2中元素，并比较对应的元素，
+        若相等，则将其保存到输出结果中，并变化两个数组对应的索引
+        不等，则变化较小元素对应的索引即可。
+        */
+        if(nums1 == null || nums2 == null) {
+            return null;
+        }
+        if (nums1.length == 0 || nums2.length == 0) {
+            return new int[0];
+        }
+        
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        
+        ArrayList<Integer> res = new ArrayList<Integer>();
+        for (int i = 0, j = 0; i < nums1.length && j < nums2.length;) {
+            if (nums1[i] == nums2[j]) {
+                res.add(nums1[i]);
+                i++;
+                j++;
+            } else if (nums1[i] < nums2[j]) {
+                i++;
+            } else {
+                j++;
+            }
+        }
+        
+        int[] result = new int[res.size()];
+        for (int k = 0; k < res.size(); k++) {
+            result[k] = (int)res.get(k);
+        }
+        
+        return result;
+    }
+}
