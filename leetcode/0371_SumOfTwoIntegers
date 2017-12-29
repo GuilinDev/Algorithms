@@ -1,0 +1,22 @@
+class Solution {
+    public int getSum(int a, int b) {
+        /*
+        位运算关于加法：
+        由a^b可得按位相加后没有进位的和；
+        由a&b可得可以产生进位的地方；
+        由(a&b)<<1得到进位后的值。
+        那么，按位相加后原位和+进位和就是加法的和了，而a^b + (a&b)<<1相当于把 + 两边再代入上述三步进行加法计算。直到进位和为0说明没有进位了，则此时原位和即所求和。
+        */
+        
+        int res = a;
+        int xor = a^b;//得到原味和(没有进位)
+        int forward = (a&b)<<1;//得到进位和
+        if(forward != 0) {//进位和不为0，这里递归得到原味和+进位和
+            res = getSum(xor, forward);
+        } else {//进位和为0，此时的原味和为所求的值
+            res = xor;
+        }
+        
+        return res;
+    }
+}
