@@ -1,0 +1,38 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+        题解：给定一个int型的数组，然后按照某种规则将其还原成一棵二叉树，规则是：每次先找到数组中的最大值，将其作为根节点，然后再寻找其左右子树；其中这个节点所在的数组的左边为其左孩子，其右边为右孩子，依次类推。那么针对此题，可以用递归的方法来解，并且可以借鉴另一道leetcode的题目-LeetCode Convert Sorted Array to Binary Search Tree，此题是将一个已经排好序的数组元素恢复成一棵二叉排序树，同样用递归，另外写一个函数，不停地调用其自身函数即可。这种递归的方法在树中非常常用，一定要掌握。
+        启示：
+        对树的递归调用，往往会另写一个方法，然后在这个方法内递归写它自身，用于实现其左右孩子的建树。
+        */
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+        return getMax(0, nums.length - 1, nums);
+    }
+    public TreeNode getMax(int start, int end, int[] nums) {
+        if (start > end) {//递归结束的条件，先写好；递归函数往往在if处先写上其结束条件，这里的结束条件是start > end，这是为了和后面的for循环呼应  
+            return null;
+        }
+        int max = nums[start];
+        int current = start;
+        for (int i = start + 1; i <= end; i++) { //这个for循环是为了找到数组里面的最大值
+            if (nums[i] > max) {
+                max = nums[i];
+                current = i;
+            }
+        }
+        
+        TreeNode root = new TreeNode(max);//最大值为根节点
+        root.left = getMax(start, current - 1, nums);//Left Child，开始的上下标不一样
+        root.right = getMax(current+1, end, nums);//同样，right child
+        
+        return root;//对left和right child的确定同样是递归，在这个方法里完成
+    }
+}
