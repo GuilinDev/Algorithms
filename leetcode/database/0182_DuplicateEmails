@@ -1,0 +1,4 @@
+# Write your MySQL query statement below
+Select Distinct a.email From person a
+Join person on (a.email = person.email)
+where a.id != person.id;
