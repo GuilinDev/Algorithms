@@ -1,0 +1,26 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        char[] sChar = s.toCharArray();
+        char[] tChar = t.toCharArray();
+        
+        int[]temp = new int[128];//unicode characters共128个
+        for (char c : sChar) {
+            temp[c]++;
+        }
+        
+        for (char c : tChar) {
+            temp[c]--;
+            if (temp[c] < 0) {//如果有不同的字符，一定会出现某个temp[c]为零的情况
+                return false;
+            }
+        }
+        
+        return true;
+        
+        
+        //也可以直接排序后比较=否相等，用toCharArray()转变后排序再转变回来比较两个字符串是否相等的效率会比直接对字符串排序的效率要高
+    }
+}
