@@ -1,0 +1,23 @@
+class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+        //背包问题-无需排序，参考这里：https://leetcode.com/problems/permutations/discuss/18239
+        List<List<Integer>> list = new ArrayList<>();
+        backtrack(list, new ArrayList<>(), nums);
+        return list;
+    }
+    
+    public void backtrack(List<List<Integer>> list, List<Integer> tempList, int[] nums) {
+        if (tempList.size() == nums.length) {
+            list.add(new ArrayList<Integer>(tempList));
+        } else {
+            for (int i = 0; i < nums.length; i++) {
+                if (tempList.contains(nums[i])) {
+                    continue; //结果的permutation里面没有重复的数字，所以遇到重复数字就跳过
+                }
+                tempList.add(nums[i]);
+                backtrack(list, tempList, nums);
+                tempList.remove(tempList.size() - 1);//去掉最后一个元素
+            }
+        }
+    }
+}
