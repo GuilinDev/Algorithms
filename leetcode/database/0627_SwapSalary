@@ -1,0 +1,3 @@
+# Write your MySQL query statement below
+UPDATE salary SET sex = CASE WHEN sex = 'm' THEN 'f' ELSE 'm' END;
+#更高效的为使用位移xor
