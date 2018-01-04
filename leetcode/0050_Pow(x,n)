@@ -1,0 +1,21 @@
+class Solution {
+    
+    //面试的考察点：https://leetcode.com/problems/powx-n/discuss/19544
+    //思路：利用递归或者迭代，注意n可能是负数
+    public double myPow(double x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        if (n < 0) {
+            if (n == Integer.MIN_VALUE) {
+                n++;//转换-2147483648成-2147483647，防止溢出
+                if (x < 0) {
+                    x = -x;//指数原本是最大负值，是偶数，结果为正数；加1后结果会为负数，所以要换回来（如果x本身是正数那就无所谓指数n为正为负了）
+                }
+            }
+            n = -n;
+            x = 1/x;//指数是负数的求幂
+        }
+        return (n%2==0) ? myPow(x*x, n/2) : x*myPow(x*x,n/2);//注意奇数的情况下会向下取整
+    }
+}
