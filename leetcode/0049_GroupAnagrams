@@ -1,0 +1,37 @@
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        if (strs == null || strs.length == 0) {
+            return new ArrayList<List<String>>();
+        }
+        Map<String, List<String>> map = new HashMap<String, List<String>>();
+        for (String s : strs) {
+            char[] ca = s.toCharArray();
+            Arrays.sort(ca);//把所有相同的anagram sort后当成一个key
+            String keyStr = String.valueOf(ca);//吧char转换成String作为map的key
+            if (!map.containsKey(keyStr)) {
+                map.put(keyStr, new ArrayList<String>());//第一次遇到一个anagram，没有就新创建一个
+            }
+            map.get(keyStr).add(s);
+        }
+        return new ArrayList<List<String>>(map.values()); //注意values()方法返回的是HashMap的值的view
+    }
+    
+    //如果想判断两个字符串是否是Anagram，同第242-Valid Anagram的写法，判断两个字符串是否是Anagram，这种判断方法相对于“先sort字符串再判断是否相等”的方法比起来效率更高
+//     private boolean isAnagram(String s, String t) {
+//         if (s.length() != t.length()) {
+//             return false;
+//         }
+        
+//         char[] temp = new char[128]; //最多128个字符
+//         for(char c : s.toCharArray()) {
+//             temp[c]++;
+//         }
+//         for (char c : t.toCharArray()) {
+//             temp[c]--;
+//             if (temp[c] < 0) {
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+}
