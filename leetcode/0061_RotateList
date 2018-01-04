@@ -1,0 +1,41 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    1）找到整个链表的长度l；
+    2）定位到l-k%l的节点；
+    3）进行Rotation
+    
+    注意，k值可能会比链表的长度l要长，所以是l-k%l的位置进行rotation
+    */
+    public ListNode rotateRight(ListNode head, int k) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode dummy = new ListNode(0);//同样，新建一个ListNode dummy，长度为0，为假的头部
+        dummy.next = head; //指向原来的链表
+        ListNode fast = dummy, slow = dummy;
+        
+        int i;
+        for (i = 0; fast.next != null; i++) {//获取链表的长度
+            fast = fast.next;//循环结束fast在最末尾
+        }
+        
+        for(int j = i-k%i; j > 0; j--) { // 定位到i-k%i的位置
+            slow = slow.next; //循环结束slow会停留在i-k%i的位置上
+        }
+        
+        //开始做rotation
+        fast.next = dummy.next;//把假头节点的下一节点（原本的head）放到末尾
+        dummy.next = slow.next;//把把i-k%i的节点放到dummy之后（return后的第一位），别的节点不动
+        slow.next = null;//原本位置的next直接取消
+        
+        return dummy.next;
+    }
+}
