@@ -1,0 +1,43 @@
+class Solution {
+    /*
+    重新创建一个list按照以下的顺序来遍历：
+     1) 从左往右遍历，然后增加rowBegin - traverse right and increment rowBegin; 
+     2) 从上往下遍历，然后减少colEnd - traverse down and decrement colEnd; 
+     3) 从右往左遍历，然后增加rowEnd - traverse left and decrement rowEnd; 
+     4) 从下往上遍历，然后增加colBegin - traverse up and increment colBegin.
+    */
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> list = new ArrayList<Integer>();
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return list;
+        }
+        
+        int rowBegin = 0, rowEnd = matrix.length - 1, colBegin = 0, colEnd = matrix[0].length - 1;
+        while(rowBegin <= rowEnd && colBegin <= colEnd) {
+            for (int i = colBegin; i <= colEnd; i++) { //从左到右
+                list.add(matrix[rowBegin][i]);
+            }
+            rowBegin++; //换到下一行（因为本行已经全部加入到了list里面）
+            
+            for (int i = rowBegin; i <= rowEnd; i++) { //从上到下
+                list.add(matrix[i][colEnd]);
+            }
+            colEnd--; //换到前一列（因为本列已经全部加入到了list里面）
+            
+            if (colBegin > colEnd || rowBegin > rowEnd) { //因为是m*n的矩阵，在中间的时候检测一下遍历到哪里了，如果行或者列重复了就跳出 - while条件通过（行比列少），往右和往下做过后，这里再检测一下（行比列多）
+                break;
+            }
+            
+            for (int i = colEnd; i >= colBegin; i--) { //从右到左
+                list.add(matrix[rowEnd][i]);
+            }
+            rowEnd--; //换到上一行
+            
+            for (int i = rowEnd; i >= rowBegin; i--){ //从下到上
+                list.add(matrix[i][colBegin]);
+            }
+            colBegin++;//换到后一列
+        }
+        return list;
+    }
+}
