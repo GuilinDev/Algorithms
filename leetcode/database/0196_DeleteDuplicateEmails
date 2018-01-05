@@ -1,0 +1,5 @@
+# Write your MySQL query statement below
+Delete From Person Where id Not In #仅保留Person表中Id最小的一条记录
+    (Select t.id From 
+        (Select min(id) as id From Person Group By email) t #min()返回id中的最小值
+     )
