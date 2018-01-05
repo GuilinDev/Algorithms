@@ -1,0 +1,36 @@
+class Solution {
+    /*
+    同54题-Spiral Matrix的解法
+    */
+    public int[][] generateMatrix(int n) {
+        int[][] matrix = new int[n][n];
+        if (n <= 0) {
+            return matrix;
+        }
+        int num = 1, rowBegin = 0, rowEnd = n-1, colBegin = 0, colEnd = n-1;
+        while (rowBegin <= rowEnd && colBegin <= colEnd) {
+            for (int i = colBegin; i <= colEnd; i++) {//从左到右
+                matrix[rowBegin][i] = num++;
+            }
+            rowBegin++;
+            
+            for (int i = rowBegin; i <= rowEnd; i++) {//从上到下
+                matrix[i][colEnd] = num++;
+            }
+            colEnd--;
+            
+            //与54题略有不用的是，这里因为是n×n的矩阵，所以中间不需要判断是否行数和列数不同的情况
+            
+            for (int i = colEnd; i >= colBegin; i--) {//从右到左
+                matrix[rowEnd][i] = num++;
+            }
+            rowEnd--;
+            
+            for (int i = rowEnd; i >= rowBegin; i--) { //从下到上
+                matrix[i][colBegin] = num++;
+            }
+            colBegin++;
+        }
+        return matrix;
+    }
+}
