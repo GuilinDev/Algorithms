@@ -1,0 +1,39 @@
+class Solution {
+    //此题主要在于考虑到所有的corner cases，负数，溢出等
+    //做除法的时候，用hashmap来存储余数，当相同的余数再进来的时候，就知道这个是除不尽的情况
+    public String fractionToDecimal(int numerator, int denominator) {
+        if (numerator == 0) {
+            return "0";
+        }
+        StringBuilder res = new StringBuilder();
+        //判断是否是正数或者负数,先存起来
+        res.append(((numerator > 0) ^ (denominator > 0)) ? "-" : ""); //bitwise XOR
+        long num = Math.abs((long)numerator);
+        long den = Math.abs((long)denominator);
+        
+        //整数部分
+        res.append(num/den);
+        num %= den; //将分子用分母取余
+        if (num == 0) {
+            return res.toString();
+        }
+        //小数部分
+        res.append(".");
+        HashMap<Long, Integer> map = new HashMap<Long, Integer>();
+        while (num != 0) {
+            map.put(num, res.length());//num（余数）做key，整数部分+小数点做value
+            
+            num *= 10;//取到下一步除法的“整数”部分作为分子
+            res.append(num/den);
+            num %= den;//取到余数部分，余数不为0则回到while继续除以分母加入到字符串中去
+            
+            Integer remainderIndex = map.get(num);//检查map里面同样的余数的值，如果这个值部位null，表明上一轮已经是同样的余数除以同样的分母了
+            if (remainderIndex != null) {
+                res.insert(remainderIndex, "(");//因为res.length()是长度，所以得在长度th处（注意这里因为前面已经append了一个商，所以插入的地方是倒数第二个位置）新插入半括号
+                res.append(")");
+                break;
+            }
+        }
+        return res.toString();
+    }
+}
