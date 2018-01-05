@@ -1,0 +1,6 @@
+# Write your MySQL query statement below
+SELECT DISTINCT(salary) AS SecondHighestSalary FROM Employee
+UNION
+SELECT null
+ORDER BY SecondHighestSalary DESC LIMIT 1,1 
+# 跳过1条取出1条数据，limit后面是从第1条开始读，读取1条信息，即读取第2条数据
