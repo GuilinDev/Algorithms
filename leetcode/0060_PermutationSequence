@@ -1,0 +1,38 @@
+class Solution {
+    /*
+    这道题是让求出n个数字的第k个排列组合，由于其特殊性，我们不用将所有的排列组合的情况都求出来，然后返回其第k个，我们可以只求出第k个排列组合即可，那么难点就在于如何知道数字的排列顺序
+    
+    https://leetcode.com/problems/permutation-sequence/discuss/22507
+    https://www.cnblogs.com/grandyang/p/4358678.html
+    
+    从左到右数字的取法的公式：
+    a1 = k / (n - 1)!
+    k1 = k
+
+    a2 = k1 / (n - 2)!
+    k2 = k1 % (n - 2)!
+    ...
+
+    an-1 = kn-2 / 1!
+    kn-1 = kn-2 / 1!
+
+    an = kn-1 / 0!
+    kn = kn-1 % 0!
+    */
+    public String getPermutation(int n, int k) {
+        StringBuilder sb = new StringBuilder();
+        ArrayList<Integer> num = new ArrayList<Integer>();
+        int fact = 1; //阶乘记录有多少个排列
+        for (int i = 1; i <= n; i++) {
+            fact *= i; // 1, 1, 2, 6, 24, ... n!
+            num.add(i);
+        }
+        for (int i = 0, l = k - 1; i < n; i++) {
+            fact /= (n - i);
+            int index = (l / fact);
+            sb.append(num.remove(index));//这里复杂度是O(n)，算法总体是O(n)
+            l -= index * fact;
+        }
+        return sb.toString();
+    }
+}
