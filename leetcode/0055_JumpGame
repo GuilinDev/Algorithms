@@ -1,0 +1,18 @@
+class Solution {
+    /*
+    https://www.cnblogs.com/zichi/p/4808025.html
+    这道题说的是有一个非负整数的数组，每个数字表示在当前位置的基础上最多可以走的步数，求判断能不能到达最后一个位置，注意不是必须刚好到达最后一个位置，每个位置上的数字表示的是最多可以走的步数，而不是像玩大富翁一样摇骰子摇出几步就一定要走几步。
+    可以用动态规划Dynamic Programming来解，我们维护一个一位数组dp，其中dp[i]表示走道i位置时剩余的最大步数，那么递推公式为：dp[i] = max(dp[i - 1], A[i - 1]) - 1，如果当某一个时刻dp数组的值为负了，说明无法抵达当前位置，则直接返回false，最后我们判断dp数组最后一位是否为非负数即可知道是否能抵达该位置；
+    更好的办法是优化的省空间的DP方法，维护一个常量rightMost，表示最远能到达的位置，遍历数组中每一个数字，如果当前坐标大于rightMost或者rightMost已经抵达最后一个位置则跳出循环，否则就更新rightMost的值为其和i + nums[i]中的较大值，其中i + nums[i]表示当前位置能到达的最大位置（即当前位置index+当前位置的值）
+    */
+    public boolean canJump(int[] nums) {
+        int rightMost = 0; //记录从某个位置可以跳的最大步数
+        for (int i = 0, len = nums.length; i < len; i++) {
+            if (i > rightMost) {//新的index到来，即使最大步数也跳不过去
+                return false;
+            }
+            rightMost = Math.max(nums[i] + i, rightMost);//当前位置可达的最大位置，或者上一步位置所能达到的最大位置，检测哪个位置跳的更远
+        }
+        return true;
+    }
+}
