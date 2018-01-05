@@ -1,0 +1,47 @@
+/**
+ * Definition for an interval.
+ * public class Interval {
+ *     int start;
+ *     int end;
+ *     Interval() { start = 0; end = 0; }
+ *     Interval(int s, int e) { start = s; end = e; }
+ * }
+ */
+class Solution {
+    /*
+    https://leetcode.com/articles/merge-intervals/
+    先排序，然后检查相邻两个区间，看前一个区间的结尾是否大于后一个区间的开始，注意前一个区间包含后一个区间的情况。
+    用Java自带的sort()方法，只要自己重写compare()方法即可。
+    */
+    public List<Interval> merge(List<Interval> intervals) {
+        List<Interval> ans = new ArrayList<Interval>();
+        if (intervals.size() == 0) {
+            return ans;
+        }
+        Collections.sort(intervals, new MyComparator());
+        
+        int start = intervals.get(0).start;
+        int end = intervals.get(0).end;
+        
+        for (int i = 0; i < intervals.size(); i++) {
+            Interval middle = intervals.get(i);
+            if (middle.start > end) { // 没有重复，直接加入结果
+                ans.add(new Interval(start, end));
+                start = middle.start;
+                end = middle.end;
+            } else {//有重复，则找到两个interval中end靠后的一个，即合并重复的部分
+                end = Math.max(end, middle.end);
+            }
+        }
+        ans.add(new Interval(start, end));//最后一个需要加入
+        return ans;
+    }
+    
+    //用内部类重写compare()方法
+    private class MyComparator implements Comparator<Interval> {
+        @Override
+        public int compare(Interval a, Interval b) {
+            return a.start - b.start;
+        }
+    }
+}
