@@ -1,0 +1,24 @@
+class Solution {
+    /*
+    每次有两种选择，两种选择之后又是各有两种选择，如此循环，正好是递归求解的问题；
+        if (n == 1) return 1;  
+        if (n == 2) return 2;  
+            return climbStairs(n-1) + climbStairs(n-2); 
+    
+    但是递归程序一般都是太慢了，因为像Fibonacci问题一样，重复计算了很多分支，因此使用动态规划法填表，提高效率
+    (docs里面介绍了四种方法：https://leetcode.com/articles/climbing-stairs/)
+    */
+    //使用费波拉契数的办法（O(logN)）或者DP的办法O(N)
+    public int climbStairs(int n) {
+        if (n < 4) { //梯子数小于4的话，1，2，3各是1，2，3种方法
+            return n;
+        }
+        int a = 2, b = 3, c = 5;
+        for (int i = 5; i <= n; i++) {//注意梯子数为4的话，直接返回5种走法
+            a = c;
+            c = b + c;
+            b = a;
+        }
+        return c;
+    }
+}
