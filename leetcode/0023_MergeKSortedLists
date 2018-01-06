@@ -41,12 +41,12 @@ class Solution {
     private ListNode merge(ListNode l1, ListNode l2) {//这是合并两个节点，节点，节点
         ListNode dummy = new ListNode(0);
         dummy.next = l1;
-        ListNode cur = dummy;
+        ListNode cur = dummy;//临时变量用来存假的头部，reference和value的区别
 
         while (l1 != null && l2 != null) {
             if (l1.val < l2.val) {
-                l1 = l1.next;
-            } else {
+                l1 = l1.next;//l1已经放在dummy的后面了
+            } else {//把l2放到dummy后面，再把l1放到l2后面
                 ListNode temp = l2.next;
                 cur.next = l2;
                 l2.next = l1;
