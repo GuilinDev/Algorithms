@@ -1,0 +1,24 @@
+class Solution {
+    
+    //对比62题
+    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+        /*
+        Array dp stores the number of paths which passing this point. The whole algorithm is to sum up the paths from left grid and up grid. 'if (row[j] == 1) dp[j] = 0; means if there is an obstacle at this point, all the paths passing this point will no longer valid. In other words, the grid right of the obstacle can be reached only by the grid which lies up to it.
+        */
+        
+        int width = obstacleGrid[0].length;
+        int[] dp = new int[width];
+        dp[0] = 1;
+        
+        for (int[] row : obstacleGrid) {
+            for (int j = 0; j < width; j++) {
+                if (row[j] == 1) {//有障碍
+                    dp[j] = 0;//所有经过该元素的路径都是无效的
+                } else if (j > 0) { //判断j不是第一个
+                    dp[j] += dp[j-1]; //现在的元素=上面的元素+左边的元素
+                }
+            }
+        }
+        return dp[width-1];
+    }
+}
