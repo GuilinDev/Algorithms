@@ -1,0 +1,48 @@
+class Solution {
+    /*
+    二进制加法都是从最低位（从右加到左）。所以对两个字符串要从最后一位开始加，如果遇见长度不一的情况，就把短的字符串高位补0. 每轮计算要加上进位，最后跳出循环后要坚持进位是否为1，以便更新结果。
+    这道题跟Add Two Numbers很类似，代码结构很接近。从低位开始，一直相加并且维护进位。和Add Two Numbers的区别是这个题目低位在后面，所以要从string的尾部往前加。时间复杂度是O(max(m,n))，m和n分别是两个字符串的长度，空间复杂度是结果的长度O(max(m,n))。
+    */
+    public String addBinary(String a, String b) {
+        if (a == null || a.length() ==0) {
+            return b;
+        }
+        if (b == null || b.length() == 0) {
+            return a;
+        }
+        
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+        int carry = 0;
+        StringBuilder res = new StringBuilder();
+        
+        while (i >= 0 && j >=0) { //相加的部分
+            int digit = (int)(a.charAt(i) - '0' + b.charAt(j) - '0') + carry;
+            carry = digit/2; //类似十进制除以10，得到进位，下一轮用
+            digit %= 2; //类似十进制取余，得到末尾的余数，存入结果
+            res.append(digit);
+            i--;
+            j--;
+        }
+        
+        while (i >= 0) {
+            int digit = (int)(a.charAt(i) - '0') + carry;
+            carry = digit/2;
+            digit %= 2;
+            res.append(digit);
+            i--;
+        }
+        
+        while (j >= 0) {
+            int digit = (int)(b.charAt(j) - '0') + carry;
+            carry = digit/2;
+            digit %= 2;
+            res.append(digit);
+            j--;
+        }
+        if(carry>0) {  //处理一下最后的可能存在的进位
+            res.append(carry);  
+        }  
+        return res.reverse().toString();//由于低位是放在前面的，所以需要倒转一下
+    }
+}
