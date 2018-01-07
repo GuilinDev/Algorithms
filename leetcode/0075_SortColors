@@ -1,0 +1,29 @@
+class Solution {
+    /*
+    对一个包含0,1,2三种数字的数组重新排序，使得排好序的数组前一段都是0，中间一段都是1，最后一段都是2。
+    标准的计数排序和优化的解法：http://blog.csdn.net/linhuanmars/article/details/24286349
+    
+    优化的解法：就是搞两个指针，一个指在当前0的最后一个下标，另一个是指在当前1的最后一个下标（2不需要指针因为剩下的都是2）。进行一次扫描，如果遇到0就两个指针都前进一步并进行赋值，如果遇到1就后一个指针前进一步并赋值。
+    */
+    public void sortColors(int[] nums) {
+       if(nums==null || nums.length==0)  
+        return;  
+        int idx0 = 0;  
+        int idx1 = 0;  
+        //int idx2 = 0; //not necessary
+        for(int i=0;i<nums.length;i++)  
+        {  
+            if(nums[i]==0) {  
+                nums[i] = 2;  
+                nums[idx1] = 1;  
+                nums[idx0] = 0;  
+                idx1++;
+                idx0++;                  
+            } else if(nums[i]==1) {  
+                nums[i] = 2;  
+                nums[idx1] = 1;  
+                idx1++;
+            }
+        }
+    }  
+}
