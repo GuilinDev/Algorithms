@@ -1,0 +1,64 @@
+class Solution {
+    /*
+    1）O(mn)的空间是每个元素都标记，这个不好；
+    2）而使用O(m+n)的空间，就是加一行一列，来标记哪行哪列有0；
+    3）不额外加一行一列，就用第一行和第一列来存储哪行哪列有0。当然，这样做比较麻烦的是第一行第一列的原始信息，需要先保存下来。这个方法空间为O(1)；
+    */
+    public void setZeroes(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        
+        //先标记第一行和第一列
+        boolean firstRow = false, firstCol = false;
+        for (int i = 0; i < n; i++) {
+            if (0 == matrix[0][i]) {
+                firstRow = true;
+                break;
+            }
+        }
+        for (int i = 0; i < m; i++) {
+            if (0 == matrix[i][0]) {
+                firstCol = true;
+                break;
+            }
+        }
+        
+        //从第二行和第二列开始遍历，如果遇到0，则把该行或者该列的第一个元素标记0
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                if (0 == matrix[i][j]) {
+                    matrix[0][j] = 0;
+                    matrix[i][0] = 0;
+                }
+            }
+        }
+        
+        //把第一行中0所在的所有列都设为0，把第一列中0所在的所有行都设为0，注意i，j的顺序
+        for (int i = 1; i < n; i++) {
+            if (0 == matrix[0][i]) {
+                for (int j = 1; j < m; j++) {
+                    matrix[j][i] = 0;
+                }
+            }
+        }
+        for (int i = 1; i < m; i++) {
+            if (0 == matrix[i][0]) {
+                for (int j = 1; j < n; j++) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+        
+        //最后根据第一列的标记，决定是否对第一行和第一列转换
+        if (firstRow) {
+            for (int i = 0; i < n; i++) {
+                matrix[0][i] = 0;
+            }
+        }
+        if (firstCol) {
+            for (int j = 0; j < m; j++) {
+                matrix[j][0] = 0;
+            }
+        }
+    }
+}
