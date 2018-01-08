@@ -1,0 +1,23 @@
+class Solution {
+    //使用递归背包解决问题
+    //对第一个位置有效范围是 [1, n-k+1]
+    //对第i个位置有效范围是 [number we selected for previous position+1, n-k+1+i]
+    public List<List<Integer>> combine(int n, int k) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        combine(res, new LinkedList(), 1, n, k);
+        return res;
+    }
+    private void combine(List<List<Integer>> res, List currentList, int start, int n, int k) {
+        if (k == 0) {//递归直到k为0
+            res.add(new ArrayList(currentList));
+            return;
+        }
+        if (n - start + 1 >= k) {//没有越界
+            for (int i = start; i <= n; i++) {
+                currentList.add(i);
+                combine(res, currentList, i+1, n, k-1);
+                currentList.remove(currentList.size()-1);//
+            }
+        }
+    }
+}
