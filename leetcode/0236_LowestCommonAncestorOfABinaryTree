@@ -1,0 +1,44 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    普通二叉树的最小父节点，注意第235题是二叉搜索树的最小父节点
+    可以用迭代和递归方法
+    */
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        //迭代的办法，想找到LCA在哪，先得找到p和q在哪，以及它们到LCA的路径；当找到p和q后，用一个set来存储p的所有祖先，然后再从下到上travel q的祖先，q的第一个在p祖先set里出现的祖先，就是二者的LCA
+        Map<TreeNode, TreeNode> parent = new HashMap<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();//ArrayDeque类是双端队列Deque的实现类
+        parent.put(root, null);
+        stack.push(root);//从root开始
+        
+        while(!parent.containsKey(p) || !parent.containsKey(q)) {
+            TreeNode node = stack.pop();
+            if(node.left != null) {
+                parent.put(node.left, node);
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                parent.put(node.right, node);
+                stack.push(node.right);
+            }
+        }
+        Set<TreeNode> ancestors = new HashSet<>();
+        while(p != null) {
+            ancestors.add(p);
+            p = parent.get(p);
+        }
+        while(!ancestors.contains(q)) {
+            q = parent.get(q);
+        }
+        return q;
+    }
+    //第二遍写递归
+}
