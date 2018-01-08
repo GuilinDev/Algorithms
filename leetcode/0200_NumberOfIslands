@@ -24,7 +24,7 @@ class Solution {
             return;
         }
         grid[i][j] = '0';
-        DFSMarking(grid, i + 1, j);
+        DFSMarking(grid, i + 1, j);//右
         DFSMarking(grid, i - 1, j);
         DFSMarking(grid, i, j + 1);
         DFSMarking(grid, i, j - 1);
