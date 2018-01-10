@@ -1,0 +1,9 @@
+class Solution {
+    //171题是反过来转换为数字
+    public String convertToTitle(int n) {
+        //递归解法，记住char和数字的关系
+        return n == 0 ? "" : convertToTitle(--n/26) + (char)('A' + n%26);//每次除以26下一轮递归，余数作为字符加入
+    }
+    
+    //递归的效率不高，第二遍写迭代
+}
