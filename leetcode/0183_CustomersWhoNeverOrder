@@ -1,0 +1,8 @@
+# Write your MySQL query statement below
+
+# Not In效率低 Select name As Customers From Customers Where id NOT In (Select customerID From Orders);
+
+#Left Join 效率略高
+Select a.name As Customers From Customers a
+Left Join orders b On a.id = b.customerId
+Where b.customerId is NULL;
