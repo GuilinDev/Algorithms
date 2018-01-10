@@ -1,5 +1,5 @@
 class Solution {
-    //下面这种排序后直接查的效率比较好，用HashSet检查duplicates的效率比较低
+    //下面这种排序后直接查的效率比较好，而用HashSet检查duplicates的效率比较低，最高效率是位操作https://leetcode.com/problems/contains-duplicate/discuss/60937
     //如果想找出哪些数字有重复，建一个ArrayList就行了
     public boolean containsDuplicate(int[] nums) {
         if (nums == null || nums.length == 0) {
