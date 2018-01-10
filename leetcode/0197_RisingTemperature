@@ -1,0 +1,5 @@
+# Write your MySQL query statement below
+#两个日期相减的函数可以是TO_DAYS()或者subdate()
+Select w1.id From Weather w1, Weather w2
+Where w1.temperature > w2.temperature 
+And TO_DAYS(w1.date) - TO_DAYS(w2.date) = 1;
