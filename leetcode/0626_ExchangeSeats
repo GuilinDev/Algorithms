@@ -1,0 +1,12 @@
+# Write your MySQL query statement below
+Select s1.id,
+    Case When Mod(s1.id, 2)=1 
+    Then 
+        Case when s2.student Is Null 
+            Then s1.student Else s2.student 
+    End
+    Else s3.student End As student
+From seat s1
+Left Join seat s2 On s1.id=s2.id-1
+Left Join seat s3 On s1.id=s3.id+1
+Order by s1.id asc
