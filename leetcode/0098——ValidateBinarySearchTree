@@ -1,0 +1,39 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    需要注意的是，左子树的所有节点都要比根节点小，而非仅仅其左孩子比其小，右子树同样。
+    暴力解法：从根节点开始递归，遍历所有的节点。并且在每个节点处，分别遍历其左右子树，判断其左子树的最大值比其小，右子树的最小值比其大。超时。
+    
+    使用中序遍历法，不需要额外的O(n)的空间
+    */
+    TreeNode pre = null;//在方法外边声明，因为写在里面的话，每次递归都是不同的pre。
+    public boolean isValidBST(TreeNode root) {
+        
+        //中序遍历，使用
+        if (root != null) {
+            //先查左边
+            if (!isValidBST(root.left)) {
+                return false;
+            }
+            //使用中序遍历的方法，比较当前value和前一个value
+            if (pre != null && root.val <= pre.val) {
+                return false;
+            }
+            
+            //更新前一个value
+            pre = root;
+            
+            //最后查右边
+            return isValidBST(root.right);
+        }
+        return true;
+    }
+}
