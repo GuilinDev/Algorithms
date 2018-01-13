@@ -1,0 +1,66 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    这道题与102和107类似
+    【LeetCode】102. Binary Tree Level Order Traversal 解题报告 是从顶层往下，从左往右的次序 遍历结点。
+    【LeetCode】107. Binary Tree Level Order Traversal II 解题报告 是从底层向上，从左往右的次序 遍历结点。
+    而该题目的意思是从顶层向下，”之字形” 顺序输出结点。（第一层从左向右，第二层从右向左，第三层从左向右……依次类推）。
+    
+    在102 Binary Tree Level Order Traversal中我们是维护了一个队列来完成遍历，而在这里为了使每次都倒序出来，很容易想到用栈的结构来完成这个操作。有一个区别是这里我们需要一层一层的来处理（原来可以按队列插入就可以，因为后进来的元素不会先处理），所以会同时维护新旧两个栈，一个来读取，一个存储下一层结点。总体来说还是一次遍历完成，所以时间复杂度是O(n)，空间复杂度最坏是两层的结点，所以数量级还是O(n)（满二叉树最后一层的结点是n/2个）。
+    其实还是一次广度优先搜索BFS，只是在读取每一层结点交替的交换顺序。毕竟面试中像Binary Tree Level Order Traversal有时候考得太多了，面试官会觉得你肯定练过，所以会稍作变体，来考察对于编程和算法的基本理解。
+    */
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        if (root == null) {
+            return res;
+        }
+        LinkedList<TreeNode> stack = new LinkedList<TreeNode>();//一个栈用来读取
+        int level = 1;
+        ArrayList<Integer> item = new ArrayList<>();
+        item.add(root.val);
+        res.add(item);
+        stack.push(root);
+        
+        while (!stack.isEmpty()) {
+            LinkedList<TreeNode> newStack = new LinkedList<TreeNode>();//每次新创建一个栈用来存储下一层节点
+            item = new ArrayList<Integer>();//新的ArrayList来存储每一层结点的数值
+            while (!stack.isEmpty()) {//一层层遍历
+                TreeNode node = stack.pop();
+                if (level % 2 == 0) { //偶数行，从左到右遍历
+                    if (node.left != null) {//先遍历左边
+                        newStack.push(node.left);
+                        item.add(node.left.val);
+                    }
+                    if (node.right != null) {//后遍历右边
+                        newStack.push(node.right);
+                        item.add(node.right.val);
+                    }
+                } else {//奇数行，从右到左遍历
+                    if (node.right != null) {//先遍历右边
+                        newStack.push(node.right);
+                        item.add(node.right.val);
+                    }
+                    if (node.left != null) {//后遍历右边
+                        newStack.push(node.left);
+                        item.add(node.left.val);
+                    }
+                }
+            }
+            level++;
+            if (item.size() > 0) {
+                res.add(item);
+            }
+            stack = newStack;
+        }
+        
+        return res;
+    }
+}
