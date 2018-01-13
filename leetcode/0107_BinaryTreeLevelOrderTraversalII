@@ -1,0 +1,51 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    这道题和102 Binary Tree Level Order Traversal很类似，都是层序遍历一棵树，只是这道题要求从最底层往最上层遍历。进行Binary Tree Level Order Traversal中的遍历，然后对结果进行一次reverse。时间上和空间上仍是O(n)。
+    */
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        if (root == null) {
+            return res;
+        }
+        LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(root);
+        
+        int curNum = 0;
+        int lastNum = 1;
+        int level = 0;
+        
+        while (!queue.isEmpty()) {
+            TreeNode cur = queue.pop();//弹出当前的TreeNode分析
+            if (res.size() <= level) {
+                res.add(new ArrayList<Integer>());
+            }
+            res.get(level).add(cur.val);
+            lastNum--;
+            if (cur.left != null) {
+                queue.add(cur.left);
+                curNum++;
+            }
+            if (cur.right != null) {
+                queue.add(cur.right);
+                curNum++;
+            }
+            
+            if (lastNum == 0) {
+                level++;
+                lastNum = curNum;
+                curNum = 0;
+            }
+        }
+        Collections.reverse(res);
+        return res;
+    }
+}
