@@ -1,0 +1,49 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    二叉树的深度，有递归和非递归的解法，递归的方法很简单，返回左子树或者右子树中大的深度加1，作为自己的深度即可；
+    if(root == null)  
+        return 0;  
+    return Math.max(maxDepth(root.left),maxDepth(root.right))+1; 
+    这里采用非递归的办法，非递归解法一般采用层序遍历(相当于图的BFS），因为如果使用其他遍历方式也需要同样的复杂度O(n). 层序遍历理解上直观一些，维护到最后的level便是树的深度。
+    */
+    public int maxDepth(TreeNode root) {
+        
+        //跟层序遍历一样的做法，效率不高
+        if (root == null) {
+            return 0;
+        }
+        int level = 0;
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        
+        int curNum = 1;//当前层剩的节点 
+        int nextNum = 0; //下一层的节点 
+        while(!queue.isEmpty()) {
+            TreeNode current = queue.poll();
+            curNum--;
+            if (current.left != null) {
+                queue.add(current.left);
+                nextNum++;
+            }
+            if (current.right != null) {
+                queue.add(current.right);
+                nextNum++;
+            }
+            if (curNum == 0) {//当前层的节点遍历完了
+                curNum = nextNum;//挪到下一层
+                nextNum = 0;//下一层从0开始
+                level++;//挪到下一层
+            }
+        }
+        return level;
+    }
+}
