@@ -1,0 +1,37 @@
+class Solution {
+    /*
+    divide and conquer:
+算法基本原理是，先遍历整个string，并记录每个不同的character的出现次数。如果所有character出现次数都不小于k，那么说明整个string就是满足条件的longest substring，返回原string的长度即可；如果有character的出现次数小于k，假设这个character是c，因为满足条件的substring永远不会包含c，所以满足条件的substring一定是在以c为分割参考下的某个substring中。所以我们需要做的就是把c当做是split的参考，在得到的String[]中再次调用我们的method，找到最大的返回值即可。
+    */
+    public int longestSubstring(String s, int k) {
+        if (s == null || k < 0) {
+            return 0;
+        }
+        HashMap<Character, Integer> hashMap = new HashMap<Character, Integer>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (hashMap.containsKey(c)) {
+                hashMap.put(c, hashMap.get(c) + 1);
+            } else {
+                hashMap.put(c, 1);//第一次遇到
+            }
+        }
+        Character delimiter = null;
+        for (Character c: hashMap.keySet()) {
+            if (hashMap.get(c) < k) {
+                delimiter = c;
+            }
+        }
+        
+        if (delimiter == null) {//所有s里面的character出现次数都不小于k
+            return s.length();
+        }
+        
+        int maxLen = 0;
+        String[] splits = s.split("" + delimiter);
+        for (String str : splits) {
+            maxLen = Math.max(maxLen, longestSubstring(str, k));
+        }
+        return maxLen;
+    }
+}
