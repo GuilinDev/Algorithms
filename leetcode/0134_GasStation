@@ -20,7 +20,7 @@ class Solution {
             remain += gas[i] - cost[i]; 
             if (remain < 0) {
                 debt += remain;
-                start = i + 1;//从没油的那个站的前一个站开始算
+                start = i + 1;//从没油的那个站的后一个站开始算（因为只需要找到合适的起始点并返回就可以了，前面略过的加油站不用管，不在里面）
                 remain = 0;
             }
         }
