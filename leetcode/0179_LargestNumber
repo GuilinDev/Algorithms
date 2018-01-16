@@ -1,0 +1,42 @@
+class Solution {
+    /*
+    正常想法：关键是确定每个数在最后结果中的先后位置，比较直观的是个位数越大的越靠前，如例子中9在5, 4, 3之前；个位相同的再看十位，如例子中34应当在30之前；
+难点是位数不等时，先后关系怎么确定？如例子中3应当放在30和34之前、之后还是中间？
+结果是3放在了34和30中间，为什么呢？这是因为十位上的4比个位上3大，所以34在3之前，而十位上的0比个数上的3小，所以30在3之后。
+这样貌似可以找到规律，就是对于那些有包含关系的数，如1234包含12，那么只需看1234比12多出的部分34比12大还是小。
+通过这样的方法，貌似也可判断出个先后顺序。只是这样需要考虑的情况太复杂了，如565656和56……
+
+//正解：
+可以换一下思路，要想比较两个数在最终结果中的先后位置，何不直接比较一下不同组合的结果大小？
+举个例子：要比较3和34的先后位置，可以比较334和343的大小，而343比334大，所以34应当在前。
+这样，有了比较两个数的方法，就可以对整个数组进行排序。然后再把排好序的数用StringBuilder连接起来，去掉leading的0就行了。
+    */
+    public String largestNumber(int[] nums) {
+        String[] arr = new String[nums.length];
+        
+        //把数组转化为字符串数组
+        for(int i=0; i<nums.length; i++){
+            arr[i]=String.valueOf(nums[i]);
+        }
+
+        //排序
+        Arrays.sort(arr, new Comparator<String>(){
+            public int compare(String a, String b){
+                return (b+a).compareTo(a+b);
+            }
+        });
+
+        StringBuilder sb = new StringBuilder();
+        for(String s: arr){
+            sb.append(s);
+        }
+
+        //去掉leading的0，比如[0, 0]这样的输入
+        while(sb.charAt(0)=='0' && sb.length() > 1){
+            sb.deleteCharAt(0);
+        }
+            
+        return sb.toString();
+    }
+}
+
