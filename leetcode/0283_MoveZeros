@@ -1,0 +1,17 @@
+class Solution {
+    public void moveZeroes(int[] nums) {
+        //时间复杂度, O(n)
+        if (nums == null || nums.length == 0) {
+            return;
+        }
+        int nextInsert = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                nums[nextInsert] = nums[i];//从0位置开始插入非0的数
+                if ((nextInsert++) != i) {//把i位置的数设为0（相当于交换）
+                    nums[i] = 0;
+                }
+            }
+        }
+    }
+}
