@@ -1,0 +1,50 @@
+class Solution {
+    /*
+    相比169题的只有一个众数，这个是超过1/3就是众数了，可能有0，1，2个众数
+    */
+    public List<Integer> majorityElement(int[] nums) {
+        List<Integer> result = new ArrayList<Integer>();
+        if (nums == null || nums.length == 0) {
+            return result;
+        }
+        
+        int majority1 = nums[0], majority2 = nums[0];
+        int count1 = 0, count2 = 0;
+        for (int num : nums) {//找到两个数作为备选
+            if (num == majority1) {
+                count1++;
+            } else if (num == majority2) {
+                count2++;
+            } else if (count1 == 0) {
+                majority1 = num;
+                count1++;
+            } else if (count2 == 0) {
+                majority2 = num;
+                count2++;
+            } else {
+                count1--;
+                count2--;
+            }
+        }
+        
+        count1 = 0;
+        count2 = 0;
+        //重新计算两个数出现的次数
+        for (int num : nums) {
+            if (num == majority1) {
+                count1++;
+            } else if (num == majority2) {
+                count2++;
+            }
+        }
+        
+        //判断两个数是否为众数，超过1/3，比如输入[1]
+        if (count1 > nums.length/3) {
+            result.add(majority1);
+        }
+        if (count2 > nums.length/3) {
+            result.add(majority2);
+        }
+        return result;
+    }
+}
