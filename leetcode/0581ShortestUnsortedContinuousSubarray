@@ -1,0 +1,22 @@
+class Solution {
+    /*
+    朴素解法:原数组为A, 排序后的数组记为B，比较A[i]与B[i]，找到第一个和最后一个不一致的位置i与j，返回j-i+1. 这种解法比较直观，O(nlogn)的时间复杂度，空间复杂度为O(n). 比较直观.
+    更新解法：从左向右扫描数组，一直更新max，找到最后（数组右侧）一个小于max的数，其下标记为end；同时从右向左扫描数组，一直更新min，找到最后（数组左侧）一个大于min的数，其下标记为start；返回end－start＋1. 如果数组已是ascending状态，需返回0. 为了重用 return end－start＋1，在设置end和start的初始值时应注意相对大小。时间复杂度O(n)
+    */
+    public int findUnsortedSubarray(int[] nums) {
+        int n = nums.length;
+        int maxNum = nums[0], minNum = nums[n-1];//起初先把最大值设在最左边，最小值设在最右边
+        int end = -2, start = -1;//为了防止数组已经sort好了，没办法通用end-start+1的情况
+        for (int i = 1; i < n; i++) {
+            maxNum = Math.max(maxNum, nums[i]);//找到数组中最大的值
+            if (maxNum > nums[i]) {
+                end = i;
+            }
+            minNum = Math.min(minNum, nums[n-1-i]);//找到数组中最小的值
+            if (minNum < nums[n-1-i]) {
+                start = n-1-i;
+            }
+        }
+        return end - start + 1;//需要sort的sub数组的长度，如果已经sort好，返回(-2) - (-1) + 1 = 0
+    }
+}
