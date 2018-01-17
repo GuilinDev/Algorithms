@@ -1,0 +1,22 @@
+class Solution {
+    /*
+    先排序再取中间值，O（nlog(n)）
+    */
+    public int majorityElement(int[] nums) {
+        //Moore’s Voting Algorithm，由Robert S.Boyer 和J Strother Moore于1980年发明，是线性时间复杂度，只对于存在主元素的数组是有效的，符合题意；
+        int majority = 0;
+        int count = 0;
+        for (int num : nums) {
+            if (count == 0) {//非众数一定会被减为0
+                majority = num;
+            }
+            if (num != majority) {
+                count--;//没有减完暂时还是以之前的数为众数，众数出现的次数总是比别的数的次数多的
+            } else {
+                count++;
+            }
+        }
+        return majority;
+    }
+    //另外用位操作和divide and conquer也是线性的，后者的思想是分为两半，找每一半的众数，然后判断两部分的众数是否相等，相等一定就是它；若是不等分别检查二者出现的次数。
+}
