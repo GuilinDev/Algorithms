@@ -1,0 +1,57 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    就是对一个链表进行归并排序。
+主要考察3个知识点，
+知识点1：归并排序的整体思想
+知识点2：找到一个链表的中间节点的方法
+知识点3：合并两个已排好序的链表为一个新的有序链表
+
+归并排序的基本思想是：找到链表的middle节点，然后递归对前半部分和后半部分分别进行归并排序，最后对两个以排好序的链表进行Merge。
+    */
+    public ListNode sortList(ListNode head) {
+        //递归进行归并排序
+        if (head == null || head.next == null) {
+                return head;
+            }
+            ListNode middle = getMiddleOfList(head);
+            ListNode next = middle.next;
+            middle.next = null;
+            return mergeList(sortList(head), sortList(next));
+    }
+    //在一个方法里面使用快慢指针的办法获得中间节点
+    ListNode getMiddleOfList(ListNode head){
+        ListNode slow = head;
+        ListNode fast = head;
+        while(fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+        
+    //将两个链表合并
+    ListNode mergeList(ListNode a, ListNode b) {
+        ListNode dummy = new ListNode(-1);
+        ListNode current = dummy;
+        while (a != null && b != null) {
+            if (a.val < b.val) {
+                current.next = a;
+                a = a.next;
+            } else {
+                current.next = b;
+                b = b.next;
+            }
+            current = current.next;
+        }
+        current.next = (a != null ? a : b);//a或b一方为空直接就接过来
+        return dummy.next;
+    }
+}
