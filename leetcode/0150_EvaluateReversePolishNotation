@@ -1,0 +1,39 @@
+class Solution {
+    /*
+    逆波兰转换，操作符位于操作数后面，也叫后缀表示法
+    用一个栈存储操作数，遇到操作数直接压入栈内，遇到操作符就把栈顶的两个操作数拿出来运算一下，然后把运算结果放入栈内
+    */
+    public int evalRPN(String[] tokens) {
+        int ret = 0;
+        Stack<Integer> num = new Stack<Integer>();
+        
+        for (int i = 0; i < tokens.length; i++) {
+            if (isOperator(tokens[i])) {
+                int b = num.pop();
+                int a = num.pop();
+                num.push(calc(a, b, tokens[i]));//是操作符就将栈顶的两个数pop出来运算一下，并压入
+            } else {
+                num.push(Integer.valueOf(tokens[i]));//不是操作符（是数字）就直接压入
+            }
+        }
+        ret = num.pop();//最顶上的是最后运算的结果
+        return ret;
+    }
+    
+    boolean isOperator(String str) {//判断是否是操作符
+        if (str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/")) {
+            return true;
+        }
+        return false;
+    }
+    int calc (int a, int b, String operator) {
+        char op = operator.charAt(0);
+        switch(op) {
+            case '+' : return a + b;
+            case '-' : return a - b;
+            case '*' : return a * b;
+            case '/' : return a / b;
+        }
+        return 0;
+    }
+}
