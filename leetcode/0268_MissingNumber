@@ -1,0 +1,20 @@
+class Solution {
+    /*
+    三种方法来解：https://leetcode.com/problems/missing-number/discuss/69786
+    */
+    public int missingNumber(int[] nums) {
+        //排序后用二分法来找，会超时
+        Arrays.sort(nums);
+        int left = 0, right = nums.length, middle = left + (right - left)/2;
+        while (left < right) {
+            middle = left + (right - left)/2;
+            if (nums[middle] > middle) {//缺的数字在右半部分
+                right = middle;
+            } else {//缺的数字在左半部分
+                left = middle + 1;
+            }
+        }
+        return left;//为什么是left，因为除法是整除取下，这里包含了middle
+        
+    }
+}
