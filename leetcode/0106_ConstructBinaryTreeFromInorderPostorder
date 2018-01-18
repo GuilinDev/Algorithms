@@ -1,0 +1,42 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    105题是利用前序和中序重建二叉树，利用前序和后序则是不能重建
+    http://www.cnblogs.com/springfor/p/3884035.html
+    规律是：
+1. 中序遍历中根节点是左子树右子树的分割点。
+2. 后续遍历的最后一个节点为根节点。
+
+同样根据中序遍历找到根节点的位置，然后顺势计算出左子树串的长度。在后序遍历中分割出左子树串和右子树串，递归的建立左子树和右子树。
+    */
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        return buildTree(inorder, 0, inorder.length-1, postorder, 0, postorder.length-1);
+    }
+    private TreeNode buildTree(int[] in, int inStart, int inEnd, int[] post, int postStart, int postEnd) {
+        if (inStart > inEnd || postStart > postEnd) {
+            return null;
+        }
+        int rootVal = post[postEnd];
+        int rootIndex = 0;
+        for (int i = 0; i <= inEnd; i++) {
+            if (in[i] == rootVal) {
+                rootIndex = i;
+                break;
+            }
+        }
+        int len = rootIndex - inStart;
+        TreeNode root = new TreeNode(rootVal);
+        root.left = buildTree(in, inStart, rootIndex-1, post, postStart, postStart+len-1);
+        root.right = buildTree(in, rootIndex+1, inEnd, post, postStart+len, postEnd-1);
+        
+        return root;
+    }
+}
