@@ -1,0 +1,3 @@
+Select Distinct l1.num As ConsecutiveNums From logs l1, logs l2, logs l3
+Where l1.id =l2.id +1 And l1.id = l3.id +2
+And l1.num =l2.num And l1.num = l3.num;
