@@ -1,0 +1,2 @@
+Select e1.name as Employee From Employee e1, Employee e2
+Where e1.salary > e2.salary And e1.managerId = e2.Id;
