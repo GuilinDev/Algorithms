@@ -1,0 +1,51 @@
+/**
+ * Definition for binary tree with next pointer.
+ * public class TreeLinkNode {
+ *     int val;
+ *     TreeLinkNode left, right, next;
+ *     TreeLinkNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    /*
+    这道题将一棵完美二叉树的每一层维护成一个链表，树本身是给定的。其实思路上很接近层序遍历第102题Binary Tree Level Order Traversal，只是这里不需要额外维护一个队列。因为这里每一层我们会维护成一个链表，这个链表其实就是每层起始的那个队列，因此我们只需要维护一个链表的起始指针就可以依次得到整个队列了。接下来就是有左加左到链表里面，同样有右加右到链表里面，直到链表没有元素了就说明到达最底层了。算法的复杂度仍然是对每个结点访问一次，所以是O(n)，而空间上因为不需要额外空间来存储队列了，所以是O(1)。
+    */
+    public void connect(TreeLinkNode root) {
+        if (root == null) {
+            return;
+        }
+        TreeLinkNode lastHead = root;
+        TreeLinkNode pre = null;
+        TreeLinkNode curHead = null;
+        
+        while(lastHead != null) {
+            TreeLinkNode lastCur = lastHead;//从root开始层序遍历
+            while(lastCur != null) {
+                //有左加左
+                if (lastCur.left != null) {
+                    if (curHead == null) {//从新的一层开始遍历
+                        curHead = lastCur.left;
+                        pre = curHead;//起始指针
+                    } else {
+                        pre.next = lastCur.left;
+                        pre = pre.next;
+                    }
+                }
+                //有右加右，同样的情况
+                if (lastCur.right != null) {
+                    if (curHead == null) {
+                        curHead = lastCur.right;
+                        pre = curHead;
+                    } else {
+                        pre.next = lastCur.right;
+                        pre = pre.next;
+                    }
+                }
+                
+                lastCur = lastCur.next;
+            }
+            lastHead = curHead;
+            curHead = null;
+        }
+    }
+}
