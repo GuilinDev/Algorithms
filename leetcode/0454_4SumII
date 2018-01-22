@@ -1,0 +1,31 @@
+class Solution {
+    /*
+    第18题的变体版，数据结构不同；这道题意思就是ABCD四个数组，长度相同，现在问题你说分别从这四个数组中各挑一个数相加其和为0，有几种方式
+    将四数转变为两个部分，首先遍历AB的组合（任意两个都可以），存下他们组合后的和的情况，然后遍历CD（另外两个）的和，看之前AB遍历的组合里有没有与此时值相反的值，有的话就加上AB中这个相反数出现的次数。
+
+这个做法和之前第18题的不一样。
+    */
+    public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
+        //先保存a+b的所有取值，然后遍历所有c+d的组合，分成两部分算起来更快
+        int n = A.length;
+        if (n == 0) {//四个数组一样的长度，检查一个长度就足够了
+            return 0;
+        }
+        HashMap<Integer, Integer> ab = new HashMap<Integer, Integer>();
+        for (int a: A) {
+            for (int b:B) {
+                ab.put(a+b, ab.getOrDefault(a+b,0) + 1);//a+b前半部分作为key，出现的次数作为value（没有就返回default值）
+            }
+        }
+        
+        int result = 0;
+        for (int c:C) {
+            for (int d:D) {
+                int part2 = c + d;
+                int part1 = - part2;//因为相加的结果是0
+                result += ab.getOrDefault(part1, 0);//有就+part1的次数，没有就+0
+            }
+        }
+        return result;
+    }
+}
