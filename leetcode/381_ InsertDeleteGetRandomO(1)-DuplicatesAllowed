@@ -1,0 +1,81 @@
+class RandomizedCollection {
+    /*
+    跟第380题的不同点在于允许插入重复元素，我们仍然用list存储插入元素，用hashmap维护元素与下标之间的对应关系，不同点在于我们用一个集合存储某元素所有下标（因为可能有重复元素插入，但它们是按序插入list的即下标是不同的），那么接下来考虑用什么集合存储某元素的所有下标:
+
+如果考虑list，但当我们remove某元素时，需要更新某元素的下标集合，此时用list，时间复杂度为O(n)。
+
+考虑set，因为是按序插入list的，即下标是不同的，hashset可以存储，且remove操作时间复杂度为O(1)。
+    */
+    
+    List<Integer> vals = new ArrayList<>();//存储插入元素
+    Map<Integer, Set<Integer>> val2idx = new HashMap<Integer, Set<Integer>>();//储存元素和下标的关系
+
+    /** Initialize your data structure here. */
+    public RandomizedCollection() {
+        
+    }
+    
+    /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element. */
+    public boolean insert(int val) {
+        boolean flag = false;
+        Set<Integer> idxs = null;//存储元素的下标
+        if(val2idx.containsKey(val)) {
+            idxs = val2idx.get(val);
+            flag = false;
+        } else {
+            idxs = new HashSet<Integer>();
+            flag = true;
+        }
+        idxs.add(vals.size());
+        vals.add(val);
+        val2idx.put(val, idxs);
+        
+        return flag;
+    }
+    
+    /** Removes a value from the collection. Returns true if the collection contained the specified element. */
+    public boolean remove(int val) {
+        if (!val2idx.containsKey(val)) {
+            return false;
+        } else {
+            Set<Integer> rmIdxs = val2idx.get(val);
+            int rmIdx = rmIdxs.iterator().next();//被删除元素的下标
+            if(rmIdx < vals.size() - 1 && val != vals.get(vals.size() -1)) {//删除的元素不是末尾元素，且删除的元素的值不等于末尾元素（如果相等，就是删除末尾元素）
+               //将末尾元素存入被删除元素的位置，并更新相应的下标
+                int lastElem = vals.get(vals.size() - 1);//末尾元素
+                Set<Integer> lastElemIdxs = val2idx.get(lastElem);//末尾元素的index集合
+                lastElemIdxs.remove(vals.size() - 1);
+                lastElemIdxs.add(rmIdx);
+                vals.set(rmIdx, lastElem);
+                val2idx.put(lastElem, lastElemIdxs);
+            }
+            if (val == vals.get(vals.size() -1)) { //当要删除的元素和最后一个元素值相等时，直接删除最后一个即可
+                rmIdx = vals.size() - 1;
+            }
+            rmIdxs.remove(rmIdx);
+            if (rmIdxs.size() == 0) {
+                val2idx.remove(val);
+            } else {
+                val2idx.put(val, rmIdxs);
+            }
+            
+            vals.remove(vals.size() - 1);
+            
+            return true;
+        }
+    }
+    
+    /** Get a random element from the collection. */
+    Random r = new Random();
+    public int getRandom() {
+        return vals.get(r.nextInt(vals.size()));
+    }
+}
+
+/**
+ * Your RandomizedCollection object will be instantiated and called as such:
+ * RandomizedCollection obj = new RandomizedCollection();
+ * boolean param_1 = obj.insert(val);
+ * boolean param_2 = obj.remove(val);
+ * int param_3 = obj.getRandom();
+ */
