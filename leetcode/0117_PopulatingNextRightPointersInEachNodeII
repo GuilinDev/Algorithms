@@ -1,0 +1,53 @@
+/**
+ * Definition for binary tree with next pointer.
+ * public class TreeLinkNode {
+ *     int val;
+ *     TreeLinkNode left, right, next;
+ *     TreeLinkNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    /*
+    这道题目的要求和第116题Populating Next Right Pointers in Each Node是一样的，只是这里的二叉树没要求是完全二叉树。其实在实现Populating Next Right Pointers in Each Node的时候已经兼容了不是完全二叉树的情况，其实也比较好实现，就是在判断队列结点时判断一下他的左右结点是否存在就可以了。时间复杂度和空间复杂度不变，还是O(n)和O(1);
+    同样，这道题本质是树的层序遍历，只是队列改成用结点自带的链表结点来维护。
+    */
+    public void connect(TreeLinkNode root) {
+        if (root == null) {
+            return;
+        }
+        TreeLinkNode lastHead = root;
+        TreeLinkNode pre = null;
+        TreeLinkNode curHead = null;
+        
+        while(lastHead != null) {
+            TreeLinkNode lastCur = lastHead;
+            //有左加左
+            while (lastCur != null) {
+                if (lastCur.left != null) {
+                    if (curHead == null) {
+                        curHead = lastCur.left;
+                        pre = curHead;
+                    } else {
+                        pre.next = lastCur.left;
+                        pre = pre.next;
+                    }
+                }
+                
+                //有右加右
+                if (lastCur.right != null) {
+                    if (curHead == null) {
+                        curHead = lastCur.right;
+                        pre = curHead;
+                    } else {
+                        pre.next = lastCur.right;
+                        pre = pre.next;
+                    }
+                }
+                
+                lastCur = lastCur.next;
+            }
+            lastHead = curHead;
+            curHead = null;
+        }
+    }
+}
