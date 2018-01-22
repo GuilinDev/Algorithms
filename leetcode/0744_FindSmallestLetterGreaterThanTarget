@@ -1,0 +1,18 @@
+class Solution {
+    //O(log(n))的时间复杂度
+    public char nextGreatestLetter(char[] letters, char target) {
+        int n = letters.length;
+        
+        //右边从n开始，而不是n-1，因为结束条件是low<high，如果是从n-1开始则考虑不到n-1的情况
+        int low = 0, high = n;
+        while (low < high) {//起始的数组是排序的，二分法查找
+            int mid = low + (high - low)/2;
+            if (letters[mid] > target) {
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return letters[low%n];//low有可能停在n的位置上，因此返回第一个元素
+    }
+}
