@@ -1,0 +1,25 @@
+class Solution {
+    /*
+    brute force从左到右检查每个数是否能被整除；
+    */
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        List<Integer> result = new ArrayList<>();
+        for (int i = left; i <= right; i++) {
+            if (isValid(i)){
+                result.add(i);
+            }
+        }
+        return result;
+    }
+    private boolean isValid(int num){
+        int current = num;
+        while (current != 0) {
+            int digit = current%10;
+            if (digit == 0 || num % digit != 0) {
+                return false;
+            }
+            current /= 10;
+        }
+        return true;
+    }
+}
