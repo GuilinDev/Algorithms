@@ -1,0 +1,59 @@
+class RandomizedSet {
+    
+    /*
+    O(1)的插入删除明显考虑用hashset或map，set存没法getRandom，所以自然想到用hashmap；
+
+因为要getRandom()，即key必须是连续的，当删除某元素时可能导致key不连续，所以当删除元素时要保证key空间连续，简单的，让最后元素填补到被删除元素的位置，使得key空间连续。
+
+这道题不允许插入重复元素，第381题则允许
+    */
+    
+    List<Integer> vals = new ArrayList<Integer>();
+    Map<Integer, Integer> val2idx = new HashMap<Integer, Integer>();
+
+    /** Initialize your data structure here. */
+    public RandomizedSet() {
+        
+    }
+    
+    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
+    public boolean insert(int val) {
+        if (val2idx.containsKey(val)) {
+            return false;//不允许插入重复的值
+        } else {
+            val2idx.put(val, val2idx.size());
+            vals.add(val);
+            return true;
+        }
+    }
+    
+    /** Removes a value from the set. Returns true if the set contained the specified element. */
+    public boolean remove(int val) {
+        if (!val2idx.containsKey(val)) {
+            return false;
+        } else {
+            int idx = val2idx.remove(val);//找到需要删除的元素的index
+            if (idx < vals.size() - 1) {//如果删除的不是链表的最后的元素
+                //交换末尾的元素和被删除元素，使最后元素填补到被删除元素的位置，让key空间连续
+                vals.set(idx, vals.get(vals.size() - 1));//根据index来set值
+                val2idx.put(vals.get(vals.size() - 1), idx);
+            }
+            vals.remove(vals.size() - 1);//然后删除最后的元素
+            return true;
+        }
+    }
+    
+    /** Get a random element from the set. */
+    Random r = new Random();
+    public int getRandom() {
+        return vals.get(r.nextInt(vals.size()));//左开右闭
+    }
+}
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * RandomizedSet obj = new RandomizedSet();
+ * boolean param_1 = obj.insert(val);
+ * boolean param_2 = obj.remove(val);
+ * int param_3 = obj.getRandom();
+ */
