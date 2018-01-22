@@ -1,0 +1,30 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    奇偶链表，就是利用奇数和偶数位之间相互错位的位置关系。题目要求是O(1) space complexity and O(nodes) time complexity
+    */
+    public ListNode oddEvenList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode oddTail = head;//奇数头在前面
+        ListNode evenTail = head.next;//偶数跟在后面
+        ListNode evenHead = evenTail;//保持head的下一位
+        
+        while (oddTail.next != null && evenTail.next != null) {
+            oddTail.next = evenTail.next;
+            oddTail = oddTail.next;
+            evenTail.next = oddTail.next;
+            evenTail = evenTail.next;
+        }
+        oddTail.next = evenHead;
+        return head;
+    }
+}
