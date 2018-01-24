@@ -1,0 +1,65 @@
+class Solution {
+    /*
+    无向图求最短路 - BFS 中的level order
+    
+    给出两个单词（start和end）和一个字典，找到从start到end的最短转换序列
+    比如：
+    每次只能改变一个字母。
+    变换过程中的中间单词必须在字典中出现。
+    
+    这是一道bfs的题， 可以想象成一棵树，根节点是start字符串，第二层是所有的和它相差一个字母的字符串（之前出现过的，之后就没有必要出现了，因为出现的话，也是abc变成bbc又变回abs，没有意义），用一个hashmap来保存每一个节点的所处的层数，还需要一个队列来实现广度优先搜索，因为是从顶层到底层来遍历的，所以发现等于end的时候的层数值就是最小的，返回即可。
+    */
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        if (beginWord == null || endWord == null || beginWord.length() == 0 || endWord.length() == 0 || beginWord.length() != endWord.length()) {
+            return 0;
+        }
+        
+        //这道题的关键是去重，还有去除和beginWord，相同的单词
+        Set<String> set = new HashSet<String>(wordList);
+        if (set.contains(beginWord)) {
+            set.remove(beginWord);
+        }
+        
+        Queue<String> wordQueue = new LinkedList<String>();
+        int level = 1;//start string 已经存在，所以从1开始数
+        int curNum = 1;//当前层的备选的num
+        int nextNum = 0;//下一层的数数
+        
+        /*
+        这里也可以用map记录层数
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        map.put(beginWord, 1);
+        */
+        wordQueue.add(beginWord);
+        
+        while (!wordQueue.isEmpty()) {
+            String word = wordQueue.poll();//每次都移除顶部元素
+            curNum--;
+            //int curLevel = map.get(word);
+            for (int i = 0; i < word.length(); i++) {//一个字母一个字母比较
+                char[] wordUnit = word.toCharArray();
+                for (char j = 'a'; j <= 'z'; j++) {
+                    wordUnit[i] = j;
+                    String temp = new String(wordUnit);
+                    
+                    if (set.contains(temp)) {
+                        if (temp.equals(endWord)) {
+                            //return curLevel + 1;
+                            return level + 1;
+                        }
+                        //map.put(temp, curLevel + 1);
+                        nextNum++;
+                        wordQueue.add(temp);
+                        set.remove(temp);
+                    }
+                }
+            }
+            if (curNum == 0) {
+                curNum = nextNum;
+                nextNum = 0;
+                level++;
+            }
+        }
+        return 0;
+    }
+}
