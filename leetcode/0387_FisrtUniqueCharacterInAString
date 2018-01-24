@@ -1,0 +1,24 @@
+class Solution {
+    /*
+    可以用HashMap来记录字符和它出现的次数，扫描两遍，第一遍统计，第二遍知道第一个unique的字符
+    同样的想法也可以用Array来统计，会快一点并且节省空间
+    */
+    public int firstUniqChar(String s) {
+        //这里用Array的办法，创建一个256长度的array
+        if (s == null && s.length() == 0) {
+            return -1;
+        }
+        int[] count = new int[256];
+        for (int i = 0; i < s.length(); i++) {
+            int index = s.charAt(i) - 'a';
+            count[index]++;
+        }
+        for (int i = 0; i < s.length(); i++) {
+            int index = s.charAt(i) - 'a';
+            if (count[index] == 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
