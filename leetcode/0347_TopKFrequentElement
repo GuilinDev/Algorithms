@@ -1,0 +1,23 @@
+class Solution {
+    /*
+    使用Array, MaxHeap和TreeMap的三种解法：https://leetcode.com/problems/top-k-frequent-elements/discuss/
+    */
+    public List<Integer> topKFrequent(int[] nums, int k) {
+        //这里使用最大堆，效率较低，use maxHeap. Put entry into maxHeap so we can always poll a number with largest frequency
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int n : nums) {
+            map.put(n, map.getOrDefault(n,0) + 1);
+        }
+        
+        PriorityQueue<Map.Entry<Integer, Integer>> maxHeap = new PriorityQueue<>((a,b)->(b.getValue()-a.getValue()));//从大到小，为less优先队列
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            maxHeap.add(entry);
+        }
+        List<Integer> result = new ArrayList<>();
+        while (result.size() < k) {
+            Map.Entry<Integer, Integer> entry = maxHeap.poll();
+            result.add(entry.getKey());
+        }
+        return result;
+    }
+}
