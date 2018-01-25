@@ -1,0 +1,26 @@
+class Solution {
+    /*
+    这题和之前的一题Maximum Subarray非常类似，一个是求最大和，而这个是求最大乘积。可以用大致类似的思路解，但是求乘积比求和要复杂些，多了不少corner case。不过这题出得还算仁慈，因为这题其实有两个地方简化了：
+1）注意这里的数组是整型的，如果含有浮点数，就有可能出现0-1之间类似0.25这样的小数，所以即使是全都是正数，也可以越乘越小。如果数组里的数字全为正数还好说，因为可以用求对数的方式把求乘积转化为求和，从而转换为之前的Maximum Subarray。但是因为这题有负数和0的存在，所以求对数的方法行不通。
+
+2）这题的测试用例里数组元素的绝对值都非常的小，而实际中如果真的连乘起来，最后数值越界很容易发生的。如果考虑这一点，要么估计得用类似Java里BigInteger类这样的东西去避免越界。
+
+
+    参考这里http://blog.csdn.net/whuwangyi/article/details/39577455,
+    使用解法3，优化的DP,解法1的思路跟53题的做法一样，使用滚动数组，只是corner cases更多
+    获得dp[i]的值只需要dp[i-1]的值，所以是不需要保存整个DP表的。这样一来，DP可以用滚动数组进行优化。简单的写法其实就是设一对prevMin/prevMax表示上一个值，以及还有一对curMin/curMax表示当前值。
+    */
+    public int maxProduct(int[] nums) {
+        int max = nums[0];
+        int prevMin = nums[0], prevMax = nums[0];
+        int curMin, curMax;
+        for (int i = 1; i < nums.length; i++) {
+            curMin = Math.min(Math.min(prevMax * nums[i], prevMin * nums[i]), nums[i]);
+            curMax = Math.max(Math.max(prevMax * nums[i], prevMin * nums[i]), nums[i]);
+            prevMin = curMin;
+            prevMax = curMax;
+            max = Math.max(curMax, max);
+        }
+        return max;
+    }
+}
