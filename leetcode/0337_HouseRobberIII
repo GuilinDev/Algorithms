@@ -1,0 +1,33 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    与198和213相比较，这道题是二叉树，如果root被偷了，左右儿子就不能再被抢了
+    Recursively遍历整棵树，用一个数组来保持两个值：当root被选中时最大的钱的数，当root没被选中时最大的钱的数
+    */
+    public int rob(TreeNode root) {
+        int[] result = helper(root);
+        return Math.max(result[0], result[1]);//计算root选中与否的最大值
+    }
+    public int[] helper(TreeNode root) {
+        if (root == null) {
+            int[] result = {0, 0};
+            return result;
+        }
+        int[] result = new int[2];//存储最终结果
+        int[] left = helper(root.left);//存储左边最大值
+        int[] right = helper(root.right);//存储右边最大值
+        
+        result[0] = root.val + left[1] + right[1];//root被选中了
+        result[1] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);//root没有被选中的时候
+        
+        return result;
+    }
+}
