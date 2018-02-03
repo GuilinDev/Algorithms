@@ -1,0 +1,36 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    要求找出一棵二叉搜索树的第K小的元素。关键在于利用BST的性质。BST的中遍历序可以得到一个有序的集合。因此中序遍历的第K个节点即为要求的数。
+    中序遍历：左根右
+    */
+    Integer r = null;
+    Integer idx = 0;
+    public int kthSmallest(TreeNode root, int k) {
+        idx = 0;
+        travel(root, k);
+        return r.intValue();
+    }
+    private void travel(TreeNode root, int k) {
+        if (root == null && r != null) {
+            return;
+        }
+        if (root.left != null) {
+            travel(root.left, k);
+        }
+        if(++idx == k) {//找到了第k个节点
+            r = root.val;
+        }
+        if (root.right != null) {
+            travel(root.right, k);
+        }
+    }
+}
