@@ -1,0 +1,27 @@
+class Solution {
+    /*
+    题目比较好理解，但是有几个关键点这里需要明确一下：
+
+不能用除法。意思就是：你不能上来先把所有数乘积算出来，然后再逐个除以每个元素，这种思路是无聊、没技术含量而且不被允许的。
+时间复杂度必须控制到O(n)。意思是：如果用O(n^2)的方法，那外层一个for循环，内层左右遍历就解决了，也是很无聊的解法。
+空间复杂度最好是常数，但是重新分配的返回数组不算在内。
+用这里介绍的解法：http://blog.csdn.net/wzy_1988/article/details/46916179，用一个常数p来保存每次计算的结果值
+    */
+    public int[] productExceptSelf(int[] nums) {
+        int len = nums.length, p;
+        int[] arr = new int[nums.length];
+        
+        arr[0] = p = 1;
+        for (int i = 1; i < len; i++) {
+            p = p*nums[i-1];
+            arr[i] = p;
+        }
+        p = 1;
+        for (int i = len - 2; i >= 0; i--) {
+            p = p * nums[i+1];
+            arr[i] *= p;
+        }
+        return arr;
+    }
+    
+}
