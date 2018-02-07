@@ -1,0 +1,14 @@
+# Write your MySQL query statement below
+
+#使用group by和order by
+Select D.name As Department, E.name As Employee, E.salary As Salary
+From Employee E, Department D
+Where (
+          Select count(Distinct(Salary)) From Employee
+          Where DepartmentId = E.DepartmentId And Salary > E.Salary
+      ) < 3
+      And E.DepartmentId = D.Id
+      Order by E.DepartmentId, E.Salary DESC;
+
+#不用group by和order by
+#https://leetcode.com/problems/department-top-three-salaries/discuss/53692/Accepted-solution-without-group-by-or-order-by
