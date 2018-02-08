@@ -1,0 +1,63 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    http://www.cnblogs.com/lichen782/p/leetcode_Reverse_Nodes_in_kGroup.html
+    解法二
+    
+     * Reverse a link list between pre and next exclusively
+     * an example:
+     * a linked list:
+     * 0->1->2->3->4->5->6
+     * |           |   
+     * pre        next
+     * after call pre = reverse(pre, next)
+     * 
+     * 0->3->2->1->4->5->6
+     *          |  |
+     *          pre next
+     * @param pre 
+     * @param next
+     * @return the reversed list's last node, which is the precedence of parameter next
+     
+    */
+    public ListNode reverseKGroup(ListNode head, int k) {
+        if (head == null || k == 1) {
+            return head;
+        }
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        
+        int count = 0;
+        ListNode pre = dummy;
+        ListNode cur = head;
+        while (cur != null) {
+            count++;
+            ListNode next = cur.next;
+            if (count == k) {
+                pre = reverse(pre, next);
+                count = 0;
+            }
+            cur = next;
+        }
+        return dummy.next;
+    }
+    //怎么逆转一个单链表,其实O(n)就可以了。第一个肯定是last one。然后我们每遍历到一个node，就把它放到最链表的首位，最后一个么，最后就成为第一个了;因为有“放到链表首位”的操作，我们需要一个dummy的头节点，遇到的新节点我们simply state: pre.next = cur; 保持一个invariant就是last节点始终在最后（cur的前面一个）
+    private ListNode reverse(ListNode pre, ListNode next) {
+        ListNode last = pre.next;
+        ListNode cur = last.next;
+        while (cur != next) {
+            last.next = cur.next;
+            cur.next = pre.next;
+            pre.next = cur;
+            cur = last.next;
+        }
+        return last;
+    }
+}
