@@ -1,0 +1,27 @@
+class Solution {
+    /*
+    对于一个char, 找出她最先和最后出现的index. 然后像Merge Intervals结合交叉的部分.
+
+可以先找出最后出现的index. 再iterate一遍, 每次遇到更大的最后出现index 便更新最远能跳的距离. 当到达最远能跳的距离时就说明到了融合后interval的末尾. 计算长度加到res中.
+
+Time Complexity: O(S.length()). Space: O(1).
+    */
+    public List<Integer> partitionLabels(String S) {
+        int[] last = new int[26];
+        for (int i = 0; i < S.length(); i++) {
+            last[S.charAt(i) - 'a'] = i;
+        }
+        
+        List<Integer> res = new ArrayList<Integer>();
+        int maxJump = 0;
+        int start = 0;
+        for (int i = 0; i < S.length(); i++) {
+            maxJump = Math.max(maxJump, last[S.charAt(i) - 'a']);
+            if (i == maxJump) {
+                res.add(i-start+1);
+                start = i+1;
+            }
+        }
+        return res;
+    }
+}
