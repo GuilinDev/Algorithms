@@ -1,0 +1,35 @@
+class Solution {
+    /*
+    很详细的分析http://shmilyaw-hotmail-com.iteye.com/blog/2154716
+    
+    */
+    public boolean isMatch(String s, String p) {
+        int ss = 0, pp = 0, match = 0, starIdx = -1;
+        
+        while (ss < s.length()) {
+            //双指针
+            if (pp < p.length() && (p.charAt(pp) == '?' || s.charAt(ss) == p.charAt(pp))) {
+                ss++;
+                pp++;
+            } else if (pp < p.length() && p.charAt(pp) == '*') {//找到星号*
+                starIdx = pp;
+                match = ss;
+                pp++;
+            } else if (starIdx != -1) {//最后的p是星号
+                pp = starIdx + 1;
+                match++;
+                ss = match;
+            } else {
+                return false;
+            }
+        }
+        
+        //p中剩余的字符
+        while (pp < p.length() && p.charAt(pp) == '*') {
+            pp++;
+        }
+        
+        return pp == p.length();
+    }
+    /*总的来说，基于上述方法来解决这个问题是一种贪婪算法的思路。因为每次碰到一个*号我们会将它记录下来，然后就去和源串进行比较。这种办法效率比较高，当然，只是很难想到。*/
+}
