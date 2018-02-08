@@ -1,0 +1,49 @@
+class Solution {
+    /*
+    这道题使用的是回溯算法，回溯本质是深搜+剪枝。深搜又常常利用递归，然后当替换每个“.”时都判断是否有效。如果有效的话，就继续递归下去。
+
+注意，一般递归函数都在开头位置判断是否结束，但是对于该问题而言，不大容易判断叶节点。所以这里采用的是利用返回值true或false来对树的深度进行控制。如果为solve到false时，就回溯。回溯的手段就是使用更改函数主体复位，并return。
+    */
+    public void solveSudoku(char[][] board) {
+        solve(board);
+    }
+    private boolean solve(char[][] board) {
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                if(board[row][col] == '.') {//还没有填充
+                    for (char i = '1'; i <= '9'; i++) {
+                        board[row][col] = i;
+                        if (isValid(board, row, col) && solve(board)) {
+                            return true;
+                        }
+                        board[row][col] = '.';
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    private boolean isValid(char[][] board, int row, int col) {
+        for (int i = 0; i < 9; i++) {
+            if (i != col && board[row][i] == board[row][col]) {
+                return false;
+            }
+        }
+        for (int i = 0; i < 9; i++) {
+            if (i != row && board[i][col] == board[row][col]) {
+                return false;
+            }
+        }
+        int beginRow = 3*(row/3);
+        int beginCol = 3*(col/3);
+        for (int i = beginRow; i < beginRow + 3; i++) {
+            for (int j = beginCol; j < beginCol + 3; j++) {
+                if (i != row && j != col && board[i][j] == board[row][col]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
