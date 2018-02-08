@@ -1,0 +1,28 @@
+class Solution {
+    /*
+    http://blog.csdn.net/linhuanmars/article/details/20888505
+    这道题比较直接的做法类似5-Longest Palindromic Substring中的第一种方法(http://blog.csdn.net/linhuanmars/article/details/20888595)，对于每一个bar往两边扫描，找到它能承受的最大水量，然后累加起来即可。每次往两边扫的复杂度是O(n)，对于每个bar进行处理，所以复杂度是O(n^2)，空间复杂度是O(1)。思路比较清晰，就不列代码了，有兴趣的朋友可以实现一下哈。
+下面我们说说优化的算法。这种方法是基于动态规划的，基本思路就是维护一个长度为n的数组，进行两次扫描，一次从左往右，一次从右往左。第一次扫描的时候维护对于每一个bar左边最大的高度是多少，存入数组对应元素中，第二次扫描的时候维护右边最大的高度，并且比较将左边和右边小的最大高度（我们成为瓶颈）存入数组对应元素中。这样两遍扫描之后就可以得到每一个bar能承受的最大水量，从而累加得出结果。这个方法只需要两次扫描，所以时间复杂度是O(2*n)=O(n)。空间上需要一个长度为n的数组，复杂度是O(n)。
+    */
+    public int trap(int[] height) {
+        //一刷用reference的第一种方法，方便理解，从两边各扫描一次得到我们需要维护的变量，通常适用于当前元素需要两边元素来决定的问题
+        if (height == null || height.length == 0) {
+            return 0;
+        }
+        int max = 0;
+        int res = 0;
+        int[] container = new int[height.length];
+        
+        for (int i = 0; i < height.length; i++) {
+            container[i] = max;
+            max = Math.max(max, height[i]);
+        }
+        max = 0;
+        for (int i = height.length - 1; i >= 0; i--) {
+            container[i] = Math.min(max, container[i]);
+            max = Math.max(max, height[i]);
+            res += (container[i] - height[i]) > 0 ? container[i] - height[i] : 0;
+        }
+        return res;
+    }
+}
