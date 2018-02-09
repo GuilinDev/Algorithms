@@ -1,0 +1,20 @@
+class Solution {
+    /*
+    记数位，要求给定N，然后计算从0到N之间所有的数的bit为1的数，并要求时间复杂度为O(N)，因此对于每个数，然后求它的bit数的方法是不可取的。 
+所幸，当我们把数从0到N写出来时很容易发现规律，即对于2^N的数，末尾N-1位的重复规律，正好等于前N-1个数的重复规律，而这时只需要加1即可。
+    */
+    public int[] countBits(int num) {
+        int[] res = new int[num + 1];
+        res[0] = 0;
+        
+        int base = 1;//末尾为1的情况
+        while (base <= num) {
+            int next = base * 2;//下一个末尾全为0的值
+            for (int i = base; i < next && i <= num; i++) {
+                res[i] = res[i-base] + 1;
+            }
+            base = next;
+        }
+        return res;
+    }
+}
