@@ -1,0 +1,44 @@
+class Solution {
+    /*
+    http://blog.csdn.net/yeruby/article/details/49853385
+    给定数组中只有2个数是出现1次（设为a和b），其余的数都是出现2次，找出这两个出线1次的数。
+
+遍历一遍，将所有数字异或XOR 起来，结果设为 diff ，出现2次的数可以通过异或消去，留下的那2个数如何分出？
+
+这就像一个分类问题，找到两类的不同特征，就能分出。
+
+diff 其实就是那两个数的异或结果，再变换 diff ，使得 diff 从低位到高位的第一个1留下，其它位置上都置0。这样 a^diff != b^diff 一定成立，就分开了两个数。
+
+举例：a ＝ 3，b ＝5
+
+3的二进制：011
+5的二进制：101
+3^5 = 6 ＝ 二进制为110
+求二进制110的补码，为010，然后110 & 010 = 010
+1
+2
+3
+4
+这样就将diff变成了仅有1个1，其它位置都为0的数，且那个1就是a和b第一个不相同的位置，这样就能区分开a和b了。
+
+简而言之：异或就是找不同。
+    */
+    public int[] singleNumber(int[] nums) {
+        int[] ans = new int[2];
+        int diff = 0;
+        for (int num : nums) {
+            diff ^= num;
+        }
+        
+        diff &= -diff;
+        for (int num : nums) {
+            if ((num & diff) == 0) {
+                ans[0] ^= num;
+            } else {
+                ans[1] ^= num;
+            }
+        }
+        
+        return ans;
+    }
+}
