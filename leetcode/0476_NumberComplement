@@ -1,0 +1,18 @@
+class Solution {
+    /*
+    这道题给定一个非负整数，求补数,指对整数二进制最高位为1的位之后的所有位置取反，如5的二进制表示为00……00101，起最高位为1的位置是3，因此只对3之后的所有位置取反，得到00*00010，最后得出补数为2
+    */
+    public int findComplement(int num) {
+        int valid = 0; //最高数为1的位数
+        int tmp = num;
+        while (tmp > 0) {
+            tmp /= 2;
+            valid++;
+        }
+        return ~num & ((1 << valid) - 1);//(1 << valid) - 1是二进制操作中一种常用的求掩码的方式
+        /*
+        把后面的那些数字全部设为1,Java有这个库函数，所以可以直接调用，程序一句话
+        return ~num & ((Integer.highestOneBit(num) << 1) - 1);
+        */
+    }
+}
