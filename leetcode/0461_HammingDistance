@@ -1,0 +1,16 @@
+class Solution {
+    public int hammingDistance(int x, int y) {
+        //Java有这个库函数，bitCount，直接返回就是return Integer.bitCount(x ^ y);
+        //bitCount()的手动实现如下
+        int d = 0;
+        int bitxor = x ^ y;
+        
+        while (bitxor > 0) {
+            if(bitxor % 2 == 1) {
+                d++;
+            }
+            bitxor = bitxor >> 1;
+        }
+        return d;
+    }
+}
