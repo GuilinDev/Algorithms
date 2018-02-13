@@ -1,0 +1,33 @@
+class Solution {
+    /*
+    跟55题Jump Game比，这道题还要求最小步数
+    关键的问题1：到底什么时候总步数+1呢？
+回答：假设到遍历到数组index=i的位置，在此之前jump到的位置为k；在位置k最远可以到达的范围是[k,reach]，如果reach<i，说明[k-reach]之间必须再jump一次，这样才能保证i在可以reach的范围内！
+
+关键问题2：那究竟在[k-reach]的哪个位置再次jump呢？
+回答：根据贪心算法，应该挑可以reach范围最远的那个点，如果需要求jump game的最短次数的jump路径，就需要记录这个点了。
+
+本题仅解决问题1即可。
+
+    */
+    public int jump(int[] nums) {
+        if (nums.length <= 1) {
+            return 0;
+        }
+        int reach = nums[0];
+        int lastReach = 0;
+        int step = 0;
+        
+        for (int i = 1; i <= reach && i < nums.length; i++) {
+            if (i > lastReach) {
+                step++;
+                lastReach = reach;
+            }
+            reach = Math.max(reach, i+nums[i]);
+        }
+        if (reach < nums.length - 1) {
+            return 0;
+        }
+        return step;
+    }
+}
