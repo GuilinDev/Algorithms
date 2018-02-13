@@ -1,0 +1,37 @@
+class Solution {
+    /*
+    https://segmentfault.com/a/1190000003762668
+    因为51-n皇后问题中，同一列不可能有两个皇后，所以我们可以用一个一维数组来表示二维棋盘上皇后的位置。一维数组中每一个值的下标代表着对应棋盘的列，每一个值则是那一列中皇后所在的行。这样我们可以只对一个一维数组进行深度优先搜索，来找出对于每一列，我们的皇后应该放在哪一行。在下一轮搜索之前，我们先检查一下新构成的数组是否是有效的，这样可以剪掉不必要的分支。检查的方法则是看之前排好的每一个皇后是否冲突。
+    这道题跟I的解法一样，只不过把原本构造字符串的地方换成了计数器加一。
+    */
+    
+    Set<Integer> rowSet = new HashSet<Integer>();
+    Set<Integer> diag1Set = new HashSet<Integer>();
+    Set<Integer> diag2Set = new HashSet<Integer>();
+    int cnt = 0;
+    
+    public int totalNQueens(int n) {
+        helper(n , 0);
+        return cnt;
+    }
+    public void helper(int n, int col) {
+        if (col == n) {
+            cnt++;
+        } else {
+            for (int row = 0; row < n; row++) {
+                int diag1 = row + col;
+                int diag2 = row - col;
+                if (rowSet.contains(row) || diag1Set.contains(diag1) || diag2Set.contains(diag2)) {
+                    continue;
+                }
+                rowSet.add(row);
+                diag1Set.add(diag1);
+                diag2Set.add(diag2);
+                helper(n, col+1);
+                diag2Set.remove(diag2);
+                diag1Set.remove(diag1);
+                rowSet.remove(row);
+            }
+        }
+    }
+}
