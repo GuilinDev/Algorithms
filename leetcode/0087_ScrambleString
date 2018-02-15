@@ -1,0 +1,36 @@
+class Solution {
+    /*
+    很好的分析http://blog.csdn.net/linhuanmars/article/details/24506703
+    这道题用二维数组来存储中间结果已经不行了，需要一个三维数组 dp[i][j][len]，表示从s1的第i个字符开始长度为len的子串，和从s2的第j个字符开始长度为len的子串，是否互为scramble。
+
+初始化为dp[i][j][1] = s1.charAt(i) == s2.charAt(j)，即长度为1的子串是否互为scramble。
+
+三维数组就要三层循环，最终结果为dp[0][0][s1.length()]，即从s1的第0个字符开始长度为s1.length()的子串，即s1本身和s2本身是否互为scramble。
+
+要判断dp[i][j][len]的值，就要把s1从i开始长度为len的串分别从k=1, 2 ... len-1处切开，判断切成的两半和s2同样切成的两半是否互为scramble，只要有一种切法满足条件，那么dp[i][j][len]就为true，否则为false。
+    */
+    public boolean isScramble(String s1, String s2) {
+        if (s1 == null || s2 == null || s1.length() != s2.length()) {
+            return false;
+        }
+        if (s1.equals(s2)) {
+            return true;
+        }
+        boolean[][][] res = new boolean[s1.length()][s2.length()][s1.length()+1];
+        for (int i = 0; i < s1.length(); i++) {
+            for (int j = 0; j < s2.length(); j++) {
+                res[i][j][1] = s1.charAt(i) == s2.charAt(j);
+            }
+        }
+        for (int len = 2; len <= s1.length(); len++) {
+            for (int i = 0; i < s1.length()-len+1; i++) {
+                for (int j = 0; j < s2.length()-len+1; j++) {
+                    for (int k = 1; k < len; k++) {
+                        res[i][j][len] |= res[i][j][k] && res[i+k][j+k][len-k] || res[i][j+len-k][k] && res[i+k][j][len-k];
+                    }
+                }
+            }
+        }
+        return res[0][0][s1.length()];
+    }
+}
