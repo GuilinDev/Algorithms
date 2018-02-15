@@ -1,0 +1,54 @@
+class Solution {
+    /*
+    http://blog.csdn.net/linhuanmars/article/details/22452163注意参数已经换成了List
+    下面暴力解法比dp的方法好，但是需要先run word break的代码才能不超时通过
+    */
+    // public List<String> wordBreak(String s, List<String> wordDict) {
+    //     ArrayList<String> res = new ArrayList<>();
+    //     if (s == null || s.length() == 0) {
+    //         return res;
+    //     }
+    //     helper(s, wordDict, 0, "", res);
+    //     return res;
+    // }
+    // private void helper(String s, List<String> wordDict, int start, String item, ArrayList<String> res) {
+    //     if (start >= s.length()) {
+    //         res.add(item);
+    //         return;
+    //     }
+    //     StringBuilder str = new StringBuilder();
+    //     for (int i = start; i < s.length(); i++) {
+    //         str.append(s.charAt(i));
+    //         if (wordDict.contains(str.toString())) {
+    //             String newItem = item.length() > 0 ? (item + " " + str.toString()) : str.toString();
+    //             helper(s, wordDict, i+1, newItem, res);
+    //         }
+    //     }
+    // }
+    
+    //讨论区：https://leetcode.com/problems/word-break-ii/discuss/44167/My-concise-JAVA-solution-based-on-memorized-DFS
+    public List<String> wordBreak(String s, List<String> wordDict) {
+        return DFS(s, wordDict, new HashMap<String, LinkedList<String>>());
+    }       
+
+// DFS function returns an array including all substrings derived from s.
+    List<String> DFS(String s, List<String> wordDict, HashMap<String, LinkedList<String>>map) {
+        if (map.containsKey(s)) 
+            return map.get(s);
+
+        LinkedList<String>res = new LinkedList<String>();     
+        if (s.length() == 0) {
+            res.add("");
+            return res;
+        }               
+        for (String word : wordDict) {
+            if (s.startsWith(word)) {
+                List<String>sublist = DFS(s.substring(word.length()), wordDict, map);
+                for (String sub : sublist) 
+                    res.add(word + (sub.isEmpty() ? "" : " ") + sub);               
+            }
+        }       
+        map.put(s, res);
+        return res;
+    }
+}
