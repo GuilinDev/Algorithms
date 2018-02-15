@@ -1,0 +1,48 @@
+class Solution {
+    /*
+    http://blog.csdn.net/jmspan/article/details/51073879介绍了四种方法，使用第四种方法-双向队列
+    
+    在队列中维持一个k长度窗口内的递减元素下标，为什么呢？因为当元素递增时，前面的元素就不需要了，因为最大值肯定不会是它们了。
+顺序扫描每一个元素，当队头的元素超出窗口视野的时候，将对头元素出队；然后检查队尾，如果队尾元素小于或等于当前元素，则队尾元素出队，重复检查队尾直至队列为空或者队尾元素大于当前元素。然后当前元素入队。
+二刷可以自己实现双向队列
+    */
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        if (k <= 0) {
+            return new int[0];
+        }
+        int[] max = new int[nums.length - k + 1];
+        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        for (int i = 0; i< nums.length; i++) {
+            while (!deque.isEmpty() && nums[deque.getLast()] <= nums[i]) {
+                deque.removeLast();
+            }
+            while (!deque.isEmpty() && i - deque.getFirst() >= k) {
+                deque.removeFirst();
+            }
+            deque.add(i);
+            if (i >= k - 1) {
+                max[i-k+1] = nums[deque.getFirst()];
+            }
+        }
+        return max;
+    }
+}
+
+/*
+public int[] maxSlidingWindow(int[] nums, int k) {  
+        if(nums == null || nums.length == 0) return new int[0];  
+        LinkedList<Integer> deque = new LinkedList<Integer>();  
+        int[] res = new int[nums.length + 1 - k];  
+        for(int i = 0; i < nums.length; i++){  
+            // 每当新数进来时，如果发现队列头部的数的下标，是窗口最左边数的下标，则扔掉  
+            if(!deque.isEmpty() && deque.peekFirst() == i - k) deque.poll();  
+            // 把队列尾部所有比新数小的都扔掉，保证队列是降序的  
+            while(!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) deque.removeLast();  
+            // 加入新数  
+            deque.offerLast(i);  
+            // 队列头部就是该窗口内第一大的  
+            if((i + 1) >= k) res[i + 1 - k] = nums[deque.peek()];  
+        }  
+        return res;  
+    } 
+*/
