@@ -1,0 +1,42 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    http://blog.csdn.net/linhuanmars/article/details/24761437
+    这道题是求解所有可行的二叉查找树，从96-Unique Binary Search Trees中我们已经知道，可行的二叉查找树的数量是相应的卡特兰数，不是一个多项式时间的数量级，所以我们要求解所有的树，自然是不能多项式时间内完成的了。算法上还是用求解NP问题的方法来求解，也就是N-Queens中介绍的在循环中调用递归函数求解子问题。思路是每次一次选取一个结点为根，然后递归求解左右子树的所有结果，最后根据左右子树的返回的所有子树，依次选取然后接上（每个左边的子树跟所有右边的子树匹配，而每个右边的子树也要跟所有的左边子树匹配，总共有左右子树数量的乘积种情况），构造好之后作为当前树的结果返回。
+    */
+    public List<TreeNode> generateTrees(int n) {
+        List<TreeNode> res = new ArrayList<>();
+        if (n < 1) {
+            return res;
+        }
+        return helper(1, n);
+    }
+    private List<TreeNode> helper(int left, int right) {
+        List<TreeNode> res = new ArrayList<>();
+        if (left > right) {
+            res.add(null);
+            return res;
+        }
+        for (int i = left; i <= right; i++) {
+            List<TreeNode> leftList = helper(left, i-1);
+            List<TreeNode> rightList = helper(i+1, right);
+            for (int j = 0; j < leftList.size(); j++) {
+                for (int k = 0; k < rightList.size(); k++) {
+                    TreeNode root = new TreeNode(i);
+                    root.left = leftList.get(j);
+                    root.right = rightList.get(k);
+                    res.add(root);
+                }
+            }
+        }
+        return res;
+    }
+}
