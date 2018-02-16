@@ -1,0 +1,49 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    https://www.cnblogs.com/springfor/p/3864303.html
+    一般的链表逆序是让把链表从前到后都逆序，这个是给定了起始位置和结束位置，方法是一样的。
+
+ 就是维护3个指针，startpoint，node1和node2。
+
+ startpoint永远指向需要开始reverse的点的前一个位置。
+
+ node1指向正序中第一个需要rever的node，node2指向正序中第二个需要reverse的node。 
+
+ 交换后，node1 在后，node2在前。这样整个链表就逆序好了。
+    */
+    public ListNode reverseBetween(ListNode head, int m, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        
+        if (head == null || head.next == null) {
+            return dummy.next;
+        }
+        
+        ListNode startPoint = dummy;//startpoint指向需要开始reverse的前一个
+        ListNode node1 = null;//需要reverse到后面去的节点
+        ListNode node2 = null;//需要reverse到前面去的节点
+        
+        for (int i = 0; i < n; i++) {
+            if (i < m-1) {
+                startPoint = startPoint.next;//找真正的startpoint
+            } else if ( i == m - 1) {//开始第一轮
+                node1 = startPoint.next;
+                node2 = node1.next;
+            } else {
+                node1.next = node2.next;//node1交换到node2的后面
+                node2.next = startPoint.next;//node2交换到最开始
+                startPoint.next = node2;//node2作为新的点
+                node2 = node1.next;//node2回归到node1的下一个，继续遍历
+            }
+        }
+        return dummy.next;
+    }
+}
