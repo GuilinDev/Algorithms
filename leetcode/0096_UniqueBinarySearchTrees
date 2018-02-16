@@ -1,0 +1,22 @@
+class Solution {
+    /*
+    http://blog.csdn.net/linhuanmars/article/details/24761459
+    其实二叉查找树可以任意取根，只要满足中序遍历有序的要求就可以。从处理子问题的角度来看，选取一个结点为根，就把结点切成左右子树，以这个结点为根的可行二叉树数量就是左右子树可行二叉树数量的乘积，所以总的数量是将以所有结点为根的可行结果累加起来。
+    时间上每次求解i个结点的二叉查找树数量的需要一个i步的循环，总体要求n次，所以总时间复杂度是O(1+2+...+n)=O(n^2)。空间上需要一个数组来维护，并且需要前i个的所有信息，所以是O(n)。
+    另外直接用卡特兰数的通项公司时间复杂度为O(n)
+    */
+    public int numTrees(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        int[] res = new int[n+1];
+        res[0] = 1;
+        res[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            for (int j = 0; j < i; j++) {
+                res[i] += res[j] * res[i-j-1];
+            }
+        }
+        return res[n];
+    }
+}
