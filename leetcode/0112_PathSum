@@ -1,0 +1,51 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    http://blog.csdn.net/simongeek/article/details/45940223
+    */
+    public boolean hasPathSum(TreeNode root, int sum) {
+        //直接DFS
+        if (root == null) {
+            return false;
+        } else if (root.left == null && root.right == null) {
+            return root.val == sum;
+        } else {
+            sum = sum-root.val;//减去遍历节点的值
+            return hasPathSum(root.left, sum) || hasPathSum(root.right, sum);
+        }
+    }
+    //同时熟练掌握Iterative的写法
+    /*
+    public ArrayList> pathSum(TreeNode root, int sum) {
+        ArrayList> result = new ArrayList>();
+        if (root == null)
+            return result;
+        recursivePathSum(root, sum, new ArrayList(), result);
+        return result;
+    }
+ 
+private void recursivePathSum(TreeNode root, int sum, ArrayList current,ArrayList> result) 
+    {
+        if (root == null)       return;
+        if (root.val == sum && root.left == null && root.right == null) {
+            current.add(root.val);
+            result.add(new ArrayList(current));
+            current.remove(current.size()-1);
+            return;
+      }
+ 
+        current.add(root.val);
+        recursivePathSum(root.left, sum-root.val, current, result);
+        recursivePathSum(root.right, sum-root.val, current, result);
+        current.remove(current.size()-1);
+    }
+    */
+}
