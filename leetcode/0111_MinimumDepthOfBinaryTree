@@ -1,0 +1,27 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    这道题是树的题目，其实跟104-Maximum Depth of Binary Tree非常类似，只是这道题因为是判断最小深度，所以必须增加一个叶子的判断（因为如果一个节点如果只有左子树或者右子树，我们不能取它左右子树中小的作为深度，因为那样会是0，我们只有在叶子节点才能判断深度，而在求最大深度的时候，因为一定会取大的那个，所以不会有这个问题）。这道题同样是递归和非递归的解法，递归解法比较常规的思路，比104-Maximum Depth of Binary Tree多加一个左右子树的判断，
+    */
+    public int minDepth(TreeNode root) {
+        //练习递归和非递归解法https://www.cnblogs.com/springfor/p/3879680.html
+        //先用递归
+        if (root == null) {
+            return 0;
+        }
+        int minLeft = minDepth(root.left);
+        int minRight = minDepth(root.right);
+        if (minLeft == 0 || minRight == 0) {
+            return minLeft >= minRight ? minLeft + 1 : minRight + 1;
+        }
+        return Math.min(minLeft, minRight) + 1;
+    }
+}
