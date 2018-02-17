@@ -1,0 +1,31 @@
+class Solution {
+    /*
+    给出一正整数，不用 sqrt函数，判断该数是否是平方数
+    
+    */
+    public boolean isPerfectSquare(int num) {
+        //连续奇数的和为平方数
+        for (int i = 1; num > 0; i += 2) {//1+3+5+...
+            num -= i;
+        }
+        return num == 0;
+    }
+    
+    /*
+    二分查找
+    public class Solution {  
+        public boolean isPerfectSquare(int num) {  
+            int low = 0, high = 46340;  
+            while (low < high)  
+            {  
+                int mid = (low + high) >> 1;  
+                if (mid * mid == num) return true;  
+                else if (mid * mid < num) low = mid + 1;  
+                else high = mid - 1;  
+            }  
+
+            return low * low == num;  
+        }  
+    }  
+    */
+}
