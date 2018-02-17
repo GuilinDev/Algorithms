@@ -1,0 +1,75 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    本题实际上是求二叉树每一层的最后一个节点，用DFS先遍历右子树并记录遍历的深度，如果这个右子节点的深度大于当前所记录的最大深度，说明它是下一层的最右节点（因为我们先遍历右边，所以每一层都是先从最右边进入），将其加入结果中。
+    时间 O(b^(h+1)-1) 空间 O(h) 递归栈空间 对于二叉树b=2
+    */
+    int maxDepth = 0;
+    List<Integer> res;
+    public List<Integer> rightSideView(TreeNode root) {
+        res = new LinkedList<Integer>();
+        if (root != null) {
+            helper(root, 1);
+        }
+        return res;
+    }
+    private void helper(TreeNode root, int depth) {
+        if (depth > maxDepth) {
+            maxDepth = depth;
+            res.add(root.val);
+        }
+        if (root.right != null) {
+            helper(root.right, depth+1);
+        }
+        if (root.left != null) {
+            helper(root.left, depth+1);
+        }
+    }
+    /*
+    同样可以借用层序遍历的思路，只要每次把这一层的最后一个元素取出来就行了，具体代码参见Binary Tree Traversal中的Binary Tree Level Order Traversal
+    时间 O(b^(h+1)-1) 空间 O(b^h) 对于二叉树b=2
+    
+    public List<Integer> rightSideView(TreeNode root) {  
+        List<Integer> ans = new ArrayList<Integer>();  
+        if (root == null) return ans;  
+          
+        LinkedList<TreeNode> queue = new LinkedList<TreeNode>();  
+        queue.add(root);  
+        queue.add(null);  
+          
+        while (!queue.isEmpty()) {  
+            TreeNode node = queue.pollFirst();  
+              
+            if (node == null) {  
+                if (queue.isEmpty()) {  
+                    break;  
+                } else {  
+                    queue.add(null);  
+                }  
+            } else {  
+                // add the rightest to the answer  
+                if (queue.peek() == null) {  
+                    ans.add(node.val);  
+                }  
+                  
+                if (node.left != null) {  
+                    queue.add(node.left);  
+                }  
+                if (node.right != null) {  
+                    queue.add(node.right);  
+                }  
+            }  
+        }  
+          
+        return ans;  
+    }  
+    */
+}
