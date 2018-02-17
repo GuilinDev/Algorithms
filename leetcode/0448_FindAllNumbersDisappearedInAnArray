@@ -1,0 +1,24 @@
+class Solution {
+    /*
+    类似442-Find All Duplicates in an Array的解法
+    两次循环。第一次，把nums数组中的值做一定处理当做下标，标记下标（下标其实就是nums数组中的值，出现过的就会被标记，这个解法就是把在nums中出现过的下标的值都变成负数了）。 第二次，把标记的下标add到List中。
+    */
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        List<Integer> result = new ArrayList<>();
+        
+        //标记下标，设为负数
+        for (int i = 0; i < nums.length; i++) {
+            int value = Math.abs(nums[i]) - 1;
+            if (nums[value] > 0) {
+                nums[value] = -nums[value];
+            }
+        }
+        //把下标加入到list
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0) {//没有设为负数的将之加入
+                result.add(i + 1);
+            }
+        }
+        return result;
+    }
+}
