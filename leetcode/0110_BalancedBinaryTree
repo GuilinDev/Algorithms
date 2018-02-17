@@ -1,0 +1,42 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    正常思路，采用递归的方法，记录depth用来比较
+    */
+    public boolean isBalanced(TreeNode root) {
+        if (checkBalanced(root) == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    public int checkBalanced(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int leftHeight = checkBalanced(root.left);
+        if (leftHeight == -1) {
+            return -1;
+        }
+        
+        int rightHeight = checkBalanced(root.right);
+        if (rightHeight == -1) {
+            return -1;
+        }
+        
+        if (Math.abs(leftHeight - rightHeight) > 1) {
+            return -1;
+        } else {
+            return Math.max(leftHeight, rightHeight) + 1;
+        }
+    }
+}
