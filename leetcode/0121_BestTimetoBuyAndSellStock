@@ -1,43 +1,19 @@
 class Solution {
     /*
-    给出一个股票的价格序列，买入一次卖出一次，求能获得最大利润。其实就是求一个数组中，后面的数减去前面的数能得到的最大值。最容易想到的肯定是每次选一个数，遍历后面的数，求出直接的差然后和当前最大值进行比较，这样时间复杂度为O(n*n),
-但是最后会超时。对题目进行分析，发现可以用动态规划的方法求解。我们用一个数组res存储到某点能有的最大值,首先对于其中一个数prices[i]（1<i<length）:
-(1)如果当前的数大于前一个数，可以轻易得出到达该点可以得到的最大值res[i]为前一个数的最大值+（prices[i]-prices[i-1]），然后和当前最大值进行比较，大于当前最大值则重置最大值
-(2)如果当前数小于前一个数，又分为两种情况
-　　a.如果到前一个数的最大<=0,所以能到达当前点的最大差值res[i]为0
-　　b.如果到达前一个数最大差值大于0，则能到达当前点的最大差值res[i]为Math.max(res[i-1]+(prices[i]-prices[i-1]),0);
-对一个数单独处理最后遍历剩下的数即可得到答案。
+   http://blog.csdn.net/linhuanmars/article/details/23162793
+   求进行一次交易能得到的最大利润。如果用brute force的解法就是对每组交易都看一下利润，取其中最大的，总用有n*(n-1)/2个可能交易，所以复杂度是O(n^2)。
+很容易感觉出来这是动态规划的题目，其实跟Maximum Subarray非常类似，用“局部最优和全局最优解法”。思路是维护两个变量，一个是到目前为止最好的交易，另一个是在当前一天卖出的最佳交易（也就是局部最优）。递推式是local[i+1]=max(local[i]+prices[i+1]-price[i],0), global[i+1]=max(local[i+1],global[i])。这样一次扫描就可以得到结果，时间复杂度是O(n)。而空间只需要两个变量，即O(1)。
     */
     public int maxProfit(int[] prices) {
-        int length = prices.length;
-        int[] res = new int[length];
-        int max = 0;
-        
-        if (length <= 1) {
-            return 0;
-        }
-        
-        res[0] = 0;
-        res[1] = 0;
-        
-        for (int i = 1; i < length; i++) {
-            if (prices[i] > prices[i-1]) {
-                res[i] = res[i-1] + (prices[i] - prices[i-1]);
-                if (max < res[i]) {
-                    max = res[i];
-                }
-            } else {
-                if (res[i-1] <= 0) {
-                    res[i] = 0;
-                } else {
-                    res[i] = Math.max(res[i-1] + (prices[i] - prices[i-1]), 0);
-                }
-            }
-        }
-        if (max > 0) {
-            return max;
-        } else {
-            return 0;
-        }
+        if(prices==null || prices.length==0)  
+        return 0;  
+        int local = 0;  
+        int global = 0;  
+        for(int i=0;i<prices.length-1;i++)  
+        {  
+            local = Math.max(local+prices[i+1]-prices[i],0);  
+            global = Math.max(local, global);  
+        }  
+        return global; 
     }
 }
