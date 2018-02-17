@@ -1,0 +1,15 @@
+class Solution {
+    //把数组中的数值当做下标进行处理
+    public List<Integer> findDuplicates(int[] nums) {
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            int currNum = Math.abs(nums[i]);
+            if (nums[currNum - 1] > 0) {//数值减一为下标,如果有重复的值，第一个出现就设为负数了，第二个再来就知道已经有了重复
+                nums[currNum - 1] = -nums[currNum - 1];
+            } else {
+                result.add(currNum);
+            }
+        }
+        return result;
+    }
+}
