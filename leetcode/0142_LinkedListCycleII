@@ -1,0 +1,39 @@
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    /*
+    先判断链表是否有环，使用快（fast）慢指针（slow），解法见【141-Linked List Cycle（单链表中有环）】，如果没有环就返回null，如果有环，有fast=slow，就让让slow重新指向链表头，然后两个指针每次同时移动一个位置，直到两链表相遇，相遇点就是环的入口结点。 
+    */
+    public ListNode detectCycle(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+        
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            
+            if (fast == slow) {
+                break;
+            }
+        }
+        
+        if (fast == null || fast.next == null) {
+            return null;
+        }
+        slow = head;
+        while (fast != slow) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+}
