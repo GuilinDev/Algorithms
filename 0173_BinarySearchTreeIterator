@@ -1,0 +1,53 @@
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+
+public class BSTIterator {
+    
+    /*
+    求：写一个二叉查找树，每次返回树中的下一个最小节点
+
+
+比如上图中的二叉查找树，从根节点开始，依次返回1,3,4,6,7... ...
+
+思路：维护一个栈，先将根结点的左子树全部压栈，每次弹出栈顶元素，若某次弹出的栈顶元素有右子树，比如3，此时需要将以该节点的右子树为根的子树的左子节点全部压栈
+    */
+    
+    Stack<TreeNode> stack = new Stack<>();
+    public BSTIterator(TreeNode root) {
+        while (root != null) {
+            stack.push(root);
+            root = root.left;
+        }
+    }
+
+    /** @return whether we have a next smallest number */
+    public boolean hasNext() {
+        return !stack.isEmpty();
+    }
+
+    /** @return the next smallest number */
+    public int next() {
+        TreeNode minCurrent = stack.pop();
+        if (minCurrent.right != null) {
+            TreeNode rightNode = minCurrent.right;
+            while (rightNode != null) {
+                stack.push(rightNode);
+                rightNode = rightNode.left;
+            }
+        }
+        return minCurrent.val;
+    }
+}
+
+/**
+ * Your BSTIterator will be called like this:
+ * BSTIterator i = new BSTIterator(root);
+ * while (i.hasNext()) v[f()] = i.next();
+ */
