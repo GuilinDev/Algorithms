@@ -1,0 +1,35 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    http://blog.csdn.net/mine_song/article/details/70213201
+    层序遍历BFS找到每层最大值，或中序遍历
+    */
+    public List<Integer> largestValues(TreeNode root) {
+        //中序遍历，递归
+        List<Integer> res = new ArrayList<Integer>();
+        preorder(root, res, 0);
+        return res;
+    }
+    private void preorder(TreeNode root, List<Integer> res, int d) {
+        if (root == null) {
+            return;
+        }
+        //expand list size
+        if (d == res.size()) {
+            res.add(root.val);
+        } else {
+            // or set value
+            res.set(d, Math.max(res.get(d), root.val));
+        }
+        preorder(root.left, res, d + 1);
+        preorder(root.right, res, d + 1);
+    }
+}
