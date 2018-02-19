@@ -1,0 +1,42 @@
+class Solution {
+    /*
+    有一个N为长的数字，用字符串来代替了，现在要求你将它删除K位，使得其得到的结果最小。对于每次删除的情况有两种
+
+(1)假如第一个数不为0，第二个数为0，那么我们删除第一个数，就相当于数量级减少2，这样比删除得到的数其他任何一个方法都小
+
+(2)另一种情况，我们找到第一次遍历的局部最大值，即遍历num第一个满足num.charAt(i)>num.charAt(i+1)的值，删除这个点，得到的值最小。这里就是贪心算法，每次删除一个局部最大
+    */
+    public String removeKdigits(String num, int k) {
+        int n = 0;
+        while (true) {
+            n = num.length();
+            if (n <= k || n == 0) {
+                return "0";
+            }
+            if (k-- == 0) {
+                return num;
+            }
+            
+            if (num.charAt(1) == '0') {//第二位是 0，删除前面一位数
+                int firstNotZero = 1;
+                while (firstNotZero < n && num.charAt(firstNotZero) == '0') {
+                    firstNotZero++;
+                }
+                num = num.substring(firstNotZero);//删除所有0
+            } else {//不然就寻找第一个下降的数
+                int i = 0;
+                while (i < n-1) {
+                    if (num.charAt(i) > num.charAt(i+1)) {
+                        num = num.substring(0, i) + num.substring(i + 1);
+                        break;
+                    } else {
+                        i++;
+                    }
+                }
+                if (i == n-1) {
+                    num = num.substring(0, i);
+                }
+            }
+        }
+    }
+}
