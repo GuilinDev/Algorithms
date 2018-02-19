@@ -1,0 +1,37 @@
+class Solution {
+    /*
+    这道题模拟了刀塔类游戏开始之前的BP过程，两个阵营按顺序Ban掉对方的英雄，看最后谁剩下来了，就返回哪个阵营。那么博主能想到的简单暴力的方法就是先统计所有R和D的个数，然后从头开始遍历，如果遇到了R，就扫描之后所有的位置，然后还要扫描R前面的位置，这就要用到数组的环形遍历的知识了，其实就是坐标对总长度取余，使其不会越界，如果我们找到了下一个D，就将其标记为B，然后对应的计数器cntR自减1。对于D也是同样处理，我们的while循环的条件是cntR和cntD都要大于0，当有一个等于0了的话，那么推出循环，返回那个不为0的阵营即可
+    */
+    public String predictPartyVictory(String senate) {
+        char[] cs = senate.toCharArray();
+        Queue<Character> l = new LinkedList<Character>();
+        for (char c : cs) {
+            l.add(c);
+        }
+        
+        int r = 0, d = 0;
+        while (true) {
+            char c = l.remove();
+            
+            if (c == 'R') {
+                if (d > 0) {
+                    d--;
+                } else {
+                    r++;
+                    l.add(c);
+                }
+            } else {
+                if (r > 0) {
+                    r--;
+                } else {
+                    d++;
+                    l.add(c);
+                }
+            }
+            if (r == l.size() || d == l.size()) {
+                break;
+            }
+        }
+        return r > 0 ? "Radiant" : "Dire";
+    }
+}
