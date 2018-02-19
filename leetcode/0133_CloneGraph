@@ -1,0 +1,37 @@
+/**
+ * Definition for undirected graph.
+ * class UndirectedGraphNode {
+ *     int label;
+ *     List<UndirectedGraphNode> neighbors;
+ *     UndirectedGraphNode(int x) { label = x; neighbors = new ArrayList<UndirectedGraphNode>(); }
+ * };
+ */
+public class Solution {
+    /*
+    http://blog.csdn.net/linhuanmars/article/details/22715747
+    clone无向图，这道题是LeetCode中为数不多的关于图的题目，不过这道题还是比较基础，就是考察图非常经典的方法：深度优先搜索和广度优先搜索。这道题用两种方法都可以解决，因为只是一个图的复制，用哪种遍历方式都可以。两种方法太常见了。这里恰好可以用旧结点和新结点的HashMap来做visited的记录。
+    */
+    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+        //BFS
+        if (node == null) {
+            return node;
+        }
+        LinkedList<UndirectedGraphNode> queue = new LinkedList<>();
+        HashMap<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
+        UndirectedGraphNode copy = new UndirectedGraphNode(node.label);
+        map.put(node, copy);
+        queue.offer(node);
+        while (!queue.isEmpty()) {
+            UndirectedGraphNode cur = queue.poll();
+            for (int i = 0; i < cur.neighbors.size(); i++) {
+                if (!map.containsKey(cur.neighbors.get(i))){
+                    copy = new UndirectedGraphNode(cur.neighbors.get(i).label);
+                    map.put(cur.neighbors.get(i), copy);
+                    queue.offer(cur.neighbors.get(i));
+                }
+                map.get(cur).neighbors.add(map.get(cur.neighbors.get(i)));
+            }
+        }
+        return map.get(node);
+    }
+}
