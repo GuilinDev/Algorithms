@@ -1,0 +1,30 @@
+class Solution {
+    /*
+    http://blog.csdn.net/derrantcm/article/details/47997637
+    对这个数字的每个数位求平方和，如果如和为1或者平方和是之前出现过的就不进行求和，根据最后的结果判断是不是一个开心数字。 
+    */
+    public boolean isHappy(int n) {
+        if (n < 1) {
+            return false;
+        }
+        
+        //用于保存中间出现的结果
+        HashSet<Integer> set = new HashSet<>(32);
+        
+        int temp;
+        int newN;
+        
+        //n不为1，并且n的值不能重复出现，否则 会死循环
+        while (n != 1&& !set.contains(n)) {
+            set.add(n);
+            newN = 0;
+            while ( n > 0) {
+                temp = n % 10;
+                n /= 10;
+                newN += temp * temp;
+            }
+            n = newN;
+        }
+        return n == 1;
+    }
+}
