@@ -1,0 +1,36 @@
+class Solution {
+    //http://blog.csdn.net/laputafallen/article/details/79155322
+    public List<String> findRepeatedDnaSequences(String s) {
+        List<String> res = new ArrayList<>();
+        if (s == null || s.length() < 10) {
+            return res;
+        }
+        
+        //对字母编码
+        char[] map = new char[256];
+        map['A'] = 0;
+        map['C'] = 1;
+        map['G'] = 2;
+        map['T'] = 3;
+        
+        int mask = 0xfffff; //20bit,10个字母，每个字母占2bit
+        int val = 0;
+        char[] schar = s.toCharArray();
+        for (int i = 0; i < 9; i++) {//对前9位进行编码
+            val = (val << 2) | (map[schar[i]] & 3);
+        }
+        
+        byte[] bytes = new byte[1 << 20];
+        for (int i = 9; i < schar.length; i++) {
+            val = ((val << 2) & mask) | ((map[schar[i]]) & 3);//编码
+            if (bytes[val] == 1) {
+                res.add(String.valueOf(schar, i -9, 10));
+            }
+             //这里很关键,字节大小有限，若超过限制变为1，会重复加
+            if (bytes[val] < 2) {
+                bytes[val]++;
+            }
+        }
+        return res;
+    }
+}
