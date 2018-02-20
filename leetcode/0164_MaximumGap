@@ -1,0 +1,51 @@
+class Solution {
+    /*
+    这道题用桶排序来做，同一个桶里的数差值不会有不同桶间的差值大，所以找桶内最大和下一个非空桶的桶内最小进行比较即可。
+
+注意桶的个数和len的计算方法，算错答案会不对（多桶或少桶最后计算的差值肯定不对，多的话可能会取到不必要的初始值MAX_VALUE）。应该是num.length + 1个桶。
+
+为什么最大差值一定在桶间而非桶内？假如目前有5个桶，num = {1,2,3,100}，那1,2,3肯定在0号桶，100在4号桶，这种情况一定是桶间距离最大。由于桶的个数是num.length + 1，极端状态是每个桶里都有值，那最大差值也是在桶间，即桶间差值都相同。 
+    */
+    public int maximumGap(int[] nums) {
+        if (nums == null || nums.length < 2) {
+            return 0;
+        }
+        
+        // get the max and min value of the array
+        int min = nums[0];
+        int max = nums[0];
+        for (int i:nums) {
+            min = Math.min(min, i);
+            max = Math.max(max, i);
+        }
+        // the minimum possibale gap, ceiling of the integer division
+        int gap = (int)Math.ceil((double)(max - min)/(nums.length - 1));
+        int[] bucketsMIN = new int[nums.length - 1]; // store the min value in that bucket
+        int[] bucketsMAX = new int[nums.length - 1]; // store the max value in that bucket
+        Arrays.fill(bucketsMIN, Integer.MAX_VALUE);
+        Arrays.fill(bucketsMAX, Integer.MIN_VALUE);
+        // put numbers into buckets
+        for (int i:nums) {
+            if (i == min || i == max) {
+                continue;
+            }
+            int idx = (i - min) / gap; // index of the right position in the buckets
+            bucketsMIN[idx] = Math.min(i, bucketsMIN[idx]);
+            bucketsMAX[idx] = Math.max(i, bucketsMAX[idx]);
+        }
+        // scan the buckets for the max gap
+        int maxGap = Integer.MIN_VALUE;
+        int previous = min;
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (bucketsMIN[i] == Integer.MAX_VALUE && bucketsMAX[i] == Integer.MIN_VALUE) {
+                continue; // empty bucket
+            }
+            // min value minus the previous value is the current gap
+            maxGap = Math.max(maxGap, bucketsMIN[i] - previous);
+            // update previous bucket value
+            previous = bucketsMAX[i];
+        }
+        maxGap = Math.max(maxGap, max - previous); // updata the final max value gap
+        return maxGap;
+    }
+}
