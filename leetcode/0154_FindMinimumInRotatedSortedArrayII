@@ -1,0 +1,19 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/discuss/48810/Super-simple-and-clean-Java-binary-search.
+    */
+    public int findMin(int[] nums) {
+        int l = 0, r = nums.length - 1;
+        while (l < r) {
+            int mid = l + (r - l)/2;
+            if (nums[mid] < nums[r]) {//最小数在左边
+                r = mid;
+            } else if (nums[mid] > nums[r]) {//最小数在右边
+                l = mid + 1;
+            } else {
+                r--;//不二分，一个个找
+            }
+        }
+        return nums[l];//l最后会指向最小值
+    }
+}
