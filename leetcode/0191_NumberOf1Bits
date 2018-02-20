@@ -1,0 +1,19 @@
+public class Solution {
+    // you need to treat n as an unsigned value
+    /*
+    http://blog.csdn.net/wconvey/article/details/44705639
+    求一个int的n,写成二进制的形式有多少个1?
+
+1.用循环每次把n向右移动一位,判断n&1是否为1,这种方式会超时
+
+2.采用n&(n-1)
+    */
+    public int hammingWeight(int n) {
+        int total = 0;
+        while (n != 0) {
+            total++;
+            n = n&(n-1);
+        }
+        return total;
+    }
+}
