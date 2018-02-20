@@ -1,0 +1,18 @@
+public class Solution {
+    // you need treat n as an unsigned value
+    /*
+    反转一个32位无符号的整数
+    设这个数为k，用一个初值为0的数result保存反转后的结果，用1对k进行求与，其结果与result进行相加，再对k向右进行一位移位，对result向左进行一位移位。直到k的最后一位处理完。 
+    */
+    public int reverseBits(int n) {
+        int result = 0;
+        for (int i = 0; i < 32; i++) {
+            result += n & 1;//求与并和result相加
+            n >>>= 1;
+            if (i < 31) {
+                result <<= 1;
+            }
+        }
+        return result;
+    }
+}
