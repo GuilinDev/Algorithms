@@ -1,0 +1,20 @@
+class Solution {
+    /*
+    http://blog.csdn.net/gqk289/article/details/74941957
+    每个课程c是长度为2的数组，c[0]为课程时间长度，c[1]为课程最晚截止时间
+    先按照c[1]递增排序，遍历+贪心，用优先队列存已经访问过的c[0]，如果当前时间超过了c[1]，那就在优先队列内取出已有的最大c[0]，最后返回优先队列的size
+    */
+    public int scheduleCourse(int[][] courses) {
+        Arrays.sort(courses, (a, b) -> (a[1] - b[1]));
+        PriorityQueue<Integer> queue = new PriorityQueue<>((a,b) -> (b-a));
+        int time = 0;
+        for (int[] c: courses) {
+            time += c[0];
+            queue.offer(c[0]);
+            if (time > c[1]) {
+                time -= queue.poll();
+            }
+        }
+        return queue.size();
+    }
+}
