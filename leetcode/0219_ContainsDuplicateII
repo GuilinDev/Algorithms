@@ -1,0 +1,25 @@
+class Solution {
+    /*
+    输入一个整数数组和一个整数k，如果数组中存在相等的两个数，而且他们的位置差不超过k，那么返回true，否则返回false
+    这道题比较容易想到的想法就是用hashmap来存储不同值的元素的值（key）和位置信息（value）。然后在每次遍历的时候进行比较。
+但上面这个想法并不是最简单的，如果我们对任何索引大于k的元素进行遍历的时候，同时删除hashset中和当前元素的位置差已经超过k的对应元素。这样就可以减少后序查找的时间。
+这样只要新遍历到的元素的值已经存在于hashset之中，我们就可以断定，这两个元素的位置差一定是小于k的了。
+    */
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        int length = nums.length;
+        if (length <= 1) {
+            return false;
+        }
+        Set<Integer> count = new HashSet<Integer>();
+        
+        for (int i = 0; i < length; i++) {
+            if (i > k) {
+                count.remove(nums[i-k-1]);//移除
+            }
+            if (!count.add(nums[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
