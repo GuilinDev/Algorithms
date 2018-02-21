@@ -1,0 +1,34 @@
+class Solution {
+    /*
+    https://segmentfault.com/a/1190000012356519
+    这题在219-II的基础上重新定义了相同的条件，也就是如果两个值之间的绝对差不超过t，那么就可以称这两个值相同。
+这里使用了treeset作为实现的数据结构，treeset通过堆的形式对集合中的数据进行存储，从而我们可以通过某种顺序获得该集合中的所有顺序。
+    */
+    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+        if (nums == null || nums.length <= 1 || k == 0) {
+            return false;
+        }
+        TreeSet<Long> potentialNums = new TreeSet<Long>();
+        for (int i = 0; i < nums.length; i++) {
+            long curNum = nums[i];
+            
+            long ceilVal = curNum - t;
+            Long ceiling = potentialNums.ceiling(ceilVal);
+            
+            long floorVal = curNum + t;
+            Long floor = potentialNums.floor(floorVal);
+            
+            if (ceiling != null && ceiling <= curNum) {
+                return true;
+            }
+            if (floor != null && floor >= curNum) {
+                return true;
+            }
+            potentialNums.add(curNum);
+            if (i >= k) {
+                potentialNums.remove((long)nums[i-k]);
+            }
+        }
+        return false;
+    }
+}
