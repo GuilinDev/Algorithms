@@ -1,0 +1,41 @@
+class Solution {
+    /*
+    https://segmentfault.com/a/1190000003796804，使用栈
+    只有加减号，我们可以用一个变量sign来记录上一次的符号是加还是减，这样把每次读到的数字乘以这个sign就可以加到总的结果中了。有了括号后，整个括号内的东西可一看成一个东西，这些括号内的东西都会受到括号所在区域内的正负号影响（比如括号前面是个负号，然后括号所属的括号前面也是个负号，那该括号的符号就是正号）。但是每多一个括号，都要记录下这个括号所属的正负号，而每当一个括号结束，我们还要知道出来以后所在的括号所属的正负号。根据这个性质，我们可以使用一个栈，来记录这些括号所属的正负号。这样我们每遇到一个数，都可以根据当前符号，和所属括号的符号，计算其真实值。
+    时间 O(N) 空间 O(N)
+    */
+    public int calculate(String s) {
+        // 去掉所有空格
+        s = s.replace(" ", "");
+        Stack<Integer> stack = new Stack<Integer>();
+        
+        // 先压入一个1进栈，可以理解为有个大括号在最外面
+        stack.push(1);
+        int i = 0, res = 0, sign = 1;
+        while (i < s.length()) {
+            char c = s.charAt(i);
+            if (c == '+') {//遇到正号，将当前的符号变为正号
+                sign = 1;
+                i++;
+            } else if (c == '-') {//遇到负号，将当前的符号变为负号
+                sign = -1;
+                i++;
+            } else if (c == '(') {// 遇到左括号，计算当前所属的符号，压入栈中,计算方法是当前符号乘以当前所属括号的符号
+                stack.push(sign * stack.peek());
+                sign = 1;
+                i++;
+            } else if ( c == ')') { // 遇到右括号，当前括号结束，出栈
+                stack.pop();
+                i++;
+            } else {//遇到数字
+                int num = 0;
+                while (i < s.length() && Character.isDigit(s.charAt(i))) {
+                    num = num * 10 + s.charAt(i) - '0';
+                    i++;
+                }
+                res += num * sign * stack.peek();
+            }
+        }
+        return res;
+    }
+}
