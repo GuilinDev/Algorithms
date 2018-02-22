@@ -1,0 +1,47 @@
+class Solution {
+    /*
+    https://segmentfault.com/a/1190000005795730
+    对于当前表达式，对每一个操作符，将其左边的表达式组合一下搞一个list出来，将其右边的表达式组合一下搞一个List出来，用当前操作符把两个List搞一下，返回一个新的list去，代表当前表达式的所有表达式组合可取值。
+    */
+    public List<Integer> diffWaysToCompute(String input) {
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < input.length(); i++) {
+            if (isOperator(input.charAt(i))) {
+                char operator = input.charAt(i);
+                List<Integer> left = diffWaysToCompute(input.substring(0,i));
+                List<Integer> right = diffWaysToCompute(input.substring(i+1));
+                
+                for (int num1 : left) {
+                    for (int num2 : right) {
+                        result.add(calculate(num1, num2, operator));
+                    }
+                }
+            }
+        }
+        if (result.size() == 0) {
+            result.add(Integer.valueOf(input));
+        }
+        return result;
+    }
+    
+    //工具方法
+    public int calculate(int num1, int num2, char operator) {
+        int result = 0;
+        switch(operator) {
+            case '+' : result = num1 + num2;
+            break;
+
+            case '-' : result = num1 - num2;
+            break;
+
+            case '*' : result = num1 * num2;
+            break;
+        }
+        return result;
+    }
+    public boolean isOperator(char c) {
+        if (c == '+' || c == '-' || c == '*')
+            return true;
+        return false;
+    }
+}
