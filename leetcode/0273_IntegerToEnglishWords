@@ -1,0 +1,56 @@
+class Solution {
+    /*
+    每次处理三个字符
+    2^31 = 2 147 483 648，
+可以将数字转化成字符串后，每3个字符分为1组，整体字符串无非就是每组数字构成的串+“Billion/Million/Thousand”之类；可以自定义一个方法来求3位以内的数的英文表示，这里需要提前将0-9、10-19、20、30、40、...、90之类的英文表示存入数组中，以便利用下标来访问，有点儿哈希的意思。
+    非常多的corner cases
+    */
+    public String numberToWords(int num) {
+        String[] units = {"", " Thousand", " Million", " Billion"};
+        int i = 0;
+        String res = "";
+        while (num > 0) {
+            int temp = num % 1000;
+            if (temp > 0) {
+                res = convert(temp) + units[i] + (res.length() == 0 ? "" : " " + res);
+            }
+            num /= 1000;
+            i++;
+        }
+        return res.isEmpty() ? "Zero" : res;
+    }
+    public String convert(int num) {
+        String res = "";  
+        String[] ten = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};  
+        String[] hundred = {"Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};  
+        String[] twenty = {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};  
+        if(num>0) {  
+            int temp = num/100;  
+            if(temp>0) {  
+                res += ten[temp] + " Hundred";  
+            }  
+            temp = num%100;  
+            if(temp>=10 && temp<20){  
+                if(!res.isEmpty()) {
+                    res +=" ";  
+                }
+                res = res + twenty[temp%10];  
+                return res;  
+            }else if(temp>=20){  
+                temp = temp/10;  
+                if(!res.isEmpty()) {
+                    res +=" ";  
+                }
+                res = res + hundred[temp-1];  
+            }  
+            temp = num%10;  
+            if(temp>0) {  
+                if(!res.isEmpty()) {
+                    res +=" "; 
+                }
+                res = res + ten[temp];  
+            }  
+        }  
+        return res;  
+    }
+}
