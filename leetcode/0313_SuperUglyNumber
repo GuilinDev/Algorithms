@@ -1,0 +1,28 @@
+class Solution {
+    /*
+    http://blog.csdn.net/zly9923218/article/details/51010348
+    利用ugly,pointer,prime三个数组存储当前找到的所有ugly，同时存储下次可能是最小的数
+    */
+    public int nthSuperUglyNumber(int n, int[] primes) {
+        int[] pointer = new int[primes.length];
+        Arrays.fill(pointer, 0);
+        int[] ugly = new int[n];
+        ugly[0] = 1;
+        for (int i = 1; i < n; i++) {
+            int min = Integer.MAX_VALUE;
+            int minIndex = 0;
+            
+            for (int j = 0; j < primes.length; j++) {
+                if (ugly[pointer[j]] * primes[j] < min) {
+                    min = ugly[pointer[j]] * primes[j];
+                    minIndex = j;
+                } else if (ugly[pointer[j]] * primes[j] == min){
+                    pointer[j]++;
+                }
+            }
+            ugly[i] = min;
+            pointer[minIndex]++;
+        }
+        return ugly[n-1];
+    }
+}
