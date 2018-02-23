@@ -1,0 +1,8 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/power-of-two/discuss/63966/4-different-ways-to-solve-Iterative-Recursive-Bit-operation-Math
+    */
+    public boolean isPowerOfTwo(int n) {
+        return n > 0 && ((n & (n - 1)) == 0);
+    }
+}
