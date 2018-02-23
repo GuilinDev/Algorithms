@@ -1,0 +1,49 @@
+// Java Iterator interface reference:
+// https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
+class PeekingIterator implements Iterator<Integer> {
+    /*
+    本来的Iterator类里面是自带next()和hasNext()的，但是现在加了peek()之后会调用一次iterator.next(),然后iterator的顺序就乱了。
+
+所以一旦被peek过我们就需要把这个被next()弹出的元素记录下来，如果再调用next就返回这个临时的元素，再调用peek就还返回这个元素，再调用hasNext就返回有没有被peek过或者hasNext()本身
+peek()本身的时候也要检查有没有被peek过，否则会一直往后面看去，就会丢失元素
+    */
+
+    private Iterator<Integer> it;
+    private Integer next;
+    private boolean isPeeked;
+	public PeekingIterator(Iterator<Integer> iterator) {
+	    // initialize any member here.
+	    it = iterator;
+        isPeeked = false;
+	}
+
+    // Returns the next element in the iteration without advancing the iterator.
+	public Integer peek() {
+        if (isPeeked) {
+            return next;
+        } else {
+            isPeeked = true;
+            next = it.next();
+            return next;
+        }
+	}
+
+	// hasNext() and next() should behave the same as in the Iterator interface.
+	// Override them if needed.
+	@Override
+	public Integer next() {
+	    Integer res;
+        if (isPeeked) {
+            res = next;
+        } else {
+            res = it.next();
+        }
+        isPeeked = false;
+        return res;
+	}
+
+	@Override
+	public boolean hasNext() {
+	    return isPeeked ? true : it.hasNext();
+	}
+}
