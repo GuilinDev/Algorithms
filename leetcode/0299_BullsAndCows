@@ -1,0 +1,27 @@
+class Solution {
+    /*
+    A的意思是位置正确且数字正确的个数； 
+    B的意思是位置不正确但数字正确的个数。
+    */
+    public String getHint(String secret, String guess) {
+        char[] sc = secret.toCharArray();
+        char[] gc = guess.toCharArray();
+        
+        int[] secret_digits = new int[10];
+        int[] guess_digits = new int[10];
+        
+        int A = 0, total = 0;
+        for (int i = 0; i < secret.length(); i++) {
+            secret_digits[sc[i] - '0']++;
+            guess_digits[gc[i] - '0']++;
+            if (sc[i] == gc[i]) {
+                A++;
+            }
+        }
+        for (int i = 0; i < 10; i++) {
+            total += Integer.min(secret_digits[i], guess_digits[i]);
+        }
+        String ans = A + "A" + (total - A) + "B";
+        return ans;
+    }
+}
