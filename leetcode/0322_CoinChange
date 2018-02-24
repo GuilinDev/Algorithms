@@ -11,10 +11,10 @@ class Solution {
         return helper(coins, amount, new int[amount]);
     }
     private int helper(int[] coins, int rem, int[] count){ // rem: remaining coins after the last step; count[rem]: minimum number of coins to sum up to rem
-        if (rem < 0) {// not valid
+        if (rem < 0) {// not valid，没有合适的硬币数
             return -1;
         }
-        if (rem == 0) {// not valid
+        if (rem == 0) {// completed
             return 0;
         }
         if (count[rem-1] != 0) {
