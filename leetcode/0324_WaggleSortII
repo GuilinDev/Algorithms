@@ -1,0 +1,77 @@
+class Solution {
+    /*
+    virtual index - https://leetcode.com/problems/wiggle-sort-ii/discuss/77677/ono1-after-median-virtual-indexing
+    解释 - https://leetcode.com/problems/wiggle-sort-ii/discuss/77682/Step-by-step-explanation-of-index-mapping-in-Java和http://blog.csdn.net/u010005161/article/details/52047943
+    */
+     public void wiggleSort(int[] nums) {
+        if(nums == null || nums.length < 2){
+            return;
+        }
+        
+        int len = nums.length;
+        int mid = findK(nums, 0, len-1, (len+1)/2);
+        int [] ans = new int[len];
+        for(int i = 0; i<len; i++){
+            ans[i] = mid;
+        }
+        if(len%2 == 0){
+            int low = len-2;
+            int high = 1;
+            for(int i = 0; i<len; i++){
+                if(nums[i]<mid){
+                    ans[low] = nums[i];
+                    low -= 2;
+                }else if(nums[i]>mid){
+                    ans[high] = nums[i];
+                    high += 2;
+                }
+            }
+        }else{
+            int low = 0;
+            int high = len-2;
+            for(int i = 0; i<len; i++){
+                if(nums[i]<mid){
+                    ans[low] = nums[i];
+                    low += 2;
+                }else if(nums[i]>mid){
+                    ans[high] = nums[i];
+                    high -= 2;
+                }
+            }
+        }
+        
+        for(int i = 0; i<len; i++){
+            nums[i] = ans[i];
+        }
+    }
+    
+    private int findK(int [] nums, int l, int r, int k){
+        if(l == r){
+            return nums[l];
+        }
+        int pos = partition(nums, l, r);
+        if(pos + 1 == k){
+            return nums[pos];
+        }else if(pos + 1 < k){
+            return findK(nums, pos+1, r, k);
+        }else{
+            return findK(nums, l, pos-1, k);
+        }
+    }
+    
+    private int partition(int [] nums, int l, int r){
+        int pivot = nums[l];
+        while(l < r){
+            while(l<r && nums[r]>=pivot){
+                r--;
+            }
+            nums[l] = nums[r];
+            while(l<r && nums[l]<=pivot){
+                l++;
+            }
+            nums[r] = nums[l];
+        }
+        nums[l] = pivot;
+        return l;
+    }
+}
