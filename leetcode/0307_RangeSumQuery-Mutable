@@ -1,0 +1,87 @@
+class NumArray {
+    /*
+    https://www.cnblogs.com/yrbbest/p/5056739.html
+     Segment Tree线段树每一个节点都是一段线段，有start和end，然后还可以有其他的值，比如区间和sum，区间最大值max，区间最小值min。我们可以用自底向上构建二叉树的方式构建Segment Tree，这个过程也有点类似于Bottom-up的merge sort，思想也是Divide and Conquer。完毕之后就可以在O(logn)的时间update，或者得到range Sum。其实更好的方法是使用Fenwick Tree， Fenwick Tree(Binary Indexed Tree)在处理Range Query真的是一绝，构造简练，原理也精妙，还可以扩展到多维，一定要好好学一学
+     Time Complexity - O(n) build， O(logn) update, O(logn) rangeSum，  Space Complexity - O(n)
+    */
+
+    //Segement Tree    
+    private SegmentTreeNode root;
+    private int[] nums;
+    
+    public NumArray(int[] nums) {
+        this.nums = nums;
+        this.root = buildTree(0, nums.length - 1);
+    }
+
+    void update(int i, int val) {
+        update(root, i, val);
+    }
+    
+    private void update(SegmentTreeNode node, int pos, int val) {
+        if (node == null) return;
+        if (node.start == pos && node.end == pos) {
+            node.val = val;
+            nums[pos] = val;
+            return;
+        }
+        int mid = node.start + (node.end - node.start) / 2;
+        if (pos <= mid) {
+            update(node.left, pos, val);
+        } else {
+            update(node.right, pos, val);
+        }
+        node.val = node.left.val + node.right.val;
+    }
+
+    public int sumRange(int i, int j) {
+        return sumRange(root, i, j);
+    }
+    
+    private int sumRange(SegmentTreeNode node, int lo, int hi) {
+        if (lo > hi) return 0;
+        if (node.start == lo && node.end == hi) return node.val;
+        int mid = node.start + (node.end - node.start) / 2;
+        if (hi <= mid) {
+            return sumRange(node.left, lo, hi);
+        } else if (lo > mid) {
+            return sumRange(node.right, lo, hi);
+        } else {
+            return sumRange(node.left, lo, mid) + sumRange(node.right, mid + 1, hi);
+        }
+    }
+    
+    private SegmentTreeNode buildTree(int lo, int hi) {
+        if (lo > hi) return null;
+        SegmentTreeNode node = new SegmentTreeNode(lo, hi);
+        if (lo == hi) {
+            node.val = nums[lo];
+        } else {
+            int mid = lo + (hi - lo) / 2;
+            node.left = buildTree(lo, mid);
+            node.right = buildTree(mid + 1, hi);
+            node.val = node.left.val + node.right.val;
+        }
+        return node;
+    }
+    
+    private class SegmentTreeNode {
+        int start;
+        int end;
+        int val;
+        SegmentTreeNode left, right;
+        
+        public SegmentTreeNode(int start, int end) {
+            this.start = start;
+            this.end = end;
+            this.val = 0;
+        }
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray obj = new NumArray(nums);
+ * obj.update(i,val);
+ * int param_2 = obj.sumRange(i,j);
+ */
