@@ -1,0 +1,50 @@
+class Solution {
+    /*
+    http://blog.csdn.net/beiyetengqing/article/details/50621196
+    首先要求不能重复，第二要求顺序保持一致，并且尽可能排序。如果单单要求不重复，其实非常简单，用SET就能完成。关键是第二个要求，一下子把复杂程度提升了：必须保证顺序一致，而且要尽可能排序。
+
+为了说明步骤，用“bcabc”作为示例：
+
+对于第一个字符 b, 因为 b 第一次出现，我们保留下来。目前字符串为 "b".
+
+对于第二个字符 c, 因为 c 第一次出现，而且比 b 大，我们保留下来。目前字符串为 "bc".
+
+对于第三个字符 a, 因为 a 第一次出现，所以要保留，这点没有疑问。但是 a 比 b 和 c 都小，这里就要考虑两种情况：
+
+第一种情况： 如果在原字符串里，a 后面还有 b 或者 c 或者两个字符都有，这种情况下我们应该不能直接把a放在bc后面。假设在a的后面还有b，那么我们就应该把b移除，把a放在c的后面。
+
+第二种情况：如果在原字符串里，a 后面没有 b 和 c ，这种情况下我们只能直接把a放在bc后面。
+
+
+    */
+    public String removeDuplicateLetters(String s) {
+        if (s == null || s.length() <= 1) {
+            return s;
+        }
+        // 使用charCounter array，我们可以知道在某一个字符后面是否还有另一个字符。
+        int[] charCounter = new int[256];
+        for (int i = 0; i < s.length(); i++) {
+            charCounter[s.charAt(i)]++;
+        }
+        Set<Character> hashSet = new HashSet<>();
+        Stack<Character> stack = new Stack<>();
+        
+        for (int i = 0; i < s.length(); i++) {
+            if (!hashSet.contains(s.charAt(i))) {
+                while (stack.isEmpty() == false && stack.peek() > s.charAt(i) && charCounter[stack.peek()] >= 1){
+                    hashSet.remove(stack.peek());
+                    stack.pop();
+                }
+                stack.push(s.charAt(i));
+                hashSet.add(s.charAt(i));
+            }
+            charCounter[s.charAt(i)]--;
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        for (Character c : stack) {
+            sb.append(c);
+        }
+        return sb.toString();
+    }
+}
