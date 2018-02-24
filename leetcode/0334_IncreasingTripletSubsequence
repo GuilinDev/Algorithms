@@ -1,0 +1,19 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/increasing-triplet-subsequence/discuss/79004/Concise-Java-solution-with-comments.
+    */
+    public boolean increasingTriplet(int[] nums) {
+         // 从两个较大的数开始, as soon as we find a number bigger than both, while both have been updated, return true.
+        int small = Integer.MAX_VALUE, big = Integer.MAX_VALUE;
+        for (int n : nums) {
+            if (n <= small) {//如果n比small和big都小，就更新small为n
+                small = n;
+            } else if (n <= big) {//如果n比small大，但是比big小，更新big为n
+                big = n;
+            } else {//如果n比small和big都大，说明存在这么一个序列，满足条件直接返回
+                return true;
+            }
+        }
+        return false;
+    }
+}
