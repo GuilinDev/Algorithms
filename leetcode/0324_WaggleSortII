@@ -1,7 +1,7 @@
 class Solution {
     /*
     virtual index - https://leetcode.com/problems/wiggle-sort-ii/discuss/77677/ono1-after-median-virtual-indexing
-    解释 - https://leetcode.com/problems/wiggle-sort-ii/discuss/77682/Step-by-step-explanation-of-index-mapping-in-Java和http://blog.csdn.net/u010005161/article/details/52047943
+    解释 - https://leetcode.com/problems/wiggle-sort-ii/discuss/77682/Step-by-step-explanation-of-index-mapping-in-Java和https://www.cnblogs.com/Dylan-Java-NYC/p/5186774.html
     */
      public void wiggleSort(int[] nums) {
         if(nums == null || nums.length < 2){
