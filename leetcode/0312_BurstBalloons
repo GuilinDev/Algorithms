@@ -1,0 +1,36 @@
+class Solution {
+    /*
+    https://segmentfault.com/a/1190000007297715
+    DP的思想是bottom up, 每次的想法是设置一个window size = k, 并且这是left和right的window范围。在某一个window之下，考虑这个window内的能够组成的最大值，不断的扩大这个window size进行搜索。
+    O(N^2), O(N^2)
+    */
+    public int maxCoins(int[] nums) {
+        // 开头和结尾补充1，用来处理两侧的可能性。
+        int[] iNums = new int[nums.length + 2];
+        int n = 1;
+        
+        for (int x : nums) {
+            if (x > 0) {
+                iNums[n] = x;
+                n++;
+            }
+        }
+        iNums[0] = iNums[n] = 1;
+        n++;
+        
+        // dp[i][j]表示从i到j这个window范围内，能组成的最大值
+        int[][] dp = new int[n][n];
+        
+        // 设置window间隔
+        for (int k = 2; k < n; k++) {
+            for (int left = 0; left < n - k; left++) {
+                // window[left, right]
+                int right = left + k;
+                for (int i = left + 1; i < right; i++) {
+                    dp[left][right] = Math.max(dp[left][right], iNums[left] * iNums[i]*iNums[right] + dp[left][i] + dp[i][right]);
+                }
+            }
+        }
+        return dp[0][n-1];
+    }
+}
