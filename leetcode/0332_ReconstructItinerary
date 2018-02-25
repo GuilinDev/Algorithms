@@ -1,0 +1,28 @@
+class Solution {
+    /*
+    http://blog.csdn.net/smileyk/article/details/50831953
+    这是一道经典的图论问题，本质上是欧拉路径/七桥问题/一笔画问题。
+
+实际上，这道题目是计算最小的欧拉路径。通过分析可以知道：
+如果一个有向图，存在欧拉路径（不是欧拉回路），那么图中的点最多只可能有两个点：degree（入）!=degree（出），并且这两个点，一个入度>出度，一个入度<出度；也有可能所有点degree（入）==degree（出），则存在欧拉回路
+很明显，既然题目保证存在欧拉路径，那么JFK就是那个入度<出度的点，并且存在一个点入度>出度；或者所有点入度==出度
+贪心法：从JFK开始，每次选取最小路径走，如果走不下去，只有可能遇到了终结点PP（那个入度>出度的点），这样就形成了从JFK到PP的主路径。剩下没走的边只有可能形成环，只要将环并入到主路径上就完成了最小欧拉路径的搜索！！
+    */
+    public List<String> findItinerary(String[][] tickets) {
+        for (String[] ticket: tickets) {
+            targets.computeIfAbsent(ticket[0], k -> new PriorityQueue()).add(ticket[1]);//JAVA8的Map接口中，增加了一个方法computeIfAbsent,https://www.cnblogs.com/CarpenterLee/p/6507161.html
+        }
+        visit("JFK");
+        return route;
+    }
+    
+    Map<String, PriorityQueue<String>> targets = new HashMap<>();
+    List<String> route = new LinkedList();
+    
+    private void visit(String airport) {
+        while (targets.containsKey(airport) && !targets.get(airport).isEmpty()) {
+            visit(targets.get(airport).poll());
+        }
+        route.add(0, airport);
+    }  
+}
