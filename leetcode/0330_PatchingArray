@@ -1,0 +1,21 @@
+class Solution {
+    /*
+    http://blog.csdn.net/happyaaaaaaaaaaa/article/details/50899547
+    这道题给我们一个有序的正数数组nums，又给了我们一个正整数n，问我们最少需要给nums加几个数字，使其能组成[1,n]之间的所有数字，注意数组中的元素不能重复使用，否则的话只有要有1，就能组成所有的数字了。
+    */
+    public int minPatches(int[] nums, int n) {
+        int patchCount = 0;
+        int index = 0;
+        long miss = 1;
+        while (miss <= n) {
+            if (index < nums.length && nums[index] <= miss) {
+                miss += nums[index];
+                index++;
+            } else {
+                miss += miss;
+                patchCount++;
+            }
+        }
+        return patchCount;
+    }
+}
