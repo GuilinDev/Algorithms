@@ -1,0 +1,34 @@
+class Solution {
+    /*
+    http://blog.csdn.net/littleorange6/article/details/50625880
+    第一种思路：一个可以恢复成二叉树的字串－根节点＋左子树的字串＋右子树的字串，用递归的方法来判断
+第二种思路：通过二叉树的性质，所有二叉树中Null指针的个数=节点个数+1。因为一棵树要增加一个节点，必然是在null指针的地方增加一个叶子结点，也就是毁掉一个null指针的同时带来两个null指针，意味着每增加一个节点，增加一个null指针。然而最开始一颗空树本来就有一个null指针，因此二叉树中null指针的个数等于节点数+1。从头开始扫描这个字串，如果途中#的个数超了，或者字符串扫描完不满足等式则返回false。
+    */
+    public boolean isValidSerialization(String preorder) {
+        //这里练习第一种思路，根左右
+        if (preorder == null) {
+            return false;
+        }
+        String[] pre = preorder.split(",");
+        pointer p = new pointer();
+        return helper(pre, p) && p.val == pre.length;
+    }
+    
+    private boolean helper(String[] pre, pointer p) {
+        if (p.val > pre.length - 1) {
+            return false;
+        }
+        if (pre[p.val].equals("#")) {
+            p.val++;
+            return true;
+        } else {
+            p.val++;
+            return helper(pre, p) && helper(pre, p);
+        }
+    }
+    
+    //内部类定义节点的值
+    class pointer{
+        int val = 0;
+    }
+}
