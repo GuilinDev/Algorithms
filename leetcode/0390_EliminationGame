@@ -1,0 +1,18 @@
+class Solution {
+    /*
+    http://blog.csdn.net/corpsepiges/article/details/52573281
+    思路：逐个删除的思路肯定是超时的。注意到第一次1……n从左到右删除后剩下的是2,4,6,8……这个问题等效于1……n/2（向下取证）从右往左的答案*2。那么再考虑从右往左1……2k+1,和从左往右的效果是等同的，1……2k,则剩下1,3,5,7,9,……等效于2a-1
+
+那么可以递归求解。
+    */
+    public int lastRemaining(int n) {
+        return f(n, true);
+    }
+    private int f(int n, boolean flag) {
+        if (n <= 2) {
+            return flag ? n : 1;
+        } else {
+            return 2*f(n/2, !flag) - (((n&1) == 0 && !flag) ? 1 : 0);
+        }
+    }
+}
