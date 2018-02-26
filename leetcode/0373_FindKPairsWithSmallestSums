@@ -1,0 +1,38 @@
+class Solution {
+    /*
+    https://www.programcreek.com/2015/07/leetcode-find-k-pairs-with-smallest-sums-java/
+    This problem is similar to Super Ugly Number. The basic idea is using an array to track the index of the next element in the other array.
+
+The best way to understand this solution is using an example such as nums1={1,3,11} and nums2={2,4,8}.
+    */
+    public List<int[]> kSmallestPairs(int[] nums1, int[] nums2, int k) {  
+        List<int[]> result = new ArrayList<int[]>();
+ 
+        k = Math.min(k, nums1.length*nums2.length);
+
+        if(k==0)
+            return result;
+
+        int[] index = new int[nums1.length];
+
+        while(k>0){
+            int min = Integer.MAX_VALUE;
+            int t=0;
+            for(int i=0; i<nums1.length; i++){
+                if(index[i]<nums2.length && nums1[i]+nums2[index[i]]<min){
+                    t=i;
+                    min = nums1[i]+nums2[index[i]];
+                }
+            }
+
+            int[] arr = {nums1[t], nums2[index[t]]};    
+            result.add(arr);
+
+            index[t]++;
+
+            k--;
+        }
+
+        return result;
+    }  
+}
