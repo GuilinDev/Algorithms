@@ -1,0 +1,46 @@
+class Solution {
+    /*
+    http://blog.csdn.net/corpsepiges/article/details/52276980
+    把每个数当做11进制来看，先确定好数的范围，根据n可以知道最大为k位数，然后把每个数都转成11进制，不足k位的后面补x补齐。
+
+每个位置上面，x表示0，其他10个数字表示自身+1，这是一个11进制，然后转化成10进制即可知道位置。
+    */
+    public List<Integer> lexicalOrder(int n) {
+        ///k表示最大的数字的位数  
+        int k = 0;
+        int m = n;
+        while (n != 0) {
+            k += 1;
+            n /= 10;
+        }
+        int sum = (int)Math.pow(11, k);
+        int[] nums = new int[sum];
+        for (int i = 1; i <= m; i++) {
+            nums[transfer(i, k)] = i;
+        }
+        
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                list.add(nums[i]);
+            }
+        }
+        return list;
+    }
+    
+    //求每个元素转化后对应的数字，取11进制，每个数设为k位数，如果不足就当后面补x补齐，x当做0，其他每个数当做其+1  
+    private int transfer(int n, int k) {
+        int ans = 0;
+        int b = 1;
+        for (int i = 0; i < k; i++) {
+            if (n != 0) {
+                ans += (b*(n%10 + 1));
+                b *= 11;
+                n /= 10;
+            } else {
+                ans *= 11;
+            }
+        }
+        return ans;
+    }
+}
