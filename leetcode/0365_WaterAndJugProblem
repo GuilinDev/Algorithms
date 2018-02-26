@@ -1,0 +1,45 @@
+class Solution {
+    /*
+    http://blog.csdn.net/aishangyutian12/article/details/51762532
+    给定两个容量分别为x和y升的罐子。提供无限容量的水。你需要判断用这两个罐子是否可以恰好量出z升的体积。到最后量出的z升体积可以由一到两个罐子装着。
+
+允许的操作包括：
+
+1、将任意罐子灌满。
+
+2、将任意罐子清空。
+
+3、将任意罐子的水倒入另一个罐子，直到另一个罐子倒满或者自己为空为止。
+
+思路：
+
+求最大公约数GCD（Greatest Common Divisor)。
+
+如果x与y互质（最大公约数为1），则容量范围[1, max(x, y)]之内的任意整数体积均可以通过适当的操作得到。
+
+否则，记x与y的最大公约数为gcd，则可以获得的容量z只能为gcd的整数倍，且z <= max(x, y)。
+
+    */
+    public boolean canMeasureWater(int x, int y, int z) {
+        //最后可量的水可以装在一个或者两个罐子内
+        if ( x + y < z) {
+            return false;
+        }
+        //x或者y为0的情况
+        if (x == z || y == z || x+y == z) {
+            return true;
+        }
+        //利用得到的最大公约数
+        return z%GCD(x, y) == 0;
+    }
+    
+    //得到最大公约数
+    private int GCD(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a%b;
+            a = temp;
+        }
+        return a;
+    }
+}
