@@ -1,0 +1,52 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    
+    /*
+    蓄水池算法，即更改ans的概率为1/（当前length)
+    1、传说中的蓄水池抽样算法（此处水池大小为1），共有N个元素，等概推导：假定第m个选中的概率为1/m，则结果为1/m*(1-1/(m+1))…….(1-1/(N-1))(1-1/N)=1/m(m/(1+m))……((N-2)/(N-1))*((N-1)/N)=1/N。可见他的出现是所有数字中等概出现的。至于为什么不算前面的，因为我现在已经处理到了第m个，保存到了该值，只有后面的结果对他有影响。 
+2、随机数产生：
+
+uniform_int_distribution<unsigned> u(0,i);
+default_random_engine e(rand());
+unsigned int m=u(e);
+1
+2
+3
+第一条语句是分布类型，闭区间[a,b]；第二条语句是引擎；第三条映射（将分布类型映射到指定引擎）。注意到给引擎的种子，是为了不让序列重复。本来可以用time(0)，但发现循环不管用，后来用rand()发现不会，百度得知他会在动调用srand()。另外，对于static，他可以让随机数接二连三产生，而不是重复的从一个地方产生。但在这里环境不能用，在vs里面尝试发现也不行，每次都会选中末尾元素，暂时还没有找出原因。 
+3、蓄水池抽样算法（水池大小为K）：此时我们需要先给水池填满前K值，然后再由后续的值进行替换。思路都是一样的，推导由前面的1换成K就好了。
+    */
+    
+    private ListNode head;
+
+    /** @param head The linked list's head.
+        Note that the head is guaranteed to be not null, so it contains at least one node. */
+    public Solution(ListNode head) {
+        this.head = head;   
+    }
+    
+    /** Returns a random node's value. */
+    public int getRandom() {
+        ListNode p = head;
+        int ans = p.val;
+        for (int i = 1; p.next != null; i++) {
+            p = p.next;
+            if ((int) (Math.random() * (i+1)) == i) {
+                ans = p.val;
+            }
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution obj = new Solution(head);
+ * int param_1 = obj.getRandom();
+ */
