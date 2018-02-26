@@ -1,0 +1,51 @@
+class Solution {
+    /*
+    http://blog.csdn.net/yeqiuzs/article/details/52368967
+    思路: 这是google的OA题目, 改了一些, 原来是求图片文件的路径和, 这里只求最大的文件数, 但是思路还是一样的.
+
+可以借助一个栈来保存当前层的路径, 层数可以利用tab字符的个数来确定, 如果当前行的层数大于栈顶元素并且非文件, 就可以让其进入栈, 否则如果当前行是文件就可以比较大小, 或者如果当前行是目录但是深度小于等于栈顶元素, 就可以将栈顶元素出栈, 直到为空或者小于当前行的深度.
+
+    */
+    public int lengthLongestPath(String input) {
+        List<Integer> lenOfLevel = new ArrayList<>();
+        int max = 0, level = 0, preIndex = 0;
+        input = input + '\n';//使得每个路径token后都接一个\n，便于统一处理
+        boolean isFile = false;
+        
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == '.') {// 当前路径是否包含文件 
+                isFile = true;
+            }
+            
+            if (input.charAt(i) != '\n') {// 换一行 
+                continue;
+            }
+            
+            int tokenLen = i - preIndex + 1;//一个目录token的长度 
+            int temp = tokenLen;
+            if (level - 1 >= 0) {// 如果当前路径有上一层 
+                temp += lenOfLevel.get(level - 1);// 则绝对路径长度需要加上上一层绝对路径长度  
+            }
+            
+            if (level <= lenOfLevel.size() - 1) {// 当前路径有比它更深层的路径 
+                lenOfLevel.set(level, temp);
+            } else {
+                lenOfLevel.add(temp);// 当前路径是目前遇到的最深的路径 
+            }
+            
+            if (isFile) {// 当前绝对路径包含文件，则是一条可以计算长度的有效路径 
+                max = Math.max(max, temp);// 更新max 
+                isFile = false;
+            }
+            
+            int nIndex = i;// 更新待计算token的level 
+            i++;
+            while (i < input.length() && input.charAt(i) == '\t') {
+                i++;
+            }
+            level = i - nIndex - 1;
+            preIndex = i;// 更新待计算token的起始位置  
+        }
+        return max - 1 >= 0 ? max - 1 : 0;
+    }
+}
