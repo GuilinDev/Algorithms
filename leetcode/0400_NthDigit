@@ -1,0 +1,37 @@
+class Solution {
+    /*
+    http://blog.csdn.net/styshoo/article/details/52908420
+    此题目的意思就是将所有的数字打开，从第一个往后数，看第几位是哪个数字
+    1~9 9个数 9*1=9个digit 
+    10~99 90个数 90*2=180个digit 
+    100~999 900个数 900*3=2700个digit 
+    10^k ~ k个9连成的数 9*10^k个数 (90*10^k)*k个digit
+
+    所以给点n，首先确定在几位数之间，如在1000~9999还是在其他之间？然后确定是该区间的哪个数？最后确定是该数字的哪个digit？ 
+    注意防止溢出。
+    */
+    public int findNthDigit(int n) {
+        // 该范围内所有实际数字都占用了digit个单数字
+        int digit = 1;
+        // 该范围之前的所有实际数字已经占用了totalDigit个单数字
+        long totalDigit = 0;
+        // 先查出区间范围
+        while (true) {
+            long top = totalDigit + digit*9*(long)Math.pow(10, digit - 1);
+            if (n >= totalDigit && n <= top) {
+                break;
+            }
+            totalDigit = top;
+            digit++;
+        }
+        // 根据范围算出具体的值
+        int start = (int)Math.pow(10, digit - 1);
+        int ret = 0;
+        totalDigit += 1;
+        
+        // 第n个digit在哪个具体的实际数字上
+        int value = start + (n - (int)totalDigit) / digit;
+        ret = Integer.toString((int)value).charAt((int)((n-totalDigit)%digit)) - '0';
+        return ret;
+    }
+}
