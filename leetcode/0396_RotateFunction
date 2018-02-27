@@ -1,0 +1,26 @@
+class Solution {
+    /*
+    http://blog.csdn.net/u013325815/article/details/52522176
+    F(0),F(1),F(2),F(3)之间是有关系的，第一个F(0)算出来之后，之后所有的值都可以用之前值推导出来，F(1) = F(0) + sum - 4×A[A.length-i],这里的4就是A的长度，然后注意int的最大值最小值问题，一律转换成long来求解就可以了。所有的变量也要是long就可以了。另外，max一定要赋值成Long.MIN_VALUE; 扫描两遍O(n).
+    */
+    public int maxRotateFunction(int[] A) {
+        if (A ==  null || A.length == 0) {
+            return 0;
+        }
+        long[] dp = new long[A.length];
+        long max = Long.MIN_VALUE;
+        long sum = 0;
+        
+        for (int i = 0; i < A.length; i++) {
+            dp[0] += i * A[i];
+            sum += A[i];
+        }
+        max = Math.max(max, dp[0]);
+        
+        for (int i = 1; i < A.length; i++) {
+            dp[i] = dp[i-1] + sum - A.length*A[A.length-i];
+            max = Math.max(max, dp[i]);
+        }
+        return (int)max;
+    }
+}
