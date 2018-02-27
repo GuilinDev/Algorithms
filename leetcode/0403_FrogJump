@@ -1,0 +1,51 @@
+class Solution {
+    /*
+    https://segmentfault.com/a/1190000007648898
+    有点类似于jump game， 只不过这里对步数有了隐形的要求，当前步数和之前步数有关。
+如果我们用brute force的方法来解，每一步有三种可能，一共n个石头，时间复杂度就是O(3^n)。
+这其中有很多步数是多余的，第i个石头无法从任何一个石头到达，那么我们应该立即中止搜寻。
+还有一个石头可能由之前的多个石头到达，这又是可以优化的地方。
+当前结果可由之前的结果得出，且有重复的搜索方法，就需要用DP。
+暴力搜索其实可以通过的
+    */
+    public boolean canCross(int[] stones) {
+        if (stones[1] != 1) {
+            return false;
+        }
+        int n = stones.length;
+        int[][] dp = new int[n][n];// for ith stones, j means maximun previous steps
+        
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                dp[i][j] = -1;
+            }
+        }
+        return canCross(dp, stones, 0, 0, n);
+    }
+    
+    private boolean canCross(int[][] dp, int[] stones, int i, int j, int n) {
+        if (dp[i][j] != -1) {
+            return dp[i][j] == 1;
+        }
+        if (i == n-1) {
+            dp[i][j] = 1;
+            return true;
+        }
+        
+        for (int k = i + 1; k < n; k++) {
+            if (stones[k] < stones[i] + j - 1) {//too close
+                continue;
+            } else if (stones[k] > stones[i] + j + 1) {//too far
+                dp[i][j] = 0;
+                continue;
+            } else {// j-1, j, j+1 three possibility 
+                if (canCross(dp, stones, k, stones[k] - stones[i], n)) {
+                    dp[i][j] = 1;
+                    return true;
+                }
+            }
+        }
+        dp[i][j] = 0;
+        return false;
+    }
+}
