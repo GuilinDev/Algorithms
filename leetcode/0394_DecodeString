@@ -1,0 +1,43 @@
+class Solution {
+    /*
+    http://blog.csdn.net/awawfwfw/article/details/52963811
+    */
+    public String decodeString(String s) {
+        if (s == null || s.length() == 0) {
+            return "";
+        }
+        String res = "";
+        Stack<Integer> countStack = new Stack<>();
+        Stack<String> resStack = new Stack<>();
+        
+        int i = 0;
+        while (i < s.length()) {
+            if (Character.isDigit(s.charAt(i))) {
+                //可能是一个》10的数字 
+                int count = 0;
+                while (Character.isDigit(s.charAt(i))) {
+                    count = count * 10 + (s.charAt(i) - '0');
+                    i++;
+                }
+                countStack.push(count);
+            } else if (s.charAt(i) == '[') {
+                resStack.push(res);
+                res = "";
+                i++;
+            } else if (s.charAt(i) == ']') {
+                StringBuffer sb = new StringBuffer(resStack.pop());
+                int times = countStack.pop();
+                for (int x = 0; x < times; x++) {
+                    sb.append(res);
+                }
+                res = sb.toString();
+                i++;
+            } else {
+                //如果是string, 那么继续加  
+                res += s.charAt(i);
+                i++;
+            }
+        }
+        return res;
+    }
+}
