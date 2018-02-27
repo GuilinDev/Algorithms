@@ -1,0 +1,55 @@
+class Solution {
+    /*
+    http://blog.csdn.net/mebiuw/article/details/52724293
+    这道题discuss上说的是2分查找
+1、首先这个区间的值肯定是在[最大的单个数，所有数组只和] 中间的 
+2、利用二分查找的思想进行查找，查找范围和1的标注那个一样，必须要那个 
+3、查找时用valid验证，对于当前这个值，能否合法的划分出来？是多了还是少了，所谓的不合法就是说对于给定值，必须要划分了多余m个区间，才能让给定值是所有划分区间里最大值小于等于给定值
+    */
+    public int splitArray(int[] nums, int m) {
+        /**
+     *  这个数肯定介于最大的那一个单值和所有元素只和的中间
+     * */
+        long sum = 0;
+        int max = 0;
+        for (int num : nums) {
+            max = Math.max(max, num);
+            sum += num;
+        }
+        return (int)binarySearch(nums, m, sum, max);
+    }
+    
+    //binary search
+    private long binarySearch(int[] nums, int m, long high, long low) {
+        long mid = 0;
+        while (low < high) {
+            mid = low + (high - low)/2;
+            //验证是否满足,也就是这么大的值有可能出现么
+            if (valid(nums, m, mid)) {
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return high;
+    }
+    /**
+     * 验证这个值是否合法
+     * */
+    private boolean valid(int[] nums, int m, long max) {
+        int cur = 0;
+        int count = 1;
+        //是否有多余m个片段or区间，大于给定值的max的，如果有了，那么就不合法了，因为这样划分就不止m个，及max太小
+        for (int num : nums) {
+            cur += num;
+            if (cur > max) {
+                cur = num;
+                count++;
+                if (count > m) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
