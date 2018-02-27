@@ -1,0 +1,20 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/binary-watch/discuss/88458/simple-pythonjava
+    1,2,4,8都是2的整数倍，每个数都只有1个bit，那么就是搜索所有的解空间，看哪几个数的bit之和等于num，不过谁能想到Integer有bitCount这个method呢？ %02d，0表示数字前面补0.
+    */
+    public List<String> readBinaryWatch(int num) {
+        List<String> list = new ArrayList<String>();
+        if (num < 0) {
+            return list;
+        }
+        for (int h = 0; h < 12; h++) {
+            for (int m = 0; m < 60; m++) {
+                 if (Integer.bitCount(h) + Integer.bitCount(m) == num) {//看哪几个数的bit之和等于num
+                    list.add(String.format("%d:%02d", h, m));
+                }
+            }
+        }
+        return list;
+    }
+}
