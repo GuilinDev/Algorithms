@@ -1,0 +1,37 @@
+class Solution {
+    /*
+    http://blog.csdn.net/mebiuw/article/details/52511992
+    给了一个数组，包含若干数，可能有重复，然后再给一个数，查找其位置，如果这个数在数组中只出现了一次就返回那个位置，如果不止一次就随机返回一个。
+
+因为不让用额外空间，所以只能暴力查找了。。 
+关键在于如何做到随机？这个直接看代码，有个模板类似的东西，之前leetcode有一系列的
+    */
+
+    private int[] nums;
+    private Random random;
+    
+    public Solution(int[] nums) {
+        this.nums = nums;
+        this.random = new Random();
+    }
+    
+    public int pick(int target) {
+        int result = -1;
+        int upbound = 1;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == target) {
+                if (random.nextInt(upbound) == 0) {
+                    result = i;
+                }
+                upbound++;
+            }
+        }
+        return result;
+    }
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution obj = new Solution(nums);
+ * int param_1 = obj.pick(target);
+ */
