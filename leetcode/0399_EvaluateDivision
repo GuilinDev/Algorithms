@@ -1,0 +1,58 @@
+class Solution {
+    /*
+    https://segmentfault.com/a/1190000008330883
+    无向图里找路径的问题，用邻接链或者邻接矩阵来建图，用邻接链的话注意两个方向，a/b的时候，既要把b加到a的邻接list里，也要把a加到b的邻接list里面。建好图之后就是查找了，图里面查找用bfs或者dfs都可以，dfs写起来简单点。复杂度没什么差别都是O(V+E)，这道题里面E = equations.length, V最多是2E，所以每次查找的复杂度是O(equations.length)，有queries.length次查找。注意防止重复路径，要用visited。
+    */
+    public double[] calcEquation(String[][] equations, double[] values, String[][] queries) {
+        // build graph, use adjacent list
+        map = new HashMap();
+        for(int i = 0; i < equations.length; i++) {
+            String[] equation = equations[i];
+            if(!map.containsKey(equation[0])) {
+                map.put(equation[0], new ArrayList());
+            }
+            map.get(equation[0]).add(new Info(equation[1], values[i]));
+            
+            if(!map.containsKey(equation[1])) {
+                map.put(equation[1], new ArrayList());
+            }
+            map.get(equation[1]).add(new Info(equation[0], 1 / values[i]));
+        }
+        
+        double[] result = new double[queries.length];
+        for(int i = 0; i < result.length; i++) {
+            result[i] = find(queries[i][0], queries[i][1], 1, new HashSet());
+        }
+        return result;
+    }
+    HashMap<String, List<Info>> map;
+    
+    private double find(String start, String end, double value, Set<String> visited) {
+        if(visited.contains(start)) {
+            return -1;
+        }
+        if(!map.containsKey(start)) {
+            return -1;
+        }
+        
+        if(start.equals(end)) {
+            return value;
+        }
+        visited.add(start);
+        for(Info next : map.get(start)) {
+            double sub = find(next.den, end, value * next.val, visited);
+            if(sub != -1.0) {
+                return sub;
+            }
+        }
+        
+        visited.remove(start);
+        return -1;
+    }
+    
+    class Info {
+        String den;
+        double val;
+        Info(String den, double val) { this.den = den; this.val = val; }
+    }
+}
