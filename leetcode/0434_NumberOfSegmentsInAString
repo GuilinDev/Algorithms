@@ -1,0 +1,16 @@
+class Solution {
+    /*
+    Time complexity:  O(n)
+    Space complexity: O(1)
+    */
+    public int countSegments(String s) {
+        s = s.trim();
+        int result = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) != ' ' && (i == 0 || s.charAt(i-1) == ' ')) {
+                result++;
+            }
+        }
+        return result;
+    }
+}
