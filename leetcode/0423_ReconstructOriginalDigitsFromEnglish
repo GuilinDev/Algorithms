@@ -1,0 +1,67 @@
+class Solution {
+    /*
+    给定一个非空字符串，包含一组乱序的英文字母表示的数字0-9，按递增序输出这些数字。
+    https://leetcode.com/problems/reconstruct-original-digits-from-english/discuss/91207/one-pass-O(n)-JAVA-Solution-Simple-and-Clear
+    
+    // zero one two three four five six seven eight nine ten
+    // z 0
+    // e 0 1 3 3 5 7 7 8 9
+    // r 0 3 4
+    // o 0 1 2 4
+    // n 1 7 9 9
+    // t 2 3 8
+    // w 2
+    // h 3 8
+    // f 4 5
+    // u 4
+    // i 5 6 8 9
+    // v 5 7
+    // s 6 7
+    // x 6
+    // g 8
+    */
+    public String originalDigits(String s) {
+        
+        int[] count = new int[26];
+        int[] ret = new int[10];
+        String[] word = {"zero","one","two","three","four","five","six","seven","eight","nine"};
+        
+        //count number of zero by char z
+        for (char c : s.toCharArray())
+            count[c - 'a']++;
+
+        ret[0] = count['z' - 'a'];//z is unquely representation zero
+        ret[2] = count['w' - 'a'];//w is unquely representation two
+        ret[4] = count['u' - 'a'];
+        ret[6] = count['x' - 'a'];
+        ret[8] = count['g' - 'a'];
+        
+        //remove word 0, 2, 4, 6, 8 from string s
+        for (int i = 0; i < 10; i++)
+            for (char c : word[i].toCharArray())
+                count[c - 'a'] -= ret[i];
+        
+        //now 1, 3, 5, 7 can be uniquely identified by certain letters
+        ret[1] = count['o' - 'a'];
+        ret[3] = count['t' - 'a'];
+        ret[5] = count['f' - 'a'];
+        ret[7] = count['s' - 'a'];
+
+        //remove word 1, 3, 5, 7 from string s
+        for (int i = 1; i <= 7; i = i + 2)
+            for (char c : word[i].toCharArray())
+                count[c - 'a'] -= ret[i];
+        
+        //what is left is 9
+        ret[9] = count['i' - 'a'];
+        
+        StringBuffer sb = new StringBuffer();
+        
+        for (int i = 0; i < 10; i++)
+            for (int j = 0; j < ret[i]; j++)
+                sb.append(i);
+                
+        return sb.toString();
+
+    }
+}
