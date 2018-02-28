@@ -1,0 +1,32 @@
+class Solution {
+    /*
+    https://segmentfault.com/a/1190000007283296
+    利用XOR的性质，a^b = c, 则有 a^c = b，且 b^c = a;
+所以每次从高位开始，到某一位为止，所能获得的最大的数。设置变量mask用来表示能形成的值，每一次将mask和其他的num相与得到的值加入set，表示在当前这一位上，数组里有这么多prefix。
+
+假定在某一位上的任意两数xor能得到的最大值是tmp,那么他一定满足a(xor)b = tmp,其中set.contains(a) && set.contains(b). 所以，我们只需要判断b(xor)tmp的结果是不是在当前这一位下的set内，就可以知道这个tmp能不能又这个set中的任意两个数组成。
+    */
+    public int findMaximumXOR(int[] nums) {
+        int max = 0, mask = 0;
+        // test each bit pose, 判断能不能构成所需要的值；
+        for (int i = 31; i >= 0; i--) {
+            // 每次都在之前的基础上更新mask
+            mask = mask | (1 << i);
+            Set<Integer> set = new HashSet<>();
+            for (int num : nums) {
+                // add the number which has the mask as its prefix;
+                set.add(num & mask);
+            }
+            // 假设当前所能达到的最大值是这个temp值；
+            int temp = max | (1 << i);
+            for (Integer prefix : set) {
+                if (set.contains(prefix ^ temp)) {
+                    // 如果能组成就直接break 
+                    max = temp;
+                    break;
+                }
+            }
+        }
+        return max;
+    }
+}
