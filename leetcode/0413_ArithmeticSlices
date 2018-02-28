@@ -1,0 +1,20 @@
+class Solution {
+    /*
+i) We need minimum 3 indices to make arithmetic progression,
+ii) So start at index 2, see if we got two diffs same, so we get a current 1 arith sequence
+iii) At any index i, if we see it forms arith seq with former two, that means running (curr) sequence gets extended upto this index, at the same time we get one more sequence (the three numbers ending at i), so curr++. Any time this happens, add the curr value to total sum.
+iv) Any time we find ith index does not form arith seq, make currently running no of seqs to zero.
+    */
+    public int numberOfArithmeticSlices(int[] A) {
+        int curr = 0, sum = 0;//curr记录当前的slices，sum记录总的slices
+        for (int i = 2; i < A.length; i++) {//从第三位开始
+            if (A[i] - A[i-1] == A[i-1] - A[i-2]) {//只要移动一位curr便多加一个slice
+                curr += 1;
+                sum += curr;
+            } else {//否则设为0
+                curr = 0;
+            }
+        }
+        return sum;
+    }
+}
