@@ -1,0 +1,24 @@
+class Solution {
+    /*
+    http://blog.csdn.net/xiangwanpeng/article/details/53033819
+    水平方向或者竖直方向上的'X'集合算一条军舰，不能拐弯，不会出现两条军舰挨着的情况。
+
+思路：
+
+解法一、一种解法是深度优先遍历，用两层循环对所有位置进行遍历，遇到没被访问过的‘X’则军舰数加1，然后从该点开始进行深度优先遍历，将代表该军舰的所有‘X’标记为访问过的状态。
+
+解法二、题目进阶要求一次遍历完，并且使用O(1)的空间复杂度，那么就不能像解法一那样再声明一个记录访问标志的二维数组。我们可以通过军舰的起点计算军舰数，所谓起点，就是指一条军舰上最左边的那个‘X’或者最上面的那个‘X’。
+    */
+    public int countBattleships(char[][] board) {
+        int res = 0, height = board.length, width = board[0].length, i, j;
+        for (i = 0; i < height; i++) {
+            for (j = 0; j < width; j++) {
+                if (board[i][j] == '.' || (i > 0 && board[i-1][j] == 'X') || (j > 0 && board[i][j-1] == 'X')) {
+                    continue;
+                }
+                res++;
+            }
+        }
+        return res;
+    }
+}
