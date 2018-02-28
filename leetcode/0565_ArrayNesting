@@ -1,0 +1,19 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/array-nesting/discuss/102432/C++-Java-Clean-Code-O(N)
+    这道题让我们找嵌套数组的最大个数，给的数组总共有n个数字，范围均在[0, n-1]之间，题目中也把嵌套数组的生成解释的很清楚了，其实就是值变成坐标，得到的数值再变坐标。那么实际上当循环出现的时候，嵌套数组的长度也不能再增加了，而出现的这个相同的数一定是嵌套数组的首元素
+    */
+    public int arrayNesting(int[] nums) {
+        int maxSize = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int size = 0;
+            for (int k = i; nums[k] >= 0; size++) {
+                int numsK = nums[k];
+                nums[k] = -1;// mark a[k] as visited;
+                k = numsK;
+            }
+            maxSize = Integer.max(maxSize, size);
+        }
+        return maxSize;
+    }
+}
