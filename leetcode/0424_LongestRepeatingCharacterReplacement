@@ -1,0 +1,32 @@
+class Solution {
+    /*
+    统计当前滑窗内最多的字母，窗口宽度 - 最多字母数量 <= K，就可以继续尝试扩大窗口，R++。 否则缩小，L++
+    缩进的目的有2个，一个是通过减少不一样的字母(others)来满足others <= k；或者通过改变最多的字母(most)来满足others <= k，因为只有在满足的情况下我们才会更新res的最大值。 简而言之，通过不停地让窗口左端缩进，目的只有一个others <= k，一旦这个满足我们就可以update res,但是只是左边缩进那结果肯定小，应该同时右边扩大？继续思考：左边缩进的同时右边扩大，因为窗口再变小即使满足others <= k，窗口大小也是小于res的，so why bother...and who gives a shit..所以直接右边扩大就行了。。
+    保持窗口>当前最大值res的情况下，我们才看是否满足others <= k，满足才更新
+    */
+    public int characterReplacement(String s, int k) {
+        if (s.length() == 0) {
+            return 0;
+        }
+        
+        int[] letters = new int[26];
+        int result = 0;
+        int l = 0;
+        
+        int major = 0;
+        
+        for (int r = 0; r < s.length(); r++) {
+            char c = s.charAt(r);
+            letters[c - 'A']++;
+            major = Math.max(major, letters[c - 'A']);
+            int winSize = r - l + 1;
+            if (winSize - major <= k) {
+                result = Math.max(winSize, result);
+            } else {
+                letters[s.charAt(l) - 'A']--;
+                l++;
+            }
+        }
+        return result;
+    }
+}
