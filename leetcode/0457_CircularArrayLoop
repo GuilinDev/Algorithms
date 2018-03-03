@@ -1,0 +1,46 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/circular-array-loop/discuss/94148/java-slowfast-pointer-solution
+    给定一个整数，如果某下标位置的数字n为整数，则向前移动n步，反之如果是负数，则向后移动-n步，假设数组首尾相接
+    ，判断数组是否存在环，环中至少包含2个元素。环中的元素一律“向前”或者一律“向后”。
+    满足O（n）时间复杂度和O（1）空间复杂度。
+    前后两个指针追赶找环的方法，基本可以归结为一种定式
+    */
+    public boolean circularArrayLoop(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                continue;
+            }
+            int j = i, k = getIndex(i, nums);
+            //检查同方向
+            while (nums[i]*nums[k] > 0 && nums[i]*nums[getIndex(k, nums)] > 0) {
+                if (j == k) {
+                    //碰到了，检查是否同一个元素
+                    if (j == getIndex(j, nums)) {
+                        break;
+                    }
+                    return true;
+                }
+                //一前一后两个指针
+                j = getIndex(j, nums);
+                k = getIndex(getIndex(k, nums), nums);
+            }
+            //把已经走过的，置为0
+            j = i;
+            k = nums[j];
+            //但是注意不同方向的不要置为0
+            while (nums[j]*k > 0) {
+                int temp = getIndex(j, nums);
+                nums[j] = 0;
+                j = temp;
+            }
+        }
+        return false;
+    }
+    
+    private int getIndex(int i, int[] nums) {
+        int n = nums.length;
+        int j = (i + nums[i]) >= 0 ? (i + nums[i]) % n : n + ((i + nums[i]) % n);
+        return j;
+    }
+}
