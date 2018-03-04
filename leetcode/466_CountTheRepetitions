@@ -1,0 +1,27 @@
+class Solution {
+    /*
+    Java的Brute Force可以通过https://leetcode.com/problems/count-the-repetitions/discuss/95401/Ugly-Java-brute-force-solution-but-accepted.-1088ms.
+    优化：https://leetcode.com/problems/count-the-repetitions/discuss/95408/Easy-understanding-Java-Solution-with-detailed-explanation-21ms!
+    */
+    public int getMaxRepetitions(String s1, int n1, String s2, int n2) {
+        //直接暴力解法
+        char[] array1 = s1.toCharArray(), array2 = s2.toCharArray();
+        int count1 = 0, count2 = 0, i = 0, j = 0;
+        
+        while (count1 < n1) {
+            if (array1[i] == array2[j]) {
+                j++;
+                if (j == array2.length) {
+                    j = 0;
+                    count2++;
+                }
+            }
+            i++;
+            if (i == array1.length) {
+                i = 0;
+                count1++;
+            }
+        }
+        return count2/n2;
+    }
+}
