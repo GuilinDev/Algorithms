@@ -1,0 +1,19 @@
+class Solution {
+    /*
+    I-453是两个数字一起变
+    这道题是每次变一个数字+1或者-1，要寻找最后所有数字都是一样的那个数字N。 为了移动的次数最小，显然应该是中位数。如果是奇数该怎么办？但是又一想，无论是以左边还是右边为基础， 移动的次数一定是相同的。
+    */
+    public int minMoves2(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        
+        Arrays.sort(nums);
+        int median = nums[nums.length/2];
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += Math.abs(nums[i] - median);//与中位数的差的绝对值的和 
+        }
+        return sum;
+    }
+}
