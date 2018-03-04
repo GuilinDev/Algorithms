@@ -1,0 +1,27 @@
+class Solution {
+    /*
+    求岛屿的总周长
+    https://leetcode.com/problems/island-perimeter/discuss/95001/clear-and-easy-java-solution
+    1.loop over the matrix and count the number of islands;
+    2.if the current dot is an island, count if it has any right neighbour or down neighbour（右边或者下面算是遍历后面的）;
+    3.the result is islands * 4 - neighbours * 2
+    */
+    public int islandPerimeter(int[][] grid) {
+        int islands = 0, neighbors = 0;
+        
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if (grid[i][j] == 1) {
+                    islands++;//count islands
+                    if (i < grid.length - 1 && grid[i+1][j] == 1) {//count down neighbors,下面共享的边
+                        neighbors++;
+                    }
+                    if (j < grid[i].length - 1 && grid[i][j+1] == 1) {//count right neighbors，右边共享的边
+                        neighbors++;
+                    }
+                }
+            }
+        }
+        return islands*4 - neighbors*2;//一个island是四条边，如果有邻近的island（neighbor），有一条边用两次，都需要除去
+    }
+}
