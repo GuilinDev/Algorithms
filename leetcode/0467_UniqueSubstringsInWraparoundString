@@ -1,0 +1,38 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/unique-substrings-in-wraparound-string/discuss/95439/Concise-Java-solution-using-DP
+    这道题是说给了一个字符串P，需要从其中找到所有出现在S中的子串。 
+这里的S的子串是一个比较神奇的存在，起就是abcdedf..zabcde…这样无限迭代下去的一个串，也就是只要P的字符串一直递增就好（z->a进位）
+
+所以解题方法也很直接： 
+找出以’a-z’每个字符结尾的情况下，最长的子串有多长，然后将其相加就可以
+https://leetcode.com/problems/unique-substrings-in-wraparound-string/discuss/95439/Concise-Java-solution-using-DP
+动态规划来解
+    */
+    public int findSubstringInWraproundString(String p) {
+        // count[i] is the maximum unique substring end with ith letter.
+        // 0 - 'a', 1 - 'b', ..., 25 - 'z'.
+        int[] count = new int[26];
+        
+        //store longest contiguous substring ends at current position.
+        int maxLengthCur = 0;
+        
+        for (int i = 0; i < p.length(); i++) {
+            if (i > 0 && (p.charAt(i) - p.charAt(i-1) == 1 || (p.charAt(i-1) - p.charAt(i) == 25))) {
+                maxLengthCur++;
+            } else {
+                maxLengthCur = 1;
+            }
+            
+            int index = p.charAt(i) - 'a';
+            count[index] = Math.max(count[index], maxLengthCur);
+        }
+        
+        // Sum to get result
+        int sum = 0;
+        for (int i = 0; i < 26; i++) {
+            sum += count[i];
+        }
+        return sum;
+    }
+}
