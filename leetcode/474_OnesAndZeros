@@ -1,0 +1,28 @@
+class Solution {
+    /*
+    http://blog.csdn.net/jmspan/article/details/53662087
+    给定m个0和n个1，最多能组成字符串数组中的多少个字符串。
+    动态规划，每次遇到一个字符串，都要考虑如果组成这一字符串的后果，采用备忘录的自顶向下的动态规划方法实现。
+    */
+    public int findMaxForm(String[] strs, int m, int n) {
+        int[][] max = new int[m+1][n+1];
+        for (String str : strs) {
+            int[] counts = count(str);
+            for (int i = m; i >= counts[0]; i--) {
+                for (int j = n; j >= counts[1]; j--) {
+                    max[i][j] = Math.max(max[i][j], 1 + max[i - counts[0]][j - counts[1]]);
+                }
+            }
+        }
+        return max[m][n];
+    }
+    
+    private int[] count(String str) {
+        char[] sa = str.toCharArray();
+        int[] counts = new int[2];
+        for (int i = 0; i < sa.length; i++) {
+            counts[sa[i] - '0']++;
+        }
+        return counts;
+    }
+}
