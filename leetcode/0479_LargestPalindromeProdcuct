@@ -1,0 +1,31 @@
+class Solution {
+    /*
+    题意是计算两个n位数乘积数字的最大回文数，因为结果可能很大，所以结果对1337取模
+    http://blog.csdn.net/mengxiang2100/article/details/76760809
+    */
+    public int largestPalindrome(int n) {
+        // 边界处理
+        if (n == 1) {
+            return 9;//单位数是回文数
+        }
+        
+        int maxNumber = (int) Math.pow(10, n) - 1;
+        for (int i = maxNumber; i > maxNumber/10; i--) {// 保证了数值递减
+            long num = toLong(i);
+            
+            for (long j = maxNumber; j*j >= num; j--) {
+                if (num % j == 0) {// num已是回文数，只要mod为0就找到了结果
+                    return (int)(num%1337);
+                }
+            }
+        }
+        return 0;
+    }
+    
+    private long toLong(int number) {
+        StringBuilder sb = new StringBuilder();
+        String str = sb.append(number).reverse().toString();
+        
+        return Long.valueOf(number + str);
+    }
+}
