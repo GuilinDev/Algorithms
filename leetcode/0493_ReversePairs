@@ -1,0 +1,78 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/reverse-pairs/discuss/97268/General-principles-behind-problems-similar-to-%22Reverse-Pairs%22
+    BST-based solution
+    */
+     // Binary Index Tree
+    // O(logn)
+    // @bit : binary index tree array
+    // @i : from start index to index i in bit (inclusively)
+    // return : the prefix sum from start index to index i
+    private int getSum(int[] bit, int i) {
+        int sum = 0;
+        
+        while (i < bit.length) {
+            sum += bit[i];
+            i = getNext(i);
+        }
+    
+        return sum;
+    }
+    
+    // O(logn)
+    // update the value in index i by diff
+    private void update(int[] bit, int i, int diff) {
+        // need to update all of its affected nodes as well
+        while (i > 0) {
+            bit[i] += diff;
+            i = getParent(i);
+        }
+    }
+    
+    // get to the parent of index i in bit
+    private int getParent(int i){
+        return i - (i & -i);
+    }    
+    
+    // get to next index whose represented range is next to the represented range of i
+    private int getNext(int i){
+        return i + (i & -i);
+    }    
+    
+    public int reversePairs(int[] nums) {
+        int res = 0;
+        int[] copy = Arrays.copyOf(nums, nums.length);
+        // initialization as all 0
+        int[] bit = new int[copy.length + 1];
+        
+        Arrays.sort(copy);
+        
+        for (int ele : nums) {
+            // the number of element that > 2 * ele before ele
+            res += getSum(bit, index(copy, 2L * ele + 1));
+            // insert current element into bit
+            update(bit, index(copy, ele), 1);
+        }
+        
+        return res;
+    }
+        
+    // helper function
+    // binary search to find the first element that >= val in input array
+    // input arr should be sorted
+    private int index(int[] arr, long val) {
+        int l = 0, r = arr.length - 1, m = 0;
+        	
+        while (l <= r) {
+        	m = l + ((r - l) >> 1);
+        		
+        	if (arr[m] >= val) {
+        	    r = m - 1;
+        	} else {
+        	    l = m + 1;
+        	}
+        }
+        
+        return l + 1;
+    }
+}
