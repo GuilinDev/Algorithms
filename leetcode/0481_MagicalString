@@ -1,0 +1,37 @@
+class Solution {
+    /*
+    这道题介绍了一种神奇字符串，只由1和2组成，通过计数1组和2组的个数，又能生成相同的字符串。而让我们求前n个数字中1的个数说白了其实就是让我们按规律生成这个神奇字符串，只有生成了字符串的前n个字符，才能统计出1的个数。其实这道题的难点就是在于找到规律来生成字符串.
+    两个point：i和j 分别指向字符串和ocuurrence字符串。
+    https://segmentfault.com/a/1190000008367439
+    */
+    public int magicalString(int n) {
+        if(n == 0) {
+            return 0;
+        }
+        if(n <= 3) {
+            return 1;
+        }
+        
+        int[] nums = new int[n];
+        nums[0] = 1; 
+        nums[1] = nums[2] = 2;
+        
+        int i = 2, j = 3;
+        int count = 1;
+        while(j < n) {
+            // current number: 1->2, 2->1
+            int cur = 3 ^ nums[j-1];
+            for(int k = 0; k < nums[i] && j < n; k++) {
+                nums[j] = cur;
+                // count 1
+                if(nums[j] == 1) {
+                    count++;
+                }
+                j++;
+            }
+            i++;
+        }
+        
+        return count;
+    }
+}
