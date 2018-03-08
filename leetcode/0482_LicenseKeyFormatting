@@ -1,0 +1,12 @@
+class Solution {
+    //将一个序列号按照一定格式输出。首先要将原序列号中的分隔符‘-’删除，并把字母都换成大写。然后每隔K个加一个分隔符‘-’，分隔成若干个子序列，注意第一个子序列字符个数可以小于或等于K个。
+    public String licenseKeyFormatting(String S, int K) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = S.length() - 1; i >= 0; i--) {
+            if (S.charAt(i) != '-') {
+                sb.append(sb.length() % (K + 1) == K ? '-' : "").append(S.charAt(i));
+            }
+        }
+        return sb.reverse().toString().toUpperCase();
+    }
+}
