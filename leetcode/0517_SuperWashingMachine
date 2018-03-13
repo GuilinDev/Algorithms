@@ -1,0 +1,21 @@
+class Solution {
+    /*
+    这是一道比较典型的动态规划题目，具体思路为对每一台机器进行判断，从左向右进行检索，判断需要经过他的衣服的数量。比如，已经有5件衣服需要经过第i台机器进行传递，同时这台机器本身又溢出了2件衣服，那么就需要传递7件衣服，共计7步。然后用一个变量实时记录最大值即可。至于前面说到的能否均分以及判定每台机器溢出的衣服数量则显然可求
+    https://leetcode.com/problems/super-washing-machines/discuss/99185/Super-Short-and-Easy-Java-O(n)-Solution
+    */
+    public int findMinMoves(int[] machines) {
+        int total = 0;
+        for (int i : machines) {
+            total += i;
+        }
+        if (total % machines.length != 0) {
+            return -1;
+        }
+        int avg = total / machines.length, count = 0, max = 0;
+        for (int load : machines) {
+            count += load - avg; //load-avg is "gain/lose"
+            max = Math.max(Math.max(max, Math.abs(count)), load - avg);
+        }
+        return max;
+    }
+}
