@@ -1,0 +1,33 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/largest-number-at-least-twice-of-others/discuss/112886/Java-One-pass-solution-o(n)-complexity
+    */
+    public int dominantIndex(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        
+        if (nums.length == 1) {
+            return 0;
+        }
+        
+        int max = Integer.MIN_VALUE + 1;
+        int secondMax = Integer.MIN_VALUE;
+        int index = 0;
+        
+        //loop一圈找到两个最大的值再判断
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > max) {
+                secondMax = max;
+                max = nums[i];
+                index = i;
+            } else if (nums[i] != max && nums[i] > secondMax) {//小于最大值，大于第二大值
+                secondMax = nums[i];
+            }
+        }
+        if (secondMax * 2 <= max) {
+            return index;
+        }
+        return -1;
+    }
+}
