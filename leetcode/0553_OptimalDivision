@@ -1,0 +1,19 @@
+class Solution {
+    /*
+    给定一段连续的除法式子，我们需要给它在不同地方加括号，确保能得到最大的结果，最后以string的形式返回结果。
+    https://leetcode.com/problems/optimal-division/discuss/101683/O(n)-very-easy-Java-solution.
+    https://leetcode.com/articles/optimal-division/
+    */
+    public String optimalDivision(int[] nums) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(nums[0]);
+        for (int i = 1; i < nums.length; i++) {
+            if (i == 1 && nums.length > 2) {
+                sb.append("/(").append(nums[i]);
+            } else {
+                sb.append("/").append(nums[i]);
+            }
+        }
+        return nums.length > 2 ? sb.append(")").toString() : sb.toString();
+    }
+}
