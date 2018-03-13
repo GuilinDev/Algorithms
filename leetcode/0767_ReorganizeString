@@ -1,0 +1,42 @@
+class Solution {
+    /*
+    优先队列的解法：https://leetcode.com/problems/reorganize-string/discuss/113440/Java-solution-PriorityQueue
+    */
+    public String reorganizeString(String S) {
+        //参照这个https://leetcode.com/problems/reorganize-string/discuss/113451/7-ms-Java-O(n)-Solution.-no-Sorting
+        int n = S.length();
+        int[] count = new int[128];
+        char mc = 'a';
+        
+        for (char c : S.toCharArray()) {//根据字符相减判断是否为同样的字符
+            count[c]++;
+            mc = (count[c] > count[mc]) ? c : mc;
+        }
+        if (count[mc] == 1) {
+            return S;
+        }
+        if (n - count[mc] <= count[mc] - 2) {
+            return "";
+        }
+        StringBuilder[] sb = new StringBuilder[count[mc]];
+        for (int i = 0; i < sb.length; i++) {
+            sb[i] = new StringBuilder();
+            sb[i].append(mc);
+        }
+        
+        int k = 0;
+        for (char c = 'a'; c <= 'z'; c++) {
+            while (c != mc && count[c] > 0) {
+                sb[k].append(c);
+                k++;
+                count[c]--;
+                k %= sb.length;
+            }
+        }
+        for (int i = 1; i < sb.length; i++) {
+            sb[0].append(sb[i]);
+        }
+        
+        return sb[0].toString();
+    }
+}
