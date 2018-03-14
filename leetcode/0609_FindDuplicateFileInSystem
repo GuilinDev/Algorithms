@@ -1,0 +1,36 @@
+class Solution {
+    /*
+    给出目录信息列表（包括目录路径）以及包含此目录中所有内容的所有文件，需要根据路径找到文件系统中的所有重复文件组。
+
+一组重复文件由至少两个具有完全相同内容的文件组成。
+
+输入列表中的单个目录信息字符串具有以下格式：
+
+“root/d1/d2/…/dm f1.txt(f1_content) f2.txt(f2_content) … fn.txt(fn_content)”
+
+这意味着有ñ（文件f1.txt，f2.txt… fn.txt与内容f1_content，f2_content… fn_content，分别）的目录root/d1/d2/…/dm。请注意，n> = 1且m> = 0。如果m = 0，则表示目录只是根目录。
+
+    http://blog.csdn.net/grape875499765/article/details/73018312
+    
+    https://leetcode.com/problems/find-duplicate-file-in-system/discuss/104154/Straight-forward-solution-with-a-tiny-bit-of-Java8
+    */
+    public List<List<String>> findDuplicate(String[] paths) {
+        Map<String, List<String>> map = new HashMap<>();
+        for (String path : paths) {
+            String[] parts = path.split(" ");
+            for (int i = 1; i < parts.length; i++) {
+                int k = parts[i].indexOf("(");
+                String content = parts[i].substring(k, parts[i].length() - 1);
+                map.putIfAbsent(content, new LinkedList<>());
+                map.get(content).add(parts[0] + "/" + parts[i].substring(0, k));
+            }
+        }
+        List<List<String>> r = new LinkedList<>();
+        for (List<String> list : map.values()) {
+            if (list.size() > 1) {
+                r.add(list);
+            }
+        }
+        return r;
+    }
+}
