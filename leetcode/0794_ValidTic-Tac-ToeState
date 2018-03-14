@@ -1,0 +1,44 @@
+class Solution {
+    /*
+    直接解：https://leetcode.com/problems/valid-tic-tac-toe-state/discuss/117580/Straightforward-Java-solution-with-explaination
+    
+Step 1 - get a count of the ‘X’ and ‘O’.
+Step 2 (optional) - Now we can exlude any state with X < O or X > O+1. (we could fold this into the last return statement but that would be quite unreadable.)
+Step 3 - Look at all possible 3-Rows (There is 8 of them), if we find 3x ‘X’ increment a counter by 1, if we find 3x ‘O’ decrement a counter by some number greater than 8 (here -10 is used).
+Step 4 - If the counter is 0 noone won, if the counter is 1 OR 2 ‘X’ won and the state is legal if x has one more piece, if the counter is -10 ‘O’ won exactly once and the state is legal if the num pieces is equal, if the counter is anything else then the state is illegal.
+    https://leetcode.com/problems/valid-tic-tac-toe-state/discuss/117868/Java-20-lines-with-a-cute-trick.
+    */
+    public boolean validTicTacToe(String[] board) {
+        int xCount = 0, oCount = 0;
+        char[] arr = (board[0] + board[1] + board[2]).toCharArray();
+        for (char c : arr) {
+            if ( c== 'O') {
+                oCount++;
+            }
+            if (c == 'X') {
+                xCount++;
+            }
+        }
+        
+        if(oCount != xCount && oCount + 1 != xCount) {
+            return false;
+        } 
+
+        int winState = getWinState(arr[0], arr[4], arr[8]);
+        winState += getWinState(arr[6], arr[4], arr[2]);
+
+        for (int i = 0; i < 3; i++) {
+            winState += getWinState(arr[i*3], arr[i*3+1], arr[i*3+2]);
+            winState += getWinState(arr[i], arr[i+3], arr[i+6]);
+        }
+        return winState == 0 || (winState == -10 && oCount == xCount) || ((winState == 1 || winState == 2) && oCount + 1 == xCount);
+    }
+    
+    private int getWinState(char c1, char c2, char c3) {
+        if (c1 != ' ' && c1 == c2 && c2 == c3) {
+            return c1 == 'X' ? 1: -10;
+        } else {
+            return 0;
+        }
+    }
+}
