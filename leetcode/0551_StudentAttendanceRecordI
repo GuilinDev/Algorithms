@@ -1,0 +1,35 @@
+class Solution {
+    /*
+    用regex https://leetcode.com/problems/student-attendance-record-i/discuss/101553/Java-1-liner
+    */
+    public boolean checkRecord(String s) {
+        // return !s.matches(".*LLL.*|.*A.*A.*");
+        //这里用迭代
+        boolean oneA = false;
+        boolean oneL = false;
+        boolean twoL = false;
+        
+        for (char c : s.toCharArray()) {
+            if (c != 'L') {
+                oneL = false;
+                twoL = false;
+            } else {
+                if (oneL && twoL) {
+                    return false;
+                } else if (!oneL) {
+                    oneL = true;
+                } else {
+                    twoL = true;
+                }
+            }
+            if (c == 'A') {
+                if (oneA) {
+                    return false;
+                } else {
+                    oneA = true;
+                }
+            }
+        }
+        return true;
+    }
+}
