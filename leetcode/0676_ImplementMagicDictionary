@@ -1,0 +1,46 @@
+class MagicDictionary {
+    
+    /*
+    https://leetcode.com/problems/implement-magic-dictionary/discuss/107446/Easy-14-lines-Java-solution-HashMap
+    底下Yang_BU的回答
+    */
+    
+    Map<String, Character> map;
+
+    /** Initialize your data structure here. */
+    public MagicDictionary() {
+        map = new HashMap<>();
+    }
+    
+    /** Build a dictionary through a list of words */
+    public void buildDict(String[] dict) {
+        for (String d : dict) {
+            StringBuilder sb = new StringBuilder(d);
+            for (int i = 0; i < sb.length(); i++) {
+                sb.setCharAt(i, '*');
+                map.put(sb.toString(), map.containsKey(sb.toString()) ? '*' : d.charAt(i));
+                sb.setCharAt(i, d.charAt(i));
+            }
+        }
+    }
+    
+    /** Returns if there is any word in the trie that equals to the given word after modifying exactly one character */
+    public boolean search(String word) {
+        StringBuilder sb = new StringBuilder(word);
+        for (int i = 0; i < sb.length(); i++) {
+            sb.setCharAt(i, '*');
+            if (map.containsKey(sb.toString()) && word.charAt(i) != map.get(sb.toString())) {
+                return true;
+            }
+            sb.setCharAt(i, word.charAt(i));
+        }
+        return false;
+    }
+}
+
+/**
+ * Your MagicDictionary object will be instantiated and called as such:
+ * MagicDictionary obj = new MagicDictionary();
+ * obj.buildDict(dict);
+ * boolean param_2 = obj.search(word);
+ */
