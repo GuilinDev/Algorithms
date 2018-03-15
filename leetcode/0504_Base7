@@ -1,0 +1,14 @@
+class Solution {
+    /*
+    让我们转为七进制的数，而且这个可正可负。那么我们想如果给一个十进制的100，怎么转为七进制。我会先用100除以49，商2余2。在除以7，商0余2，于是就得到七进制的202。其实我们还可以反过来算，先用100除以7，商14余2，然后用14除以7，商2余0，再用2除以7，商0余2，这样也可以得到202。
+    */
+    public String convertToBase7(int num) {
+        if (num < 0) {
+            return '-' + convertToBase7(-num);
+        }
+        if (num < 7) {
+            return num + "";
+        }
+        return convertToBase7(num/7) + num % 7;
+    }
+}
