@@ -1,0 +1,12 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/complex-number-multiplication/discuss/100430/Java-3-liner
+    */
+    public String complexNumberMultiply(String a, String b) {
+        //(a+bi)(c+di) = (ac - bd) + (ad+bc)i
+        int[] coefs1 = Stream.of(a.split("\\+|i")).mapToInt(Integer::parseInt).toArray(),
+        coefs2 = Stream.of(b.split("\\+|i")).mapToInt(Integer::parseInt).toArray();
+        
+        return (coefs1[0] * coefs2[0] - coefs1[1] * coefs2[1]) + "+" + (coefs1[0] * coefs2[1] + coefs1[1] * coefs2[0] + "i");
+    }
+}
