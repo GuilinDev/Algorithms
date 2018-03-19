@@ -1,0 +1,48 @@
+class Solution {
+    /*
+    
+https://leetcode.com/problems/longest-uncommon-subsequence-ii/discuss/99447/Java(10ms)-beat-90-without-using-hash
+
+the LUS must not duplicate in the giving strings, otherwise, it’s the subsequence of itself.
+if length of String A larger than the length of String B then A is not a subsequence of B.
+Base on these two observations, the solution is:
+
+Sort the string array, based on the length of the string.
+go thought the array start from the longest to the shortest, if it’s unique and it’s not a subsequence of the strings with the length larger than it. then we found the LUS, just return it’s length.
+    */
+    public int findLUSlength(String[] strs) {
+        Arrays.sort(strs, new Comparator<String>() {
+            public int compare(String a, String b) {
+                return a.length() != b.length() ? a.length() - b.length() : a.compareTo(b);
+            }
+        });
+        
+        for (int i = strs.length - 1; i >= 0; i--) {
+            if (i > 0 && !strs[i].equals(strs[i - 1]) || i == 0) {
+                int j = i + 1;
+                for (; j < strs.length; j++) {
+                    if (isSubsequence(strs[i], strs[j])) {
+                        break;
+                    }
+                }
+                if (j == strs.length) {
+                    return strs[i].length();
+                }
+            }
+        }
+        return -1;
+    }
+    
+    private boolean isSubsequence(String a, String b) {
+        if (a.equals(b)) {
+            return true;
+        }
+        int p = 0;
+        for (int i = 0; i < b.length() && p < a.length(); i++) {
+            if (b.charAt(i) == a.charAt(p)) {
+                p++;
+            }
+        }
+        return p == a.length();
+    }
+}
