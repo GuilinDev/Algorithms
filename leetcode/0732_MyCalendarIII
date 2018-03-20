@@ -1,0 +1,29 @@
+class MyCalendarThree {
+    
+    /*
+    https://leetcode.com/problems/my-calendar-iii/discuss/109556/JavaC++-Clean-Code
+    所有Calendar的题与Meeting Room 2 - (LC 253) 类似
+    */
+
+    public MyCalendarThree() {
+        
+    }
+    
+    private TreeMap<Integer, Integer> timeline = new TreeMap<>();
+    
+    public int book(int start, int end) {
+        timeline.put(start, timeline.getOrDefault(start, 0) + 1); // 1 new event will be starting at [s]
+        timeline.put(end, timeline.getOrDefault(end, 0) - 1); // 1 new event will be ending at [2]
+        int ongoing = 0, k = 0;
+        for (int v : timeline.values()) {
+            k = Math.max(k, ongoing += v);
+        }
+        return k;
+    }
+}
+
+/**
+ * Your MyCalendarThree object will be instantiated and called as such:
+ * MyCalendarThree obj = new MyCalendarThree();
+ * int param_1 = obj.book(start,end);
+ */
