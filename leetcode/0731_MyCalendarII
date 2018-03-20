@@ -1,0 +1,38 @@
+class MyCalendarTwo {
+    
+    /*
+    https://leetcode.com/problems/my-calendar-ii/discuss/109519/JavaC++-Clean-Code-with-Explanation
+    底下jiahu_al的回答
+    */
+
+    private List<int[]> bookings;
+    private List<int[]> overlaps;
+    
+    public MyCalendarTwo() {
+        bookings = new ArrayList<>();
+        overlaps = new ArrayList<>();
+    }
+    
+    public boolean book(int start, int end) {
+        for (int[] bo : bookings) {
+            int overlapStart = Math.max(bo[0], start), overlapEnd = Math.min(bo[1], end);
+            if (overlapStart < overlapEnd) {
+                for (int[] ov : overlaps) {
+                    if (Math.max(ov[0], overlapStart) < Math.min(ov[1], overlapEnd)) {
+                        overlaps.clear();
+                        return false;
+                    }
+                }
+                overlaps.add(new int[] {overlapStart, overlapEnd});
+            }
+        }
+        bookings.add(new int[] {start, end});
+        return true;
+    }
+}
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * MyCalendarTwo obj = new MyCalendarTwo();
+ * boolean param_1 = obj.book(start,end);
+ */
