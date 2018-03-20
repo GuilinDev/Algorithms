@@ -1,0 +1,35 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    https://leetcode.com/problems/minimum-absolute-difference-in-bst/discuss/99905/Two-Solutions-in-order-traversal-and-a-more-general-way-using-TreeSet
+    中序或者使用TreeSet
+    */
+    
+    int min = Integer.MAX_VALUE;
+    Integer prev = null;
+    
+    public int getMinimumDifference(TreeNode root) {
+    //中序序列time complexity O(N), space complexity O(1)
+        if (root == null) {
+            return min;
+        }
+        getMinimumDifference(root.left);
+
+        if (prev != null) {
+            min = Math.min(min, root.val - prev);
+        }
+
+        prev = root.val;
+        getMinimumDifference(root.right);
+        
+        return min;
+    }
+}
