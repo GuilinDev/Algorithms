@@ -1,0 +1,28 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/beautiful-arrangement/discuss/99707/Java-Solution-Backtracking
+    这道题给了1到N，总共N个正数，然后定义了一种优美排列方式，对于该排列中的所有数，如果数字可以整除下标，或者下标可以整除数字，那么我们就是优美排列，让我们求出所有优美排列的个数。那么对于求种类个数，或者是求所有情况，这种问题通常要用递归来做，递归简直是暴力的不能再暴力的方法了。而递归方法等难点在于写递归函数，如何确定终止条件，还有for循环中变量的起始位置如何确定。那么这里我们需要一个used数组来记录数字是否已经访问过，因为优美排列中不能有重复数字。我们用变量pos来标记已经生成的数字的个数，如果大于N了，说明已经找到了一组排列，结果res自增1。在for循环中，i应该从1开始，因为我们遍历1到N中的所有数字，如果该数字未被使用过，且满足和坐标之间的整除关系，那么我们标记该数字已被访问过，再调用下一个位置的递归函数，之后不要忘记了恢复初始状态，
+    */
+    int count = 0;
+    public int countArrangement(int N) {
+        if (N == 0) {
+            return 0;
+        }
+        helper(N, 1, new int[N+1]);
+        return count;
+    }
+    
+    private void helper(int N, int pos, int[] used) {
+        if (pos > N) {
+            count++;
+            return;
+        }
+        for (int i = 1; i <= N; i++) {
+            if (used[i] == 0 && (i % pos == 0 || pos % i == 0)) {
+                used[i] = 1;
+                helper(N, pos+1, used);
+                used[i] = 0;
+            }
+        }
+    }
+}
