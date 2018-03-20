@@ -1,0 +1,29 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/k-diff-pairs-in-an-array/discuss/100098/Java-O(n)-solution-one-Hashmap-easy-to-understand
+    */
+    public int findPairs(int[] nums, int k) {
+        if (nums == null || nums.length == 0 || k < 0) {
+            return 0;
+        }
+        
+        Map<Integer, Integer> map = new HashMap<>();
+        int count = 0;
+        for (int i : nums) {//计算每个元素的出现次数
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+        
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            if (k == 0) {
+                if (entry.getValue() >= 2) {//k=0的话，计算出现两次或以上的元素的个数
+                    count++;
+                }
+            } else {
+                if (map.containsKey(entry.getKey() + k)) {//
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+}
