@@ -1,0 +1,56 @@
+class Solution {
+    /*
+    给定一个整数，找到它“最近”的回文整数，“最近”定义为数值之间差的绝对值最小。 
+　　注意： 
+　　1.整数由string的形式给出； 
+　　2.如果有距离相等的多个数，选择最小的那个。
+  https://leetcode.com/problems/find-the-closest-palindrome/discuss/102390/Java-solution-with-full-explaination 底下DecaflcedAmericano的回答
+    */
+    public String nearestPalindromic(String n) {
+        Long num = Long.parseLong(n);
+        Long highBound = getNextPalindrom(num+1, true);
+        Long lowBound = getNextPalindrom(num - 1, false);
+        
+        if (Math.abs(lowBound - num) <= Math.abs(highBound - num)) {
+            return String.valueOf(lowBound);
+        }
+        return String.valueOf(highBound);
+    }
+    
+    private Long getNextPalindrom(Long limit, boolean up) {
+        int inc = up ? 1 : -1;
+        char[] limitArr = String.valueOf(limit).toCharArray();
+        char[] base = limitArr.clone();
+        replicateFirstHalf(base);
+        for (int i = 0; i < limitArr.length; i++) {
+            if ((up && base[i] > limitArr[i]) || (!up && base[i] < limitArr[i])) {
+                return Long.parseLong(String.valueOf(base));
+            } else if ((up && base[i] < limitArr[i]) || (!up && base[i] > limitArr[i])) {
+                for (int j = (limitArr.length - 1)/2; j >= 0; j--) {
+                    if (base[j] + inc < '0' || base[j] + inc > '9') {
+                        base[j] = '0';
+                    } else {
+                        base[j] += inc;
+                        break;
+                    }
+                }
+                
+                if (base[0] == '0') {
+                    char[] temp = new char[base.length - 1];
+                    Arrays.fill(temp, '9');
+                    return Long.parseLong(String.valueOf(temp));
+                }
+                replicateFirstHalf(base);
+                return Long.parseLong(String.valueOf(base));
+            }
+        }
+        return Long.parseLong(String.valueOf(base));
+    }
+    
+    private void replicateFirstHalf(char[] base) {
+        int len = base.length;
+        for (int i = 0; i < base.length/2; i++) {
+            base[base.length-1-i] = base[i];
+        }
+    }
+}
