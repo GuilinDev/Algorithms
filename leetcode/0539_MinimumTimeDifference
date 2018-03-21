@@ -1,0 +1,31 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/minimum-time-difference/discuss/100640/Verbose-Java-Solution-Bucket，底下hot13399的回答
+     共有24 * 60 = 1440分钟的点，创建一个Boolean array包含这么多点
+    */
+    public int findMinDifference(List<String> timePoints) {
+        boolean[] b = new boolean[24*60];
+        for (String point : timePoints) {
+            String[] time = point.split(":");
+            
+            int m = Integer.parseInt(time[0]) * 60 + Integer.parseInt(time[1]);
+            if (b[m]) {
+                return 0;
+            }
+            b[m] = true;
+        }
+        
+        int pre = - 24 * 60, res = 24 * 60;
+        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
+        for (int i = 0; i < 24 * 60; i++) {
+            if (b[i]) {
+                res = Math.min(i - pre, res);
+                max = Math.max(i, max);
+                min = Math.min(i, min);
+                pre = i;
+            }
+        }
+        res = Math.min(min + 24*60 - max, res);
+        return res;
+    }
+}
