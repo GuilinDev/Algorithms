@@ -1,0 +1,31 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    对每个节点，加上所有比它大的值
+    */
+    int sum = 0;
+    
+    public TreeNode convertBST(TreeNode root) {
+        //递归解法
+        convert(root);
+        return root;
+    }
+    
+    public void convert(TreeNode cur) {
+        if (cur == null) {
+            return;
+        }
+        convert(cur.right);//BST大的值都在右边
+        cur.val += sum;
+        sum = cur.val;
+        convert(cur.left);//左边的右边
+    }
+}
