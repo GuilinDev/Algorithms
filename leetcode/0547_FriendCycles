@@ -1,0 +1,27 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/friend-circles/discuss/101338/Neat-DFS-java-solution
+    这道题让我们求朋友圈的个数，题目中对于朋友圈的定义是可以传递的，比如A和B是好友，B和C是好友，那么即使A和C不是好友，那么他们三人也属于一个朋友圈。那么比较直接的解法就是DFS搜索，对于某个人，遍历其好友，然后再遍历其好友的好友，那么我们就能把属于同一个朋友圈的人都遍历一遍，我们同时标记出已经遍历过的人，然后累积朋友圈的个数，再去对于没有遍历到的人在找其朋友圈的人，这样就能求出个数
+    */
+    public int findCircleNum(int[][] M) {
+        boolean[] visited = new boolean[M.length];//visited[i] means if ith person is visited in this algorithm
+        int count = 0;
+        for (int i = 0; i < M.length; i++) {
+            if (!visited[i]) {
+                dfs(M, visited, i);
+                count++;
+            }
+        }
+        return count;
+    }
+    
+    private void dfs(int[][] M, boolean[] visited, int person) {
+        for (int other = 0; other < M.length; other++) {
+            if (M[person][other] == 1 && !visited[other]) {
+                //we found an unvisited person in the current friend cycle
+                visited[other] = true;
+                dfs(M, visited, other);//Start DFS on this new found person
+            }
+        }
+    }
+}
