@@ -1,0 +1,77 @@
+/**
+ * Definition for a point.
+ * class Point {
+ *     int x;
+ *     int y;
+ *     Point() { x = 0; y = 0; }
+ *     Point(int a, int b) { x = a; y = b; }
+ * }
+ */
+class Solution {
+    /*
+    https://leetcode.com/problems/erect-the-fence/discuss/103299/Java-Solution-Convex-Hull-Algorithm-Gift-wrapping-aka-Jarvis-march
+    Convex Hull problem: https://en.wikipedia.org/wiki/Convex_hull_algorithms
+    */
+    public List<Point> outerTrees(Point[] points) {
+        Set<Point> result = new HashSet<>();
+        
+        //找到最左边的点
+        Point first = points[0];
+        int firstIndex = 0;
+        for (int i = 1; i < points.length; i++) {
+            if (points[i].x < first.x) {
+                first = points[i];
+                firstIndex = i;
+            }
+        }
+        result.add(first);
+        
+        Point cur = first;
+        int curIndex = firstIndex;
+        do {
+            Point next = points[0];
+            int nextIndex = 0;
+            for (int i = 1; i < points.length; i++) {
+                if (i == curIndex) {
+                    continue;
+                }
+                int cross = crossProductLength(cur, points[i], next);
+                if (nextIndex == curIndex || cross > 0 || (cross == 0 && distance(points[i], cur) > distance(next, cur))) {//最后一个条件Handle collinear points
+                    next = points[i];
+                    nextIndex = i;
+                }
+            }
+        
+            // Handle collinear points
+            for (int i = 0; i < points.length; i++) {
+                if (i == curIndex) {
+                    continue;
+                }
+                int cross = crossProductLength(cur, points[i], next);
+                if (cross == 0) {
+                    result.add(points[i]);
+                }
+            }
+            
+            cur = next;
+            curIndex = nextIndex;
+        } while (curIndex != firstIndex);
+        
+        return new ArrayList<Point>(result);
+    } 
+    
+    private int distance(Point p1, Point p2) {
+        return (p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y);
+    }
+    
+    private int crossProductLength(Point A, Point B, Point C) {
+        // get the vectors' coordinates
+        int BAx = A.x - B.x;
+        int BAy = A.y - B.y;
+        int BCx = C.x - B.x;
+        int BCy = C.y - B.y;
+        
+        //Calculate the Z coordinate of the cross product
+        return (BAx * BCy - BAy * BCx);
+    }
+}
