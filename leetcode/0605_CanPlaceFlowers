@@ -1,0 +1,24 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/can-place-flowers/discuss/103898/Java-Greedy-solution-O(flowerbed)-beats-100
+    贪心算法
+    O(n)
+    */
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        int count = 0;
+        for (int i = 0; i < flowerbed.length && count < n; i++) {
+            if (flowerbed[i] == 0) {
+                //get previous and next flower bed slot values, if i lies at the ends the prev and next are considered as 0
+                int prev = (i == 0) ? 0 : flowerbed[i-1];//不是第一位就是当前位置i减去1
+                int next = (i == flowerbed.length - 1) ? 0 : flowerbed[i+1];//不是最后一位就当前位置i加上1
+                
+                if (next == 0 && prev == 0) {
+                    flowerbed[i] = 1;
+                    count++;
+                }
+            }
+        }
+        
+        return count == n;
+    }
+}
