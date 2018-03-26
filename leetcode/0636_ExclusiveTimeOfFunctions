@@ -1,0 +1,26 @@
+class Solution {
+    /*
+    这道题让我们函数的独家运行的时间，(没错，exclusive就是要翻译成独家，要让每个函数都成为码农的独家记忆),根据题目中给的例子，可以看出来，当一个函数start了之后，并不需要必须有end，可以直接被另一个程序start的时候强行关闭。而且，在某个时间点上调用end时，也不需要前面非得调用start，可以直接在某个时间点来个end，这样也算执行了1秒
+    https://leetcode.com/problems/exclusive-time-of-functions/discuss/105062/Java-Stack-Solution-O(n)-Time-O(n)-Space
+    Stack - O(n) Time O(n) Space
+    */
+    public int[] exclusiveTime(int n, List<String> logs) {
+        int[] res = new int[n];
+        Stack<Integer> stack = new Stack<>();
+        int prevTime = 0;
+        for (String log : logs) {
+            String[] parts = log.split(":");
+            if (!stack.isEmpty()) {
+                res[stack.peek()] += Integer.parseInt(parts[2]) - prevTime;                
+            }
+            prevTime = Integer.parseInt(parts[2]);
+            if (parts[1].equals("start")) {
+                stack.push(Integer.parseInt(parts[0]));
+            } else {
+                res[stack.pop()]++;
+                prevTime++;
+            }
+        }
+        return res;
+    }
+}
