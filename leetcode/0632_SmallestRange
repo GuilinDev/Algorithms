@@ -1,0 +1,44 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/smallest-range/discuss/104918/Java-Solution-with-maxHeapandminHeap    
+    */
+    public int[] smallestRange(List<List<Integer>> nums) {
+          PriorityQueue<int[]> min=new PriorityQueue<>(1,new Comparator<int[]>(){
+              public int compare(int[] n1,int[] n2){
+                  return nums.get(n1[0]).get(n1[1])-nums.get(n2[0]).get(n2[1]);
+              }              
+          });
+          
+          PriorityQueue<int[]> max=new PriorityQueue<>(1,new Comparator<int[]>(){
+              public int compare(int[] n1,int[] n2){
+                  return nums.get(n2[0]).get(n2[1])-nums.get(n1[0]).get(n1[1]);
+              }
+          });
+          
+          for(int i=0;i<nums.size();i++){
+                int[] tmp=new int[]{i,0};
+                min.offer(tmp);
+                max.offer(tmp);
+          }
+          int[] res=new int[]{Integer.MIN_VALUE,Integer.MAX_VALUE};
+          
+          while(min.size()==nums.size()){
+              int[] m1=max.peek();
+              int[] m2=min.poll();
+              if((long)nums.get(m1[0]).get(m1[1])-(long)nums.get(m2[0]).get(m2[1])<(long)res[1]-(long)res[0]){
+                  res[0]=nums.get(m2[0]).get(m2[1]);
+                  res[1]=nums.get(m1[0]).get(m1[1]);
+              }
+              
+              if(m2[1]+1<nums.get(m2[0]).size()){
+                  int[] m3=new int[]{m2[0],m2[1]+1};
+                  min.offer(m3);
+                  max.offer(m3);
+                  max.remove(m2);
+              }
+          }
+          
+          return res;
+    }
+}
+
