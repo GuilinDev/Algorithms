@@ -1,0 +1,27 @@
+class Solution {
+    /*
+    FloodFill算法 ， 又叫洪水填充算法。FloodFill算法的运用非常广泛，其中突出的是画图的“倒色”。
+    FloodFill的原理十分简单，就是把一个点x的所有相邻的点都涂上x点的颜色，一直填充下去，直到这个区域内所有的点都被填充完为止。
+    
+    https://leetcode.com/problems/flood-fill/discuss/109584/Java-9-liner-DFS
+    Time complexity: O(m*n), space complexity: O(1). m是行数，n是列数
+    */
+    public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
+        if (image[sr][sc] == newColor) {
+            return image;
+        }
+        fill(image, sr, sc, image[sr][sc], newColor);
+        return image;
+    }
+    
+    private void fill (int[][] image, int sr, int sc, int color, int newColor) {
+        if (sr < 0 || sr >= image.length || sc < 0 || sc >= image[0].length || image[sr][sc] != color) {
+            return;
+        }
+        image[sr][sc] = newColor;
+        fill(image, sr+1, sc, color, newColor);
+        fill(image, sr-1, sc, color, newColor);
+        fill(image, sr, sc+1, color, newColor);
+        fill(image, sr, sc-1, color, newColor);
+    }
+}
