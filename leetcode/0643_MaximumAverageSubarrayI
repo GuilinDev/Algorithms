@@ -1,0 +1,16 @@
+class Solution {
+    //肯定是滑动窗口来解了
+    public double findMaxAverage(int[] nums, int k) {
+        long sum = 0;
+        for (int i = 0; i < k; i++) {//将k个数相加
+            sum += nums[i];
+        }
+        long max = sum;
+        
+        for (int i = k; i < nums.length; i++) {//找到最大的k个数的总和
+            sum += nums[i] - nums[i-k];
+            max = Math.max(max, sum);
+        }
+        return max/1.0/k;//直接return double
+    }
+}
