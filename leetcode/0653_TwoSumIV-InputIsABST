@@ -1,0 +1,30 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    https://leetcode.com/problems/two-sum-iv-input-is-a-bst/discuss/106059/JavaC++-Three-simple-methods-choose-one-you-like
+    用hashset，非BST的二叉树也可以
+    */
+    public boolean findTarget(TreeNode root, int k) {
+        HashSet<Integer> set = new HashSet<>();
+        return dfs(root, set, k);
+    }
+    
+    private boolean dfs (TreeNode root, HashSet<Integer> set, int k) {
+        if (root == null) {//遍历完了这个数，还没有找到
+            return false;
+        }
+        if (set.contains(k - root.val)) {
+            return true;
+        }
+        set.add(root.val);
+        return dfs(root.left, set, k) || dfs(root.right, set, k);
+    }
+}
