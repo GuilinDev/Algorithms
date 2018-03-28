@@ -1,0 +1,17 @@
+class Solution {
+    /*
+    一块区域有--，L（上下两种位置），问2*N有几种放置方式。
+    https://leetcode.com/problems/domino-and-tromino-tiling/discuss/116581/Detail-and-explanation-of-O(n)-solution-why-dpn2*dn-1+dpn-3
+    https://leetcode.com/problems/domino-and-tromino-tiling/discuss/116544/O(N)-time-and-O(1)-space-C++JavaPython
+    */
+    public int numTilings(int N) {
+        int a = 0, b = 1, c = 1, c2, mod = 1000000007;
+        while (--N > 0) {
+            c2 = (c*2%mod + a) % mod;
+            a = b;
+            b = c;
+            c = c2;
+        }
+        return c;
+    }
+}
