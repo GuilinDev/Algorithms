@@ -1,0 +1,17 @@
+class Solution {
+    /*
+    有两种特殊的字符，第一种字符用0来代替，另一种用10或者11代替，给定一个数组，这个数组最后一个元素肯定是0，我们需要判断最后这个0元素可不可以是属于第一种字符的，也就是这个最后的0可以是单独存在的而不依靠前面的元素。必须确保数组中的的所有元素都能够成功的组合成字符（无论是第一种还是第二种）。
+    https://leetcode.com/problems/1-bit-and-2-bit-characters/discuss/108969/Java-solution-1-or-2
+    */
+    public boolean isOneBitCharacter(int[] bits) {
+        int n = bits.length, i = 0;
+        while (i < n - 1) {
+            if (bits[i] == 0) {
+                i++;
+            } else {
+                i += 2;
+            }
+        }
+        return i == n - 1;
+    }
+}
