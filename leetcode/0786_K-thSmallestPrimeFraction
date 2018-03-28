@@ -1,0 +1,37 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/k-th-smallest-prime-fraction/discuss/115819/Summary-of-solutions-for-problems-%22reducible%22-to-LeetCode-378
+    数道类试题的总结
+    373. Find K Pairs with Smallest Sums
+    378. Kth Smallest Element in a Sorted Matrix
+    668. Kth Smallest Number in Multiplication Table
+    719. Find K-th Smallest Pair Distance
+    786. K-th Smallest Prime Fraction
+    */
+    public int[] kthSmallestPrimeFraction(int[] A, int K) {
+        //解法一，使用PriorityQueue优化，
+        //Time complexity: O(max(n, K) * logn), with n = A.length
+        //Space complexity: O(n)
+        int n = A.length;
+        
+        PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
+            public int compare(int[] a, int[] b) {
+                return Integer.compare(A[a[0]] * A[n-1-b[1]], A[n-1-a[1]] * A[b[0]]);
+            }
+        });
+        
+        for (int i = 0; i < n; i++) {
+            pq.offer(new int[] {i,0});
+        }
+        
+        while (--K > 0) {
+            int[] p = pq.poll();
+            
+            p[1]++;
+            if (p[1] < n) {
+                pq.offer(p);
+            }
+        }
+        return new int[] {A[pq.peek()[0]], A[n-1-pq.peek()[1]]};
+    }
+}
