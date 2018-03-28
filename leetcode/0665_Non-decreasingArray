@@ -1,0 +1,19 @@
+class Solution {
+    /*
+    当在i位置发现nums[i-1] > nums[i]的时候，可以选择减小nums[i-1]的值，而不是增大nums[i]的值；如果发现nums[i-2]>nums[i]的时候，那就只能改变nums[i]的值了
+    */
+    public boolean checkPossibility(int[] nums) {
+        int count = 0;
+        for (int i = 1; i < nums.length && count <= 1; i++) {
+            if (nums[i-1] > nums[i]) {
+                count++;
+                if (i - 2 < 0 || nums[i-2] <= nums[i]) {
+                nums[i-1] = nums[i];
+                } else {
+                    nums[i] = nums[i-1];
+                }
+            }
+        }
+        return count <= 1;
+    }
+}
