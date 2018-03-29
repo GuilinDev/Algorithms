@@ -1,0 +1,13 @@
+class Solution {
+    /*
+    求1-n构成的数组的一个序，这个序要满足两两之间元素差的绝对值（相同的值算一种情况）构成的数组大小为k。返回满足条件的数组序列。
+    https://leetcode.com/problems/beautiful-arrangement-ii/discuss/106948/C++-Java-Clean-Code-4-liner
+    */
+    public int[] constructArray(int n, int k) {
+        int[] res = new int[n];
+        for (int i = 0, l = 1, r = n; l <= r; i++) {
+            res[i] = k > 1 ? (k-- % 2 != 0 ? l++ : r--) : l++;
+        }
+        return res;
+    }
+}
