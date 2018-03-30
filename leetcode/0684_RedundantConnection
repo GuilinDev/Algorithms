@@ -1,0 +1,31 @@
+class Solution {
+    /*
+    这道题说是要把图上的一条边删去，把无向图变成一颗树。但事实上，从题目最后说“如果有多种选择选择后出现的一种”可以知道，其实是要一条条边加进去，去画一棵树。那这样我们每次新加一条边，就要判断一下，会不会构成环路。如果构成回路，就说明这条新边就是我们要删除的边。 
+那么，怎么判断是否构成回路呢？构成回路的条件是很显然的，新加入的边所对应的两个节点中间有通路。当然如果要去遍历树看看是否有通路，这样的开销太大了。我们试着想一下，在加入这条边之前，这个无向图是一个森林或者一棵树，如果两个节点之间有通路，那么它们必然在一棵树上，那么它们必然有一个共同的祖先，即树根。 
+    https://leetcode.com/problems/redundant-connection/discuss/107984/10-line-Java-solution-Union-Find.
+    */
+    public int[] findRedundantConnection(int[][] edges) {
+        //Union Find
+        int[] parent = new int[2001];
+        for (int i = 0; i < parent.length; i++) {
+            parent[i] = i;
+        }
+        
+        for (int[] edge : edges) {
+            int f = edge[0], t = edge[1];
+            if (find(parent, f) == find(parent, t)) {
+                return edge;
+            } else {
+                parent[find(parent, f)] = find(parent, t);
+            }
+        }
+        return new int[2];
+    }
+    
+    private int find(int[] parent, int f) {
+        if (f != parent[f]) {
+            parent[f] = find(parent, parent[f]);
+        }
+        return parent[f];
+    }
+}
