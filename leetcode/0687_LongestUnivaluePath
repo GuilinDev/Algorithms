@@ -1,0 +1,33 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    https://leetcode.com/problems/longest-univalue-path/discuss/108136/JavaC++-Clean-Code
+    */
+    public int longestUnivaluePath(TreeNode root) {
+       int[] res = new int[1];
+        if (root != null) {
+            dfs(root, res);
+        }
+        return res[0];
+    }
+    
+    private int dfs(TreeNode node, int[] res) {
+        int l = node.left != null ? dfs(node.left, res) : 0; //longestUnivaluePathStartAT - left Child
+        int r = node.right != null ? dfs(node.right, res) : 0; //longestUnivaluePathStartAT - right Child
+        int resl = node.left != null && node.left.val == node.val ? l + 1 : 0; ////longestUnivaluePathStartAT - node, and go left
+        int resr = node.right != null && node.right.val == node.val ? r + 1 : 0; ////longestUnivaluePathStartAT - node, and go right
+        res[0] = Math.max(res[0], resl + resr); //longestUnivaluePathStartAT - node
+        
+        return Math.max(resl, resr);
+    } 
+        
+    
+}
