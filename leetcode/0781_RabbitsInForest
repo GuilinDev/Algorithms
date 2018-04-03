@@ -1,0 +1,18 @@
+class Solution {
+    /*
+    兔子回答“另外”有几只相同颜色的兔子
+    https://leetcode.com/problems/rabbits-in-forest/discuss/114719/My-easy-Java-HashMap-solution
+    */
+    public int numRabbits(int[] answers) {
+        int res = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int answer : answers) {
+            map.put(answer, map.getOrDefault(answer,0) +1);
+        }
+        for (Integer n : map.keySet()) {
+            int group = map.get(n)/(n+1);
+            res += map.get(n)%(n+1) != 0 ? (group+1)*(n+1) : group*(n+1);
+        }
+        return res;
+    }
+}
