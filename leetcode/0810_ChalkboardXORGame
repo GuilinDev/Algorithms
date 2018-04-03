@@ -1,0 +1,12 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/chalkboard-xor-game/discuss/121696/C++JavaPython-3-lines-Easy-Solution-with-Complaint-and-Explanation
+    */
+    public boolean xorGame(int[] nums) {
+        int xor = 0;
+        for (int i : nums) {
+            xor ^= i;
+        }
+        return xor == 0 || nums.length%2 == 0;
+    }
+}
