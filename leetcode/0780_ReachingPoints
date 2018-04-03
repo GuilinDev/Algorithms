@@ -1,0 +1,16 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/reaching-points/discuss/114856/Easy-and-Concise-2-line-SolutionPythonC++Java
+    从tx,ty开始，时间复杂度O(logN) where N = max(tx,ty)
+    */
+    public boolean reachingPoints(int sx, int sy, int tx, int ty) {
+        while (sx < tx && sy < ty) {
+            if (tx < ty) {
+                ty %= tx;
+            } else {
+                tx %= ty;
+            }
+        }
+        return (sx == tx && (ty - sy)%sx == 0) || (sy == ty) && ((tx - sx)%sy == 0);
+    }
+}
