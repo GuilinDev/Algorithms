@@ -1,0 +1,50 @@
+class Solution {
+    /*
+    有一个四位锁，每一位都是0~9。每一位都可以从0拨到1,2,3..9，或者0,9,8..，每次只能转动一位。 
+锁一开始置于0000，给定一个deadend数组，里面包含一些密码，当转到这里面的密码时，则不能再转动。给定密码target，求出从0000转到target的最短步骤，不如不能转到target，返回-1
+
+deadend可能看做一个used数组，表示使用过就不能在使用。 
+就是一个BFS，对于每一位都求出他可能走出的下一步，把所有的可能列举出来存入queue（把deadend的存入set，检查是否存在如deadend，存在pass，不存在添加到queue和deadend）。对于queue的每一个，先poll，在求其的每一种可能，直到求到target，或者不能求出结果。
+    */
+    public int openLock(String[] deadends, String target) {
+        Set<String> used = new HashSet<>();
+        Queue<String> q = new LinkedList<>();
+        q.add("0000");
+        used.add("0000");
+        for (String d : deadends) {
+            if (d.equals("0000")) {
+                return -1;
+            }
+            used.add(d);
+        }
+        int ans = 0;
+        while(!q.isEmpty()) {
+            int size = q.size();
+            while (size-->0) {
+                String cur = q.poll();
+                if (cur.equals(target)) {
+                    return ans;
+                }
+                String[] newStr = getNext(cur);
+                for (int i = 0; i < 8; i++) {
+                    if (!used.contains(newStr[i])) {
+                        q.add(newStr[i]);
+                        used.add(newStr[i]);
+                    }
+                }
+            }
+            ans++;
+        }
+        return -1;
+    }
+    
+    //求出当前密码的每一种转法
+    private String[] getNext(String lock) {
+        String[] res = new String[8];
+        for (int i = 0; i < 4; i++) {
+            res[i*2] = lock.substring(0,i) + ((lock.charAt(i) - '0' + 1)%10) + lock.substring(i+1, 4);
+            res[i*2+1] = lock.substring(0,i) + ((lock.charAt(i) - '0' + 9)%10) + lock.substring(i+1, 4);
+        }
+        return res;
+    }
+}
