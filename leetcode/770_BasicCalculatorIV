@@ -1,0 +1,165 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/basic-calculator-iv/discuss/115076/Straightforward-AC-Java-Solution
+    */
+    public List<String> basicCalculatorIV(String expression, String[] evalvars, int[] evalints) {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        Stack<Token> stack = new Stack<Token>();
+        Stack<List<Token>> calc = new Stack<List<Token>>();
+        Queue<Token> q = new LinkedList<Token>();
+        int i = 0;
+        
+        //build the map for evaluation variables
+        for (i = 0; i < evalvars.length; i++) {
+            map.put(evalvars[i], evalints[i]);
+        }
+        
+        //convert to reverse polish notation
+        i = 0;
+        while (i < expression.length()) {
+            char c = expression.charAt(i);
+            if (c == '(') {
+                Token token = new Token(0, "(", "");
+                stack.push(token);
+                i++;
+            } else if (c == ')') {
+                while (!stack.isEmpty() && !stack.peek().operator.equals("(")) {
+                    q.add(stack.pop());
+                }
+                stack.pop();
+                i++;
+            } else if (c == '+' || c == '-' || c == '*') {
+                Token token = new Token(0, ""+c, "");
+                while (!stack.isEmpty() && !stack.peek().operator.equals("(") && !((stack.peek().operator.equals("+") || stack.peek().operator.equals("-")) && c == '*')) {
+                    q.add(stack.pop());
+                }
+                stack.push(token);
+                i++;
+            } else if (c == ' ') {
+                i++;
+            } else {
+                int coefficient = 1, j = i+1;
+                Token token = null;
+                
+                if (Character.isDigit(c)) {
+                    // if it is a number
+                    while (j < expression.length() && Character.isDigit(expression.charAt(j))) {
+                        j++;
+                    }
+                    coefficient = Integer.parseInt(expression.substring(i, j));
+                    token = new Token(coefficient, "", "");
+                } else {
+                    //this is a variable
+                    while (j < expression.length() && expression.charAt(j) >= 'a' && expression.charAt(j) <= 'z') {
+                        j++;
+                    }
+                    
+                    // check if we can swap with a number
+                    if (!map.containsKey(expression.substring(i, j))) {
+                        token = new Token(coefficient, "", expression.substring(i, j));
+                    } else {
+                        token = new Token(map.get(expression.substring(i, j)), "", "");
+                    }
+                }
+                i = j;
+                q.add(token);
+            }
+        }
+        while (!stack.isEmpty()) {
+            q.add(stack.pop());
+        }
+
+        // evaluate the reverse polish notation
+        while (!q.isEmpty()) {
+            Token t = q.poll();
+            if (t.isOperator()) {
+                List<Token> op2 = calc.pop();
+                List<Token> op1 = calc.pop();
+
+                if (t.operator.equals("+")) {
+                    op1.addAll(op2);
+                    calc.push(op1);
+                } else if (t.operator.equals("-")) {
+                    for (Token token : op2) {
+                        token.coefficient = -token.coefficient;
+                        op1.add(token);
+                    }
+                    calc.push(op1);
+                } else {
+                    List<Token> nlist = new ArrayList<Token>();
+                    for (Token t1 : op1) {
+                        for (Token t2 : op2) {
+                            Token nt = new Token(t1.coefficient*t2.coefficient, "", "");
+                            nt.terms.addAll(t1.terms);
+                            nt.terms.addAll(t2.terms);
+                            nlist.add(nt);
+                        }
+                    }
+                    calc.push(nlist);
+                }
+            } else {
+                List<Token> list = new ArrayList<Token>();
+                list.add(t);
+                calc.push(list);
+            }
+        }
+        List<Token> res = calc.pop();
+        Map<String, Integer> map_coef = new HashMap<String, Integer>();
+        Map<Integer, Set<String>> degree = new TreeMap<Integer, Set<String>>(Collections.reverseOrder());
+
+        // Aggregate the coefficients for the same term
+        for (Token token : res) {
+            String key = token.getKey();
+            int c = map_coef.getOrDefault(key, 0) + token.coefficient;
+            map_coef.put(key, c);
+
+            int d = token.terms.size();
+            Set<String> s = degree.getOrDefault(d, new TreeSet<String>());
+            s.add(key);
+
+            degree.put(d, s);
+        }
+
+        //output the result
+        List<String> ret = new ArrayList<String>();
+        for (Integer d : degree.keySet()) {
+            for (String term : degree.get(d)) {
+                int coef = map_coef.get(term);
+                if (coef != 0) {
+                    ret.add(coef + (term.isEmpty() ? "" : "*") + term);
+                }
+            }
+        }
+        return ret;
+    }
+    
+    private class Token {
+        int coefficient;
+        List<String> terms;
+        String operator;
+        public Token (int c, String op, String var) {
+            coefficient = c;
+            operator = op;
+            terms = new ArrayList<String>();
+            if (!var.isEmpty()) {
+                terms.add(var);
+            }
+        }
+        
+        public boolean isOperator() {
+            return operator.equals("+") || operator.equals("-") || operator.equals("*");
+        }
+        
+        public String getKey() {
+            String ret = "";
+            Collections.sort(terms);
+            for (int i = 0; i < terms.size(); i++) {
+                if (!ret.isEmpty()) {
+                    ret = ret + "*";
+                }
+                ret = ret + terms.get(i);
+            }
+            return ret;
+        }
+    }
+}
