@@ -1,0 +1,17 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/prime-number-of-set-bits-in-binary-representation/discuss/113227/JavaC++-Clean-Code
+    */
+    public int countPrimeSetBits(int L, int R) {
+        Set<Integer> primes = new HashSet<>(Arrays.asList(2,3,5,7,11,13,17,19/*, 23, 29*/));
+        int count = 0;
+        for (int i = L; i <= R; i++) {
+            int bits = 0;
+            for (int n = i; n > 0; n >>= 1) {
+                bits += n & 1;
+            }
+            count += primes.contains(bits) ? 1 : 0;
+        }
+        return count;
+    }
+}
