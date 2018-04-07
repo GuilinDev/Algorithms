@@ -1,0 +1,53 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/swap-adjacent-in-lr-string/discuss/113789/Simple-Java-one-pass-O(n)-solution-with-explaination
+    得到非X的字符并且比较他们的位置
+    */
+    public boolean canTransform(String start, String end) {
+        if (!start.replace("X", "").equals(end.replace("X", ""))) {
+            return false;
+        }
+        
+        int p1 = 0;
+        int p2 = 0;
+        
+        while (p1 < start.length() && p2 < end.length()) {
+            
+            //得到非X长度为2字符的位置
+            while (p1 < start.length() && start.charAt(p1) == 'X') {
+                p1++;
+            }
+            while (p2 < end.length() && end.charAt(p2) == 'X') {
+                p2++;
+            }
+            
+            // 如果两个指针都到了end， 该字符串就可以转换
+            if (p1 == start.length() && p2 == end.length()) {
+                return true;
+            }
+            
+            //如果仅仅一个指针到到了end，该字符串不能转换
+            if (p1 == start.length() || p2 == end.length()) {
+                return false;
+            }
+            
+            if (start.charAt(p1) != end.charAt(p2)) {
+                return false;
+            }
+            
+            //如果字符为‘L’，该字符仅可以移向左边
+            if (start.charAt(p1) == 'L' && p2 > p1) {
+                return false;
+            }
+            
+            //如果字符为'R'，该字符仅可以移向右边
+            if (start.charAt(p1) == 'R' && p1 > p2) {
+                return false;
+            }
+            
+            p1++;
+            p2++;
+        }
+        return true;
+    }
+}
