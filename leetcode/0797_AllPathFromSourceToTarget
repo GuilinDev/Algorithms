@@ -1,0 +1,28 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/all-paths-from-source-to-target/discuss/118713/Java-DFS-Solution
+    DFS，从开始节点遍历到结束节点，并保存path的每一个node，每一个node会被访问很多次当它有很多indegree的时候。
+    */
+    public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> path = new ArrayList<>();
+        
+        path.add(0);
+        dfsSearch(graph, 0, res, path);
+        
+        return res;
+    }
+    
+    private void dfsSearch(int[][] graph, int node, List<List<Integer>> res, List<Integer> path) {
+        if (node == graph.length - 1) {
+            res.add(new ArrayList<Integer>(path));
+            return;
+        }
+        
+        for (int nextNode : graph[node]) {
+            path.add(nextNode);
+            dfsSearch(graph, nextNode, res, path);
+            path.remove(path.size() - 1);
+        }
+    }
+}
