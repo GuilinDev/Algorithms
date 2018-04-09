@@ -1,0 +1,16 @@
+class Solution {
+    /*
+    解释：https://leetcode.com/problems/escape-the-ghosts/discuss/116678/Why-interception-in-the-middle-is-not-a-good-idea-for-ghosts.
+    https://leetcode.com/problems/escape-the-ghosts/discuss/116507/Java-5-liner
+    */
+    public boolean escapeGhosts(int[][] ghosts, int[] target) {
+        int max = Math.abs(target[0]) + Math.abs(target[1]);
+        for (int[] ghost : ghosts) {
+            int d = Math.abs(ghost[0] - target[0]) + Math.abs(ghost[1] - target[1]);
+            if (d <= max) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
