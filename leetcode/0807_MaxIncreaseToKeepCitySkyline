@@ -1,0 +1,28 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/max-increase-to-keep-city-skyline/discuss/120681/Easy-and-Concise-Solution-C++JavaPython
+    
+    1.给出一个城市矩阵，每个元素表示这个地方的大楼高度，一个城市具有从左到右，从上到下两个天际线，也就是从这个方向看去最高的那栋大楼构成的。
+
+    2.提升每栋楼的高度，但是不能破坏天际线，求最大可以提升的高度（总和）
+
+    3.显然grid[i][j]最高可以到min(水平天际线[i],垂直天际线[j])，遍历一次矩阵即可
+    */
+    public int maxIncreaseKeepingSkyline(int[][] grid) {
+        int n = grid.length;
+        int[] col = new int[n], row = new int[n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                row[i] = Math.max(row[i], grid[i][j]);
+                col[j] = Math.max(col[j], grid[i][j]);
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                res += Math.min(row[i], col[j]) - grid[i][j];
+            }
+        }
+        return res;
+    }
+}
