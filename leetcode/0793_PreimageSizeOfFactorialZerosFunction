@@ -1,0 +1,15 @@
+class Solution {
+    /*
+    问有多少个数的阶乘后面有k个零
+    https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/discuss/117821/Four-binary-search-solutions-based-on-different-ideas
+    */
+    public int preimageSizeFZF(int K) {
+        for (int f = 305175781; f >= 1; f = (f-1)/5) {
+            if (K == 5 * f) {
+                return 0;
+            }
+            K %= f;
+        }
+        return 5;
+    }
+}
