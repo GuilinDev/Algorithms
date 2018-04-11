@@ -1,0 +1,19 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/subdomain-visit-count/discuss/121726/Java-solutionvery-easy-to-understand!
+    */
+    public List<String> subdomainVisits(String[] cpdomains) {
+        Map<String, Integer> counts = new HashMap<>();
+        for (String cd : cpdomains) {
+            String[] parts = cd.split(" "); 
+            String domain = parts[1];
+            int i = -1, count = Integer.parseInt(parts[0]);
+            
+            do {
+                String sub = domain.substring(i+1);
+                counts.put(sub, counts.getOrDefault(sub, 0) + count);
+            } while ((i = domain.indexOf('.', i+1)) != -1);
+        }
+        return counts.keySet().stream().map(k -> counts.get(k) + " " + k).collect(Collectors.toList());
+    }
+}
