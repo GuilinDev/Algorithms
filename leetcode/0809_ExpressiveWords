@@ -1,0 +1,21 @@
+class Solution {
+    public int expressiveWords(String S, String[] words) {
+        int count = 0;
+        for (String w : words) {
+            int i, j; //S & w pointers
+            for (i = 0, j = 0; i < S.length(); i++) {
+                if (j < w.length() && S.charAt(i) == w.charAt(j)) {//匹配上，word的指针j跟随i一起移动
+                    j++;
+                } else if (i > 0 && S.charAt(i - 1) == S.charAt(i) && i + 1 < S.length() && S.charAt(i) == S.charAt(i + 1)) { //之前，当前和后面的字母都一样的情况下
+                    i++;
+                } else if (!(i > 1 && S.charAt(i) == S.charAt(i-1) && S.charAt(i) == S.charAt(i-2))) {// current & previous 2 are not same. 
+                    break;//不匹配
+                }
+            }
+            if (i == S.length() && j == w.length()) {//两个指针都到达了末尾
+                count++;
+            }
+        }
+        return count;
+    }
+}
