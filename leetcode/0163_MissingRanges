@@ -1,0 +1,33 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/missing-ranges/discuss/50476/Accepted-Java-solution-with-explanation
+    @xietao0221
+    */
+    public List<String> findMissingRanges(int[] nums, int lower, int upper) {
+        List<String> res = new ArrayList<>();
+        for (int num : nums) {
+            //if num is MIN, num - 1 will be max
+            if (num == Integer.MIN_VALUE) {
+                lower = num + 1;
+                continue;
+            }
+            
+            if (lower == num - 1) {
+                res.add("" + lower);
+            } else if (lower < num - 1) {
+                res.add(lower + "->" + (num - 1)); 
+            }
+            if (num == Integer.MAX_VALUE) {
+                return res; // added
+            }
+            lower = num + 1;
+        }
+        // if (lower == Integer.MIN_VALUE) return res;
+        if (lower == upper) {
+            res.add("" + lower);
+        } else if (lower < upper) {
+            res.add(lower + "->" + upper);
+        }
+        return res;
+    }
+}
