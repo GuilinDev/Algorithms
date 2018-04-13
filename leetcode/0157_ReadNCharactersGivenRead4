@@ -1,0 +1,33 @@
+/* The read4 API is defined in the parent class Reader4.
+      int read4(char[] buf); */
+
+public class Solution extends Reader4 {
+    
+    // https://leetcode.com/problems/read-n-characters-given-read4/discuss/49496/Another-accepted-Java-solution
+    /**
+     * @param buf Destination buffer
+     * @param n   Maximum number of characters to read
+     * @return    The number of characters read
+     */
+    public int read(char[] buf, int n) {
+        boolean eof = false;// end of the file flag
+        int total = 0; // total bytes have read
+        char[] temp = new char[4]; // temp buffer
+        
+        while (!eof && total < n) {
+            int count = read4(temp);
+            
+            //检查是否到达了file的末尾
+            eof = count < 4;
+            
+            //得到实际的count
+            count = Math.min(count, n - total);
+            
+            //copy from temp buffer to buf
+            for (int i = 0; i < count; i++) {
+                buf[total++] = temp[i];
+            }
+        }
+        return total;
+    }
+}
