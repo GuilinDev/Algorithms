@@ -1,0 +1,33 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    https://leetcode.com/problems/binary-tree-upside-down/discuss/49406/Java-recursive-(O(logn)-space)-and-iterative-solutions-(O(1)-space)-with-explanation-and-figure
+    */
+    public TreeNode upsideDownBinaryTree(TreeNode root) {
+        TreeNode curr = root;
+        TreeNode next = null;
+        TreeNode temp = null;
+        TreeNode prev = null;
+        
+        while (curr != null) {
+            next = curr.left;
+            
+            //这里交换nodes，need temp to keep the previous right child
+            curr.left = temp;
+            temp = curr.right;
+            curr.right = prev;
+            
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+}
