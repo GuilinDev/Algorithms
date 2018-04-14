@@ -1,0 +1,54 @@
+class ValidWordAbbr {
+    
+    //https://leetcode.com/problems/unique-word-abbreviation/discuss/73141/Let-me-explain-the-question-with-better-examples.
+
+    private Map<String, Set<String>> d;
+    
+    public ValidWordAbbr(String[] dictionary) {
+        d = new HashMap(dictionary.length);
+        
+        for (int i = 0; i < dictionary.length; i++) {
+            String w = dictionary[i];
+            String a = getAbbr(w);
+            
+            if (d.containsKey(a)) {
+                Set<String> s = d.get(a);
+                if (!s.contains(w)) {
+                    s.add(w);
+                }
+            } else {
+                Set<String> s = new HashSet();
+                s.add(w);
+                d.put(a, s);
+            }
+        }
+    }
+    
+    public boolean isUnique(String word) {
+        String a = getAbbr(word);
+        if (d.containsKey(a)) {
+            Set<String> s = d.get(a);
+            if (s.size() == 1 && s.contains(word)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
+    
+    private String getAbbr(String w) {
+        int sl = w.length() - 2;
+        if (sl <= 0) {
+            return w;
+        }
+        return "" + w.charAt(0) + sl + w.charAt(w.length() - 1);
+    }
+}
+
+/**
+ * Your ValidWordAbbr object will be instantiated and called as such:
+ * ValidWordAbbr obj = new ValidWordAbbr(dictionary);
+ * boolean param_1 = obj.isUnique(word);
+ */
