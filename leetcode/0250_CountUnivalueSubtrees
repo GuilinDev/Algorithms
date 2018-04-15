@@ -1,0 +1,35 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    先序遍历树的所有的节点，然后对每一个节点调用判断以当前节点为根的子树的所有节点是否相同
+    https://leetcode.com/problems/count-univalue-subtrees/discuss/67573/My-Concise-JAVA-Solution
+    */
+    public int countUnivalSubtrees(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int count = isUnivalue(root) ? 1 : 0;
+        return count + countUnivalSubtrees(root.left) + countUnivalSubtrees(root.right);
+    }
+    
+    private boolean isUnivalue(TreeNode node) {
+        boolean b = true;
+        if (node.left != null) {
+            b &= node.val == node.left.val;
+            b &= isUnivalue(node.left);
+        }
+        if (node.right != null) {
+            b &= node.val == node.right.val;
+            b &= isUnivalue(node.right);
+        }
+        return b;
+    }
+}
