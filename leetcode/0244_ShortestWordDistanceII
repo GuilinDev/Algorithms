@@ -1,0 +1,41 @@
+class WordDistance {
+
+    // https://leetcode.com/problems/shortest-word-distance-ii/discuss/67028/Java-Solution-using-HashMap
+    
+    HashMap<String,LinkedList<Integer>> map;
+    public WordDistance(String[] words) {
+        map = new HashMap<String, LinkedList<Integer>>();
+        for(int i = 0; i < words.length; i++) {
+            String curWord = words[i];
+            if(!map.containsKey(curWord)) {
+                map.put(curWord,new LinkedList<Integer>());
+            }
+            map.get(curWord).add(i);
+        }
+    }
+
+    public int shortest(String word1, String word2) {
+        int shortest = Integer.MAX_VALUE;
+        LinkedList<Integer> word1List = map.get(word1);
+        LinkedList<Integer> word2List = map.get(word2);
+        int w1Index = 0;
+        int w2Index = 0;
+        while(w1Index < word1List.size() && w2Index < word2List.size()) {
+            int w1 = word1List.get(w1Index);
+            int w2 = word2List.get(w2Index);
+            shortest = Math.min(shortest, Math.abs(w1-w2));
+            if(w1<w2) {
+                w1Index++;
+            } else {
+                w2Index++;
+            }
+        }
+        return shortest;
+    }
+}
+
+/**
+ * Your WordDistance object will be instantiated and called as such:
+ * WordDistance obj = new WordDistance(words);
+ * int param_1 = obj.shortest(word1,word2);
+ */
