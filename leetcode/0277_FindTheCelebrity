@@ -1,0 +1,23 @@
+/* The knows API is defined in the parent class Relation.
+      boolean knows(int a, int b); */
+
+public class Solution extends Relation {
+    /*
+    https://leetcode.com/problems/find-the-celebrity/discuss/71227/Java-Solution.-Two-Pass
+    需要找到名流，维持两个pass，第一个pass是candidate的名流，如果这个candidate认识i，那么就switch掉ta为i，第二个pass则是检查这个candidate是否存在
+    */
+    public int findCelebrity(int n) {
+        int candidate = 0;//初始第一个人为candidate
+        for (int i = 1; i < n; i++) {//这个循环后比如找到candidate是k，那么celebrity不会在0到k-1之间，because they know a previous or current candidate，因此k是唯一可能的celebrity
+            if (knows(candidate, i)) {
+                candidate = i;
+            }
+        }
+        for (int i = 0; i < n; i++) {//这个循环是检查是否k不认识所有人，并且所有人都认识k
+            if (i != candidate && (knows(candidate, i) || !knows(i, candidate))) {
+                return -1;
+            }
+        }
+        return candidate;
+    }
+}
