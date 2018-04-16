@@ -1,0 +1,31 @@
+/**
+ * Definition for an interval.
+ * public class Interval {
+ *     int start;
+ *     int end;
+ *     Interval() { start = 0; end = 0; }
+ *     Interval(int s, int e) { start = s; end = e; }
+ * }
+ */
+class Solution {
+    /*
+    https://leetcode.com/problems/meeting-rooms-ii/discuss/67857/AC-Java-solution-using-min-heap
+    底下评论czonzhu
+    */
+    public int minMeetingRooms(Interval[] intervals) {
+        if (intervals == null || intervals.length == 0) {
+            return 0;
+        }
+        Arrays.sort(intervals, (a, b) -> (a.start - b.start));
+        int max = 0;
+        PriorityQueue<Interval> queue = new PriorityQueue<>(intervals.length, (a, b) -> (a.end - b.end));
+        for (int i = 0; i < intervals.length; i++) {
+            while (!queue.isEmpty() && intervals[i].start >= queue.peek().end) {
+                queue.poll();
+            }
+            queue.offer(intervals[i]);
+            max = Math.max(max, queue.size());
+        }
+        return max;
+    }
+}
