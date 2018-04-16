@@ -1,0 +1,19 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree/discuss/68142/Java-O(n)-and-O(1)-extra-space
+    */
+    public boolean verifyPreorder(int[] preorder) {
+        int low = Integer.MIN_VALUE;
+        Stack<Integer> path = new Stack();
+        for (int p : preorder) {
+            if (p < low) {
+                return false;
+            }
+            while (!path.empty() && p > path.peek()) {
+                low = path.pop();
+            }
+            path.push(p);
+        }
+        return true;
+    }
+}
