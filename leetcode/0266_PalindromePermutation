@@ -1,0 +1,20 @@
+class Solution {
+    /*
+    遍历给定的string，将遍历到的字符加入到set中，如果set包含当前字符，则删除当前字符
+    最后检查set.size()
+    如果set.size() == 0, 说明string里面有偶数的字符；
+    如果set.size() == 1，说明string里面除了1个字符别的都是偶数个
+    如果set.size()等于别的数，则不会成为回文结构
+    */
+    public boolean canPermutePalindrome(String s) {
+        Set<Character> set = new HashSet<Character>();
+        for (int i = 0; i < s.length(); i++) {
+            if (!set.contains(s.charAt(i))) {
+                set.add(s.charAt(i));
+            } else {
+                set.remove(s.charAt(i));
+            }
+        }
+        return set.size() == 0 || set.size() == 1;
+    }
+}
