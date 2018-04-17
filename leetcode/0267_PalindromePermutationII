@@ -1,0 +1,43 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/palindrome-permutation-ii/discuss/69696/AC-Java-solution-with-explanation
+    */
+    public List<String> generatePalindromes(String s) {
+        List<String> answer = new ArrayList<>();
+        int[] count = new int[256];
+        int odds = 0;
+        for (char c : s.toCharArray()) {
+            count[c]++;
+        }
+        for (int c : count) {
+            if ( c % 2 != 0) {
+                odds++;
+            }
+        }
+        if (odds <= 1) {
+            Character center = null;
+            for (int index = 0; index < count.length; index++) {
+                if (count[index] % 2 == 1) {
+                    center = ((char) index);
+                    count[index]--;
+                    break;
+                }
+            }
+            generate (answer, count, (center != null ? String.valueOf(center) : new String()), s.length());
+        }
+        return answer;
+    }
+    
+    private void generate (List<String> answer, int[] count, String build, int len) {
+        for (int index = 0; index < count.length; index ++) {
+            if (count[index] > 0) {
+                count[index] -= 2;
+                generate (answer, count, ((char) index) + build + ((char) index), len);
+                count[index] += 2;
+            }
+        }
+        if (build.length() == len) {
+            answer.add(new String(build));
+        }
+    }
+}
