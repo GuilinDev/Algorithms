@@ -1,0 +1,62 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/word-pattern-ii/discuss/73664/Share-my-Java-backtracking-solution
+    背包
+    */
+    public boolean wordPatternMatch(String pattern, String str) {
+        Map<Character, String> map = new HashMap<>();
+        Set<String> set = new HashSet<>();
+        
+        return isMatch(str, 0, pattern, 0, map, set);
+    }
+    
+    boolean isMatch(String str, int i, String pat, int j, Map<Character, String> map, Set<String> set) {
+        // base case
+        if (i == str.length() && j == pat.length()) {
+            return true;
+        }
+        if (i == str.length() || j == pat.length()) {
+            return false;
+        }
+        
+        //get current pattern character
+        char c = pat.charAt(j);
+        
+        // if the pattern character exists
+        if (map.containsKey(c)) {
+            String s = map.get(c);
+            
+            // 检查是否可以用这个pattern来match str[i...i+s.length()] 
+            if (!str.startsWith(s, i)) {
+                return false;
+            }
+            
+            // if it can match, 接着match剩下的
+            return isMatch(str, i + s.length(), pat, j + 1, map, set);
+        }
+        
+        //pattern character在map中不存在
+        for (int k = i; k < str.length(); k++) {
+            String p = str.substring(i, k + 1);
+            
+            if (set.contains(p)) {
+                continue;
+            }
+            
+            //create of update it
+            map.put(c, p);
+            set.add(p);
+            
+            // contine to match the rest
+            if (isMatch(str, k + 1, pat, j + 1, map, set)) {
+                return true;
+            }
+            
+            // 背包
+            map.remove(c);
+            set.remove(p);
+        }
+        
+        return false;
+    }
+}
