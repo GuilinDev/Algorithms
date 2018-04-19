@@ -1,0 +1,17 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/max-consecutive-ones-ii/discuss/96920/Java-clean-solution-easily-extensible-to-flipping-k-zero-and-follow-up-handled
+    keep a window [l, h] that contains at most k zero移动窗口，Time: O(n) Space: O(k)，这道题k=1
+    */
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int max = 0, q = -1;
+        for (int l = 0, h = 0; h < nums.length; h++) {
+            if (nums[h] == 0) {
+                l = q + 1;
+                q = h;
+            }
+            max = Math.max(max, h - l + 1);
+        }
+        return max;
+    }
+}
