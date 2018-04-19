@@ -1,0 +1,59 @@
+class NumMatrix {
+    
+    /*
+    https://leetcode.com/problems/range-sum-query-2d-mutable/discuss/75870/Java-2D-Binary-Indexed-Tree-Solution-clean-and-short-17ms
+    */
+
+    private int[][] nums;
+    private int[][] binaryIndexTree;
+    private int m;
+    private int n;
+    
+    public NumMatrix(int[][] matrix) {
+        m = matrix.length;
+        if (m == 0) {
+            return;
+        }
+        n = matrix[0].length;
+        
+        nums = new int[m][n];
+        binaryIndexTree = new int[m+1][n+1];
+        
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                update(i, j, matrix[i][j]);
+            }
+        }
+    }
+    
+    public void update(int row, int col, int val) {
+        int vary = val - nums[row][col];
+        nums[row][col] = val;
+        for (int i = row + 1; i <= m; i += i & (-i)) {
+            for (int j = col + 1; j <= n; j += j & (-j)) {
+                binaryIndexTree[i][j] += vary;
+            }
+        }
+    }
+    
+    public int sumRegion(int row1, int col1, int row2, int col2) {
+        return sum(row1, col1) + sum(row2+1, col2+1) - sum(row1, col2 + 1) - sum(row2 + 1, col1);
+    }
+    
+    private int sum(int row, int col) {
+        int sum = 0;
+        for (int i = row; i > 0; i -= i & (-i)) {
+            for (int j = col; j > 0; j -= j & (-j)) {
+                sum += binaryIndexTree[i][j];
+            }
+        }
+        return sum;
+    }
+}
+
+/**
+ * Your NumMatrix object will be instantiated and called as such:
+ * NumMatrix obj = new NumMatrix(matrix);
+ * obj.update(row,col,val);
+ * int param_2 = obj.sumRegion(row1,col1,row2,col2);
+ */
