@@ -1,0 +1,12 @@
+class Solution {
+    /*
+    这道题给了一个句子，由若干个单词组成，然后给我们了一个空白屏幕区域，让我们填充单词，前提是单词和单词之间需要一个空格隔开，而且单词不能断开，如果当前行剩余位置放不下某个单词，则必须将该单词整个移动到下一行。
+    https://leetcode.com/problems/sentence-screen-fitting/discuss/90845/21ms-18-lines-Java-solution
+    */
+    public int wordsTyping(String[] sentence, int rows, int cols) {
+        String s = String.join(" ", sentence) + " ";
+        int[] offset = new int[s.length()];
+        IntStream.range(1, s.length()).forEach(i -> offset[i] = s.charAt(i) == ' ' ? 1 : offset[i-1] - 1);
+        return IntStream.range(0, rows).reduce(0, (a, b) -> a + cols + offset[(a + cols) % s.length()]) / s.length();
+    }
+}
