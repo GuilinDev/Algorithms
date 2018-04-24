@@ -1,0 +1,60 @@
+class Solution {
+    /*
+    leetcode.com/problems/sequence-reconstruction/discuss/92580/Java-Solution-using-BFS-Topological-Sort/97073
+    一个序列org，又给我们了一些子序列seqs，问这些子序列能否唯一的重建出原序列。
+    能唯一重建的意思就是任意两个数字的顺序必须是一致的，不能说在一个子序列中1在4的后面，但是在另一个子序列中1在4的前面，这样就不是唯一的了。还有一点就是，子序列seqs中不能出现其他的数字，就是说必须都是原序列中的数字。
+    那么可以用了一个一维数组pos来记录org中每个数字对应的位置，然后用一个flags数字来标记当前数字和其前面一个数字是否和org中的顺序一致，用cnt来标记还需要验证顺序的数字的个数，初始化cnt为n-1，因为n个数字只需要验证n-1对顺序即可，然后先遍历一遍org，将每个数字的位置信息存入pos中，然后再遍历子序列中的每一个数字，还是要先判断数字是否越界，然后取出当前数字cur，和其前一位置上的数字pre，如果在org中，pre在cur之后，那么直接返回false。否则看如果cur的顺序没被验证过，而且pre是在cur的前一个，那么标记cur已验证，且cnt自减1，最后如果cnt为0了，说明所有顺序被成功验证了
+    */
+    public boolean sequenceReconstruction(int[] org, List<List<Integer>> seqs) {
+        Map<Integer, Set<Integer>> map = new HashMap<>(); 
+        int[] degree = new int[org.length];
+        
+        // for(int i = 1; i<=org.length; i++) map.put(i, new HashSet<>()); 
+       //cannot init map with org, has to do with seqs, to avoid case like [1], [], expected: false
+        for (List<Integer> list : seqs) {
+            if (list.size() == 1) {
+                map.computeIfAbsent(list.get(0), k -> new HashSet<Integer>());
+            }
+            for (int i = 1; i < list.size(); i++) {
+                int pre = list.get(i-1);
+                int cur = list.get(i);
+                map.computeIfAbsent(pre, k->new HashSet<Integer>());
+                map.computeIfAbsent(cur, k->new HashSet<Integer>());
+                if (pre > org.length || cur > org.length || pre < 1 || cur < 1) {
+                    return false;
+                }
+                //dont forget. or degree array can "ArrayIndexOutOfBoundsException"
+                if (!map.get(pre).contains(cur)) {
+                    degree[cur-1]++;
+                    map.get(pre).add(cur);
+                }
+            }
+        }
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < degree.length; i++) {
+            if (degree[i] == 0) {
+                q.add(i+1);
+            }
+        }
+        int index = 0;
+        while (!q.isEmpty()) {
+            if (q.size() > 1) {
+                return false;//check with org
+            }
+            int cur = q.poll();
+            if (org[index++] != cur) {
+                return false;//check with org
+            }
+            if (!map.containsKey(cur)) {
+                continue;
+            }
+            for (int ii : map.get(cur)) {
+                degree[ii-1]--;
+                if (degree[ii-1] == 0) {
+                    q.add(ii);
+                }
+            }
+        }
+        return index == org.length && index == map.size();//has to check with map size
+    }
+}
