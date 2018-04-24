@@ -1,0 +1,78 @@
+class AutocompleteSystem {
+    /*
+    https://leetcode.com/problems/design-search-autocomplete-system/discuss/105376/Java-solution-Trie-and-PriorityQueue
+    设计搜索自动完成系统
+    包含如下两个方法：
+    构造方法：
+    AutocompleteSystem(String[] sentences, int[] times): 输入句子sentences，及其出现次数times
+    输入方法：
+    List<String> input(char c): 输入字符c可以是26个小写英文字母，也可以是空格，以'#'结尾。返回输入字符前缀对应频率最高的至多3个句子，频率相等时按字典序排列
+    
+    字典树的典型实现
+    */
+      
+    class Node {
+        int cnt;  
+        String content;  
+        private Node(int cnt, String content) {  
+            this.cnt = cnt;  
+            this.content = content;  
+        }  
+    }  
+      
+    StringBuilder sb = new StringBuilder();  
+      
+    TreeMap<Node, String> map = new TreeMap<Node, String>(new Comparator<Node>(){
+        @Override  
+        public int compare(Node o1, Node o2) {  
+            if(o1.cnt == o2.cnt)    return o1.content.compareTo(o2.content);  
+            return o2.cnt - o1.cnt;  
+        }  
+    });  
+    Map<String, Node> m = new HashMap<String, Node>();  
+  
+    public AutocompleteSystem(String[] sentences, int[] times) {  
+        for(int i=0; i<sentences.length; i++) {  
+            Node t = new Node(times[i], sentences[i]);  
+            map.put(t, sentences[i]);  
+            m.put(sentences[i], t);  
+        }  
+    }  
+      
+    public List<String> input(char c) {
+        if(c == '#') {  
+            String s = sb.toString();  
+            if(m.containsKey(s)) {  
+                Node t = m.get(s);  
+                map.remove(t);  
+                t.cnt  = t.cnt + 1;  
+                map.put(t, t.content);  
+            } else {  
+                Node t = new Node(1, s);  
+                m.put(s, t);  
+                map.put(t, s);  
+            }  
+              
+            sb = new StringBuilder();  
+            return new ArrayList<String>();  
+        }   
+          
+        if(c != '#')    sb.append(c);  
+        List<String> ret = new ArrayList<String>();  
+        String prefix = sb.toString();  
+        for(Node k : map.keySet()) {  
+            if(k.content.startsWith(prefix)) {  
+                ret.add(k.content);  
+                if(ret.size() == 3) break;  
+            }  
+        }  
+          
+        return ret;  
+    }
+}
+
+/**
+ * Your AutocompleteSystem object will be instantiated and called as such:
+ * AutocompleteSystem obj = new AutocompleteSystem(sentences, times);
+ * List<String> param_1 = obj.input(c);
+ */
