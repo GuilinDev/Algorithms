@@ -1,0 +1,38 @@
+class Solution {
+    /*
+    给定数组A和整数B，A表示N枚硬币的面值，-1表示硬币不存在；从第1枚硬币出发每次选择其右边的1-B枚硬币，选择第i枚硬币的开销为A[i]，求最终选择第N枚硬币时，开销最小的选择方案，若存在并列的情况则选择硬币标号字典序较小的。
+    https://leetcode.com/problems/coin-path/discuss/106291/Java-22-lines-solution-with-proof
+    */
+    public List<Integer> cheapestJump(int[] A, int B) {
+        int n = A.length;
+        int[] c = new int[n];//cost
+        int[] p = new int[n];//previous index
+        int[] l = new int[n];//length
+        
+        Arrays.fill(c, Integer.MAX_VALUE);
+        Arrays.fill(p, -1);
+        
+        c[0] = 0;
+        for (int i = 0; i <n; i++) {
+            if (A[i] == -1) {
+                continue;
+            }
+            for (int j = Math.max(0, i - B); j < i; j++) {
+                if (A[j] == -1) {
+                    continue;
+                }
+                int alt = c[j] + A[i];
+                if (alt < c[i] || alt == c[i] && l[i] < l[j] + 1) {
+                    c[i] = alt;
+                    p[i] = j;
+                    l[i] = l[j] + 1;
+                }
+            }
+        }
+        List<Integer> path = new ArrayList<>();
+        for (int cur = n - 1; cur >= 0; cur = p[cur]) {
+            path.add(0, cur + 1);
+        }
+        return path.get(0) != 1 ? Collections.emptyList() : path;
+    }
+}
