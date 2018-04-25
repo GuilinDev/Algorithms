@@ -1,0 +1,34 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    leetcode.com/problems/split-bst/discuss/113800/Recursive-JAVA-solution/114812
+    */
+    public TreeNode[] splitBST(TreeNode root, int V) {
+        TreeNode small_root = new TreeNode(0), big_root = new TreeNode(0);
+        TreeNode cur = root, cur_small = small_root, cur_big = big_root;
+        while (cur != null) {
+            if ( cur.val <= V) {
+                cur_small.right = cur;
+                cur_small = cur;
+                TreeNode right = cur.right;
+                cur.right = null;
+                cur = right;
+            } else {
+                cur_big.left = cur;
+                cur_big = cur;
+                TreeNode left = cur.left;
+                cur.left = null;
+                cur = left;
+            }
+        }
+        return new TreeNode[] {small_root.right, big_root.left};
+    }
+}
