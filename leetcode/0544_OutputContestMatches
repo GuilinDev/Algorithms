@@ -1,0 +1,19 @@
+class Solution {
+    /*
+    n限定了是2的次方数,然后再对半拆，就是n/2/2，直到拆到n为1停止，而且每次都是首与末配对，次首与次末配对
+    */
+    public String findContestMatch(int n) {
+        String[] m = new String[n];
+        for (int i = 0; i < n; i++) {
+            m[i] = String.valueOf(i + 1);
+        }
+        
+        while (n > 1) {
+            for (int i = 0; i < n / 2; i++) {
+                m[i] = "(" + m[i] + "," + m[n - 1 - i] + ")";
+            }
+            n /= 2;
+        }
+        return m[0];
+    }
+}
