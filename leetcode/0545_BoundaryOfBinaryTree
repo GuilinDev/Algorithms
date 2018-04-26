@@ -1,0 +1,44 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    leetcode.com/problems/boundary-of-binary-tree/discuss/101280/Java(12ms)-left-boundary-left-leaves-right-leaves-right-boundary/105016
+    Recursive
+    */
+    public List<Integer> boundaryOfBinaryTree(TreeNode root) {
+        List<Integer> ls = new ArrayList<Integer>();
+        if (root != null) {
+            ls.add(root.val);
+            lookupElems(root.left, ls, true, false);
+            lookupElems(root.right, ls, false, true);
+        }
+        return ls;
+    }
+    
+    private void lookupElems(TreeNode root, List<Integer> ls, boolean isLeftBoundary, boolean isRightBoundary) {
+        if (root == null) {
+            return;
+        }
+        
+        if (root.left == null && root.right == null) {
+            ls.add(root.val);
+            return;
+        }
+        if (isLeftBoundary) {
+            ls.add(root.val);
+        }
+        lookupElems(root.left, ls, root.left != null && isLeftBoundary, root.right == null && isRightBoundary);
+        lookupElems(root.right, ls, root.left == null && isLeftBoundary, root.right != null && isRightBoundary);
+        
+        if (isRightBoundary) {
+            ls.add(root.val);
+        }
+    }
+}
