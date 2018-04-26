@@ -1,0 +1,6 @@
+# Write your MySQL query statement below
+Select A.id, MAX(B.Month) as Month, SUM(B.Salary) as Salary
+From Employee A, Employee B
+Where A.id = B.id And B.Month Between (A.Month - 3) And (A.Month - 1)
+Group by A.id, A.Month
+Order by id, Month DESC
