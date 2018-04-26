@@ -1,0 +1,36 @@
+class Solution {
+    /*
+    leetcode.com/problems/lonely-pixel-i/discuss/100018/Java-O(nm)-time-with-O(n+m)-Space-and-O(1)-Space-Solutions/104179
+    Time: O(nm) 
+    */
+    public int findLonelyPixel(char[][] picture) {
+        int m = picture.length, n = picture[0].length;
+        int[] row = new int[m];
+        int[] col = new int[n];
+        for (int i = 0; i < m ; i++) {
+            for (int j = 0; j < n; j++) {
+                if (picture[i][j] == 'B') {
+                    row[i]++;
+                    col[j]++;
+                }
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < m; i++) {
+            // Only if the current row has only 1 black, we will step into it.
+            if (row[i] != 1) {
+                continue;
+            }
+            // Since this row only has 1 black, after we met it, we can break and search next row.
+            for (int j = 0; j < n; j++) {
+                if (picture[i][j] == 'B') {
+                    if (col[j] == 1) {
+                        res++;
+                    }
+                    break;
+                }
+            }
+        }
+        return res;
+    }
+}
