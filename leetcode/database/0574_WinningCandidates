@@ -1,0 +1,9 @@
+# Write your MySQL query statement below
+Select distinct c.Name as Name from Candidate c
+where c.id = 
+(
+    Select CandidateId from Vote
+    Group by CandidateId
+    Order by Count(CandidateId) desc
+    limit 1
+)
