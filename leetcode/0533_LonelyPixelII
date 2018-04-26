@@ -1,0 +1,41 @@
+class Solution {
+    /*
+    O(m*n). m = number of rows, n = number of columns
+    leetcode.com/problems/lonely-pixel-ii/discuss/100216/Verbose-Java-O(m*n)-Solution-HashMap/113416
+    HashMap
+    */
+    public int findBlackPixel(char[][] picture, int N) {
+        int R = picture.length, C = picture[0].length;
+        Map<String, Integer> sameRows = new HashMap<>();
+        int[] xCountsInCols = new int[C];
+        
+        for (int i = 0; i < R; i++) {
+            StringBuilder sb = new StringBuilder();
+            int rowBs = 0;
+            for (int j = 0; j < C; j++) {
+                sb.append(picture[i][j]);
+                if (picture[i][j] == 'B') {
+                    rowBs++;
+                    xCountsInCols[j]++;
+                }
+            }
+            if (rowBs != N) {
+                continue;
+            }
+            String rowHash = sb.toString();
+            sameRows.put(rowHash, sameRows.getOrDefault(rowHash, 0) + 1);
+        }
+        int res = 0;
+        for (String sameHash : sameRows.keySet()) {
+            int sameCount = sameRows.get(sameHash);
+            if (sameCount == N) {
+                for (int j = 0; j < C; j++) {
+                    if (sameHash.charAt(j) == 'B' && xCountsInCols[j] == N) {
+                        res += N;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+}
