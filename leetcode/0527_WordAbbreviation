@@ -1,0 +1,44 @@
+class Solution {
+    /*
+    求单词的缩写形式，就是首尾字母加上中间字符的个数组成的新字符串，但是要求是不能有重复的缩写字符串，而且说明如果缩写字符串的长度并没有减小的话就保留原来的字符串，比如god，缩写成g1d也没啥用，所以仍是god,例如internal和interval，只要有冲突的都不能用,因此i6l，in5l，int4l，inte3l，inter2l，统统冲突，而再往后的缩写长度就和原字符串一样了，所以二者就都保留了原样
+    leetcode.com/problems/word-abbreviation/discuss/99785/Visualization/123147
+    */
+    public List<String> wordsAbbreviation(List<String> dict) {
+        int n = dict.size();
+        List<String> abbres = new ArrayList<>();
+        List<Integer> lens = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            abbres.add(abbreviate(dict.get(i), 1));
+            lens.add(1);
+        }
+        
+        for (int i = 0; i < n; i++) {
+            boolean unique = false;
+            while (!unique) {
+                String abbre = abbres.get(i);
+                unique = true;
+                for (int j = i + 1; j < n; j++) {
+                    if (abbre.equals(abbres.get(j))) {
+                        abbres.set(j, abbreviate(dict.get(j), lens.get(j) + 1));
+                        lens.set(j, lens.get(j) + 1);
+                        unique = false;
+                    }
+                }
+                if (unique == false) {
+                    abbres.set(i, abbreviate(dict.get(i), lens.get(i) + 1));
+                    lens.set(i, lens.get(i) + 1);
+                    unique = false;
+                }
+            }
+        }
+        return abbres;
+    }
+    
+    private String abbreviate(String s, int len) {
+        int num = s.length() - len - 1;
+        if (num <= 1) {
+            return s;
+        }
+        return s.substring(0, len) + num + s.charAt(s.length() - 1);
+    }
+}
