@@ -1,0 +1,50 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/maximum-vacation-days/discuss/102655/Java-DFS(TLE)-and-DP-Solutions
+    
+    给定N个城市，K周时间。
+
+    矩阵flights描述N个城市之间是否存在航班通路。
+
+    若flights[i][j] = 1，表示i与j存在通路，否则表示不存在。特别的，flights[i][i]恒等于0。
+
+    矩阵days表示可以在某城市逗留的最长天数。
+
+    例如days[i][j] = k，表示第i个城市第j周最长可以逗留k天。
+
+    初始位于0号城市，每周可以选择一个能够到达的城市逗留（也可以留在当前城市）。
+
+    求最优策略下的最长逗留总天数。
+
+    注意：
+
+    N和K是正整数，范围[1, 100]
+    矩阵flights的元素范围[0, 1]
+    矩阵days的元素范围[0, 7]
+    */
+    public int maxVacationDays(int[][] flights, int[][] days) {
+        int N = flights.length;
+        int K = days[0].length;
+        int[] dp = new int[N];
+        Arrays.fill(dp, Integer.MIN_VALUE);
+        dp[0] = 0;
+        
+        for (int i = 0; i < K; i++) {
+            int[] temp = new int[N];
+            Arrays.fill(temp, Integer.MIN_VALUE);
+            for (int j = 0; j < N; j++) {
+                for (int k = 0; k < N; k++) {
+                    if (j == k || flights[k][j] == 1) {
+                        temp[j] = Math.max(temp[j], dp[k] + days[j][i]);
+                    }
+                } 
+            }
+            dp = temp;
+        }
+        int max = 0;
+        for (int v : dp) {
+            max = Math.max(max, v);
+        }
+        return max;
+    }
+}
