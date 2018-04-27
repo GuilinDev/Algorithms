@@ -1,0 +1,45 @@
+class Solution {
+    /*
+    https://leetcode.com/problems/maximum-average-subarray-ii/discuss/105480/Java-solution-O(nlogM)-Binary-search-the-answer
+    Binary Search: O(nlogM)
+    */
+    public double findMaxAverage(int[] nums, int k) {
+        double l = Integer.MIN_VALUE, r = Integer.MAX_VALUE;
+        while (r-l > 0.000004) {//二分搜索
+            double mid = l + (r - l) / 2;
+            if (check(nums, k, mid)) {
+                l = mid;
+            } else {
+                r = mid;
+            }
+        }
+        return r;
+    }
+    
+    private boolean check(int[] nums, int k, double x) {//检查是否能够找到一个subarray平均值大于x
+        int n = nums.length;
+        double[] a = new double[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = nums[i] - x;//Transfer to a[i], find whether there is a subarray whose sum is bigger than 0
+        }
+        double now = 0, last = 0;
+        for (int i = 0; i < k; i++) {
+            now += a[i];
+        }
+        if (now >= 0) {
+            return true;
+        }
+        for (int i = k; i < n; i++) {
+            now += a[i];
+            last += a[i-k];
+            if (last < 0) {
+                now -= last;
+                last = 0;
+            }
+            if (now >= 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
