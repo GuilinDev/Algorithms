@@ -1,0 +1,6 @@
+# Write your MySQL query statement below
+Select sum(TIV_2016) TIV_2016 from insurance a 
+where 
+1 = (Select count(*) from insurance b where a.LAT = b.LAT And a.LON = b.LON)
+And 
+1 < (Select count(*) from insurance c where a.TIV_2015 = c.TIV_2015);
