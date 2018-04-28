@@ -1,0 +1,9 @@
+# Write your MySQL query statement below
+Select C1.seat_id From cinema C1 Where C1.free = 1
+and 
+(
+C1.seat_id + 1 in (Select seat_id From cinema Where free = 1)
+Or
+C1.seat_id - 1 in (Select seat_id From cinema Where free =1)
+)
+Order by C1.seat_id;
