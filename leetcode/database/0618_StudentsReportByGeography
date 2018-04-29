@@ -1,0 +1,27 @@
+# Write your MySQL query statement below
+#First, generate 3 tables for each contient with row id column. Then, join those 3 tables together using the row id
+SELECT
+    a.Name AS America,
+    b.Name AS Asia,
+    c.Name AS Europe
+FROM (
+    SELECT
+        Name,
+        @r1 := @r1 + 1 AS rowid
+    FROM student s, (SELECT @r1 := 0) init
+    WHERE continent = 'America'
+    ORDER BY Name) a
+LEFT JOIN (
+    SELECT
+        Name,
+        @r2 := @r2 + 1 AS rowid
+    FROM student s, (SELECT @r2 := 0) init
+    WHERE continent = 'Asia'
+    ORDER BY Name) b ON a.rowid = b.rowid
+LEFT JOIN (
+    SELECT
+        Name,
+        @r3 := @r3 + 1 AS rowid
+    FROM student s, (SELECT @r3 := 0) init
+    WHERE continent = 'Europe'
+    ORDER BY Name) c ON a.rowid = c.rowid
