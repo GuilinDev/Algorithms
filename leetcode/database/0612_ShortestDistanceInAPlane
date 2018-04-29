@@ -1,0 +1,4 @@
+# Write your MySQL query statement below
+Select Round(sqrt(min((p1.x-p2.x) * (p1.x - p2.x) + (p1.y-p2.y) * (p1.y - p2.y))), 2) as shortest
+From point_2d p1, point_2d p2
+Where p1.x <> p2.x Or p1.y <> p2.y;
