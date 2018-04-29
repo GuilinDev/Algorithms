@@ -1,0 +1,51 @@
+class Solution {
+    /*
+    直接做法：https://leetcode.com/problems/remove-9/discuss/106561/One-Line-Java-Solution
+    通用办法DP：https://leetcode.com/problems/remove-9/discuss/106569/A-general-solution-in-java-useful-if-some-number-other-than-9-is-removed
+    */
+    int[] dp;
+    public int newInteger(int n) {
+        if (n < 9) {
+            return n;
+        }
+        dp = new int[10];
+        //dp[n] corresponds to range[10^(n - 1), 10^n - 1], e.g. dp[2] is the number of 9 within [10, 99]
+        dp[0] = 0;
+        dp[1] = 1;
+        int p = 10;
+        for (int i = 2; i < 10; i++) {
+            dp[i] = dp[i-1] * 9 + p;
+            p *= 10;
+        }
+        int left = n;
+        int right = Integer.MAX_VALUE;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (mid - numOf9(mid) >= n) {// make sure the result does not contains 9
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+    
+    private int numOf9(int x) {// 10 <= x <= MAX_INT 
+        int res = 0;
+        int num = x;
+        int i = 0;
+        int p = 1;
+        while (num != 0) {
+            int lastDigit = num % 10;
+            if (lastDigit == 9) {
+                res = 9 * dp[i] + x % p + 1;
+            } else {
+                res += lastDigit * dp[i];
+            }
+            i++;
+            p *= 10;
+            num /= 10;
+        }
+        return res;
+    }
+}
