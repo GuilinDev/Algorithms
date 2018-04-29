@@ -1,0 +1,4 @@
+# Write your MySQL query statement below
+Select T.id,
+If(isnull(T.p_id), 'Root', If(T.id in (Select p_id from tree), 'Inner', 'Leaf')) Type
+From tree T
