@@ -1,0 +1,5 @@
+# Write your MySQL query statement below
+select distinct follower, num
+from follow, (select followee, count(distinct follower) as num from follow Group by followee) As t
+Where follower = t.followee
+Order by follower;
