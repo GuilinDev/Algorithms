@@ -1,6 +1,6 @@
 class Solution {
     /*
-    直接做法：https://leetcode.com/problems/remove-9/discuss/106561/One-Line-Java-Solution
+    直接做法转换成9进制：https://leetcode.com/problems/remove-9/discuss/106561/One-Line-Java-Solution
     通用办法DP：https://leetcode.com/problems/remove-9/discuss/106569/A-general-solution-in-java-useful-if-some-number-other-than-9-is-removed
     */
     int[] dp;
