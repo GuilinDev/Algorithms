@@ -1,0 +1,6 @@
+# Write your MySQL query statement below
+Select salesperson.name from orders o 
+Join company c On
+(o.com_id = c.com_id and c.name = 'RED')
+Right Join salesperson On salesperson.sales_id = o.sales_id
+Where o.sales_id Is Null
