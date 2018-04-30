@@ -1,0 +1,25 @@
+class Solution {
+    /*
+    给了两个句子，问这两个句子是否是相似的。判定的条件是两个句子的单词数要相同，而且每两个对应的单词要是相似度，这里会给一些相似的单词对，这里说明了单词对的相似具有互逆性但是没有传递性。看到这里博主似乎已经看到了Follow up了，加上传递性就是一个很好的拓展。那么这里没有传递性，就使得问题变得很容易了，我们只要建立一个单词和其所有相似单词的集合的映射就可以了，比如说如果great和fine类似，且great和good类似，那么就有下面这个映射：
+great -> {fine, good}
+    */
+    public boolean areSentencesSimilar(String[] words1, String[] words2, String[][] pairs) {
+        if (words1.length != words2.length) {
+            return false;
+        }
+        Map<String, Set<String>> map = new HashMap<>();
+        for (String[] p : pairs) {
+            if (!map.containsKey(p[0])) {
+                map.put(p[0], new HashSet<>());
+            }
+            map.get(p[0]).add(p[1]);
+        }
+        
+        for (int i = 0; i < words1.length; i++) {
+            if (!words1[i].equals(words2[i]) && !map.getOrDefault(words1[i], new HashSet<>()).contains(words2[i]) && !map.getOrDefault(words2[i], new HashSet<>()).contains(words1[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
