@@ -1,0 +1,22 @@
+class Solution {
+    /*
+    在第K个位置上滴下一滴水，然后计算这滴水最终会流向左边的某个slot，还是右边的某个slot，还是保留在原地。这样当V滴水都滴下时，我们就得到了最终的结果。
+    */
+    public int[] pourWater(int[] heights, int V, int K) {
+        while (V-- > 0) {
+            drop(heights, K, heights[K] + 1, true, true);
+        }
+        return heights;
+    }
+    
+    private boolean drop(int[] h, int i, int j, boolean l, boolean r) {
+        if (l && i > 0 && h[i-1] <= h[i] && drop(h, i-1, h[i], l, false)) return true;
+        if (r && i < h.length - 1 && h[i+1] <= h[i] && drop(h, i+1, h[i], false, r)) return true;
+        
+        if (h[i] == j) {
+            return false;
+        }
+        h[i]++;
+        return true;
+    }
+}
