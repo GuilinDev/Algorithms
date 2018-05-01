@@ -1,0 +1,26 @@
+class Solution {
+    /*
+    leetcode.com/problems/race-car/discuss/123834/C++JavaPython-DP-solution-average-O(logN)/122584
+    logN
+    */
+    public int racecar(int target) {
+        int[] f = new int[target + 1];
+        for (int i = 1; i <= target; i++){
+            int bound = (Integer.highestOneBit(i) << 1) - 1;
+            int n = Integer.bitCount(bound);
+            if (i == bound){
+                f[i] = n;
+                continue;
+            }
+            // overspeed
+            f[i] = f[bound - i] + n + 1; // Reverse once
+            // underspeed
+            bound >>= 1;
+            for (int j = 0; j < n; j++){
+                int gap = (1 << j) - 1;
+                f[i] = Math.min(f[i], f[i - bound + gap] + n + j + 1); // Reverse twice
+            }
+        }
+        return f[target];
+    }
+}
