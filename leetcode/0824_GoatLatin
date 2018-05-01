@@ -1,0 +1,22 @@
+class Solution {
+    public String toGoatLatin(String S) {
+        String[] strArr = S.split(" ");
+        StringBuilder sb = new StringBuilder();
+        
+        Set<Character> vowel = new HashSet<>();
+        for (char c : "aeiouAEIOU".toCharArray()) vowel.add(c);
+        StringBuilder aCounter = new StringBuilder();
+        aCounter.append("a");
+        
+        for (int i = 0; i < strArr.length; i++) {
+            if (vowel.contains(strArr[i].toLowerCase().charAt(0))) {
+                sb.append(strArr[i] + "ma");
+            } else {
+                sb.append(strArr[i].substring(1, strArr[i].length()) + strArr[i].charAt(0) + "ma");
+            }
+            sb.append(aCounter + " ");
+            aCounter.append("a");
+        }
+        return sb.toString().substring(0, sb.length() -1);
+    }
+}
