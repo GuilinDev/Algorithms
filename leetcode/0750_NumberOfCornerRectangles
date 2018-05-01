@@ -1,0 +1,20 @@
+class Solution {
+    /*
+    这道题给了一个由0和1组成的二维数组，这里定义了一种边角矩形，其四个顶点均为1，让我们求这个二维数组中有多少个不同的边角矩形。暴力破解:遍历所有的子矩形，并且检验其四个顶点是否为1即可。先确定左上顶点，每个顶点都可以当作左上顶点，所以需要两个for循环，然后我们直接跳过非1的左上顶点，接下来就是要确定右上顶点和左下顶点了，先用一个for循环确定左下顶点的位置，同理，如果左下顶点为0，直接跳过。再用一个for循环确定右上顶点的位置，如果右上顶点位置也确定了，那么此时四个顶点中确定了三个，右下顶点的位置也就确定了，此时如果右上和右下顶点均为1，则结果res自增1;
+    优化：在遍历前一行的时候，将所有为1的位置存入到了一个数组ones中，然后在遍历其他行时，直接检测ones数组中的那些位置是否为1，这样省去了检查一些之前行为0的步骤，提高了运行速度，但是也牺牲了一些空间，比如需要ones数组，算是个trade off吧
+    https://leetcode.com/problems/number-of-corner-rectangles/discuss/110196/short-JAVA-AC-solution-(O(m2-*-n))-with-explanation.
+    */
+    public int countCornerRectangles(int[][] grid) {
+        int ans = 0;
+        for (int i = 0; i < grid.length - 1; i++) {
+            for (int j = i + 1; j < grid.length; j++) {
+                int counter = 0;
+                for (int k = 0; k < grid[0].length; k++) {
+                    if (grid[i][k] == 1 && grid[j][k] == 1) counter++;
+                }
+                if (counter > 0) ans += counter * (counter - 1) / 2;
+            }
+        }
+        return ans;
+    }
+}
