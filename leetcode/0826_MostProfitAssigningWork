@@ -1,0 +1,32 @@
+class Solution {
+    /*
+    这个方法不错：
+    zip difficulty and profit as jobs.
+    sort jobs and sort 'worker'.
+    2 pointers idea, for each worker, find his maximum profit he can make under his ability.
+    Because we have sorted jobs and worker, we will go through two lists only once.
+    O(M+N).
+    https://leetcode.com/problems/most-profit-assigning-work/discuss/127031/C++JavaPython-Sort-and-Two-pointer
+    */
+    public int maxProfitAssignment(int[] difficulty, int[] profit, int[] worker) {
+        //这里用TreeMap
+        TreeMap<Integer,Integer> tmap = new TreeMap<>();
+        for (int i = 0; i < difficulty.length; i++) {
+            tmap.put(difficulty[i], Math.max(profit[i], tmap.getOrDefault(difficulty[i], 0)));
+        }
+        int max = 0, res = 0;
+        for (Integer key : tmap.keySet()) {
+            max = Math.max(tmap.get(key), max);
+            tmap.put(key, max);
+        }
+        
+        Map.Entry<Integer, Integer> entry = null;
+        for (int i = 0; i < worker.length; i++) {
+            entry = tmap.floorEntry(worker[i]);
+            if (entry != null) {
+                res += entry.getValue();
+            }
+        }
+        return res;
+    }
+}
