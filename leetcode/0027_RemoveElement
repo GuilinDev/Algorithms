@@ -1,13 +1,12 @@
 class Solution {
     public int removeElement(int[] nums, int val) {
-       
-        int flag = 0; // remember the position
+        int index= 0;//记录位置，从0开始
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != val) {
-                nums[flag] = nums[i];
-                flag++;
+            if (nums[i] != val) {//找到不同等于val的值就排到nums的左边去，然后递增准备存储下一个非val的元素
+                nums[index] = nums[i];
+                index++;
             }
         }
-        return flag;
+        return index;
     }
 }
