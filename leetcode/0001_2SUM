@@ -1,17 +1,18 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        if (nums.length >= 2) {
-            HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>(); // new map to store elements from orginal array
-            for (int i = 0; i < nums.length; i++) {
-                if (!hm.isEmpty() && hm.containsKey(target - nums[i])) {
-                    int [] result = {hm.get(target - nums[i]),i}; //alread added the first element
-                    return result;
-                }
-                hm.put(nums[i],i); // add the first element
-            }
-        }
+        int[] result = new int[2];
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
         
-        int [] result = {-1,-1};
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(target - nums[i])) {
+                //注意存到result的顺序
+                result[1] = i;//第1位为当前的i
+                result[0] = map.get(target - nums[i]);//第0位为跟当前i匹配之前存入到map中的值和相对应的index
+                
+                return result;
+            }
+            map.put(nums[i], i);//值和其相对应的index
+        }
         return result;
     }
 }
