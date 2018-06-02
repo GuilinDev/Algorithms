@@ -1,42 +1,41 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        // K Sum problems analysist - https://www.sigmainfy.com/blog/summary-of-ksum-problems.html
-        // http://blog.csdn.net/haolexiao/article/details/70768526
-        //https://www.cnblogs.com/gavanwanggw/p/7253591.html
+        ArrayList<List<Integer>> result = new ArrayList<List<Integer>>(); //保持最终结果
+        HashSet<ArrayList<Integer>> noDuplicateTriplets = new HashSet<ArrayList<Integer>>();//保持中间找到的triplet不要是重复的
         
-        ArrayList<List<Integer>> res = new ArrayList<List<Integer>>(); // Notice: Take care of the ArrayList and List types
         if (nums == null || nums.length < 3) {
-            return res;
+            return result;
         }
         
-        Arrays.sort(nums); //ascending order
-        HashSet<ArrayList<Integer>> hs = new HashSet<ArrayList<Integer>>(); // put one triplet inside
-       
-        for (int i = 0; i <= nums.length - 3; i++) {
-            int second = i+1;
-            int third = nums.length-1;
+        Arrays.sort(nums);
+        
+        for (int first = 0; first <= nums.length - 3; first++) {
+            int second = first + 1, third = nums.length - 1;
             
-            while (second < third) { // cannot be the same
-                int sum = nums[i] + nums[second] + nums[third];
-                if (sum == 0) {
-                    ArrayList<Integer> unit = new ArrayList<Integer>(); // each unit is a new object
-                    unit.add(nums[i]);
-                    unit.add(nums[second]);
-                    unit.add(nums[third]);
-            
-                    if (!hs.contains(unit)) {// take advantage of HashSet contains() method to remove duplicates
-                        hs.add(unit);
-                        res.add(unit);
+            //接下来需要确定第二个指针second和第三个指针third是否找到合适的triplet或者相遇
+            while (second < third) {
+                int sum = nums[first] + nums[second] + nums[third];
+                if (sum < 0) {
+                    second++;
+                } else if (sum > 0) {
+                    third--;
+                } else { //找到了一个triplet
+                    ArrayList<Integer> oneTriplet = new ArrayList<Integer>();
+                    oneTriplet.add(nums[first]);
+                    oneTriplet.add(nums[second]);
+                    oneTriplet.add(nums[third]);
+                    
+                    if (!noDuplicateTriplets.contains(oneTriplet)) {//因为是排好序的，所以找出来的triplet直接跟之前的所有triplets比较一下看看是否重复
+                        noDuplicateTriplets.add(oneTriplet);//没有重复就加到hashset里面为了接下来比较下一个可能的triplet比较
+                        result.add(oneTriplet);//没有重复同时也加到结果里面
                     }
+                    
+                    //注意这里second和third是同时移动，因为排过序了，所以只移动一个index的话是不会再找到非重复的triplet的
                     second++;
                     third--;
-                } else if(sum > 0) {
-                    third--;
-                } else {
-                    second++;
                 }
             }
         }
-        return res;
+        return result;
     }
 }
