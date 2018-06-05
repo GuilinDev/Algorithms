@@ -1,28 +1,27 @@
 class Solution {
     public int threeSumClosest(int[] nums, int target) {
-        // similar to 3-sum, but no need to remove duplicates - one solution
-        // and no need to return the triplet, instead it will return the sum
-        
-        if (nums == null || nums.length < 3){
+        if (nums == null || nums.length < 3) {
             return 0;
         }
         
-        int result = 0;
-        Arrays.sort(nums);
+        int result = 0; 
         int min = Integer.MAX_VALUE;
-        for (int i = 0; i <= nums.length - 3; i++){
-             int second = i + 1, third = nums.length - 1;
-             while (second < third){
-                int sum = nums[i] + nums[second] + nums[third];
+        
+        Arrays.sort(nums);
+        
+        for (int first = 0; first <= nums.length - 3; first++) {
+            int second = first + 1, third = nums.length - 1;
+            while (second < third) {//循环一轮找到最小的min
+                int sum = nums[first] + nums[second] + nums[third];
                 if (Math.abs(sum - target) < min) {
                     min = Math.abs(sum - target);
                     result = sum;
                 }
-                    
-                if (target == sum) {
-                    return result;
-                } else if (target > sum) {// if already found the closest, it will execute too
-                    second++; 
+                
+                if (sum == target) {//等于target那就是差距最小了，直接返回
+                    return sum;
+                } else if (sum < target) {
+                    second++;
                 } else {
                     third--;
                 }
