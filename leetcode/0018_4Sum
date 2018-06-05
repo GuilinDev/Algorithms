@@ -1,33 +1,35 @@
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         ArrayList<List<Integer>> result = new ArrayList<List<Integer>>();
-        HashSet<ArrayList<Integer>> hs = new HashSet<ArrayList<Integer>>();
+        HashSet<ArrayList<Integer>> noDuplicateQuad = new HashSet<ArrayList<Integer>>();
         
         Arrays.sort(nums);
         
-        for (int i = 0; i <= nums.length - 4; i++) { // loop for first number
-            for (int j = i+1; j <= nums.length - 3; j++) {// loop for second number
-                int third = j + 1;
+        for (int first = 0; first <= nums.length - 4; first++) {
+            for (int second = first + 1; second <= nums.length - 3; second++) {
+                int third = second + 1;
                 int fourth = nums.length - 1;
                 
                 while (third < fourth) {
-                    int sum = nums[i] + nums[j] + nums[third] + nums[fourth];
-                    if (sum == target) {
-                        ArrayList<Integer> temp = new ArrayList<Integer>();
-                        temp.add(nums[i]);
-                        temp.add(nums[j]);
-                        temp.add(nums[third]);
-                        temp.add(nums[fourth]);
-                        
-                        if (!hs.contains(temp)) {
-                            hs.add(temp);
-                            result.add(temp);
-                        }
+                    int sum = nums[first] + nums[second] + nums[third] + nums[fourth];
+                    if (sum < target) {
                         third++;
+                    } else if (sum > target) {
                         fourth--;
-                    } else if (sum < target) {
+                    } else { //找到了一个合适的Quadruplet
+                        ArrayList<Integer> oneQuadruplet = new ArrayList<>();
+                        oneQuadruplet.add(nums[first]);
+                        oneQuadruplet.add(nums[second]);
+                        oneQuadruplet.add(nums[third]);
+                        oneQuadruplet.add(nums[fourth]);
+                        
+                        if (!noDuplicateQuad.contains(oneQuadruplet)) {
+                            noDuplicateQuad.add(oneQuadruplet);
+                            result.add(oneQuadruplet);
+                        }
+                        
+                        //这里是两个indices同时移动，因为排过序了后找到的是已经等于target了，所以只移动一个index的话是不会再找到非重复的Quadruplet的
                         third++;
-                    } else {
                         fourth--;
                     }
                 }
