@@ -1,18 +1,21 @@
 class Solution {
-    int count;
     public int threeSumSmaller(int[] nums, int target) {
-        count = 0;
-        Arrays.sort(nums);
-        int len = nums.length;
+        if (nums == null || nums.length < 3) {
+            return 0;
+        }
         
-        for (int i  = 0; i < len - 2; i++) {
-            int left = i + 1, right = len - 1;
-            while (left < right) {
-                if (nums[i] + nums[left] + nums[right] < target) {
-                    count += right - left;
-                    left++;
+        int count = 0; 
+        Arrays.sort(nums);//因为只用返回小于target的triplets的个数，所以顺序没关系，不用单独记住原数组的indices
+        
+        for (int first = 0; first <= nums.length - 3; first++) {
+            int second = first + 1, third = nums.length - 1;
+            while (second < third) {
+               int sum = nums[first] + nums[second] + nums[third];
+                if (sum < target) {
+                    count += third - second;//这里的意思是排序后只要三个数相加小于target，那么third之前的数肯定也和first，second相加小于target
+                    second++;//上面加完后，右移第二个index再进行同样的确认
                 } else {
-                    right--;
+                    third--;//大于或等于的话，把第三个index左移，缩小范围
                 }
             }
         }
