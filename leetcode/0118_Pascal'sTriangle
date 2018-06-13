@@ -1,27 +1,23 @@
 class Solution {
-    /*
-    http://blog.csdn.net/linhuanmars/article/details/23311527
-    基本思路是每层保存前一行的指针，然后当前航数据根据上一行来得到，每个元素就是上一行两个相邻元素相加（第一个和最后一个元素是1）。算法时间复杂度应该是O(1+2+3+...+n)=O(n^2)，空间上只需要二维数组来存储结果，不需要额外空间。
-    119-Pascal's Triangle II只求解某一行的数据，反而可以在空间上进行精简
-    */
     public List<List<Integer>> generate(int numRows) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
         if (numRows <= 0) {
-            return res;
+            return result;
         }
-        ArrayList<Integer> pre = new ArrayList<Integer>();
-        pre.add(1);
-        res.add(pre);
-        for (int i = 2; i <= numRows; i++) {
-            ArrayList<Integer> cur = new ArrayList<Integer>();
-            cur.add(1);
-            for (int j = 0; j < pre.size() - 1; j++) {
-                cur.add(pre.get(j) + pre.get(j+1));
+        ArrayList<Integer> previousRow = new ArrayList<>();
+        previousRow.add(1);//第一行只有一个数，先加上
+        result.add(previousRow);
+        
+        for (int i = 1; i <= numRows - 1; i++) {//从第二行开始有“前一行”
+            ArrayList<Integer> currentRow = new ArrayList<>();//新建一个array存当前行，当前行比前一行多两个元素
+            currentRow.add(1);//当前行的第一个元素为1，接下来从当前行的第二个元素开始
+            for (int j = 0; j < previousRow.size() - 1; j++) {//从上一行的第一个元素到最后一个元素都会参与计算
+                currentRow.add(previousRow.get(j) + previousRow.get(j+1));//前一行相邻两个元素相加，比如当前行的第2个元素就是上一行第0个和第1个相加
             }
-            cur.add(1);
-            res.add(cur);
-            pre = cur;
+            currentRow.add(1);//当前行最后一个元素是1
+            result.add(currentRow);
+            previousRow = currentRow;
         }
-        return res;
+        return result;
     }
 }
