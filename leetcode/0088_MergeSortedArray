@@ -1,10 +1,18 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        
-        int length = m + n; // length of arrays
-        
-        while (n > 0) {
-            nums1[--length] = (m == 0 || nums1[m-1] < nums2[n-1]) ? nums2[--n] : nums1[--m]; // "m = 0" means nums2 is longer
+        int length = m + n;
+
+        while (n > 0) { //表示nums2里面的元素还没有加完
+            //从最后一位开始检查，每次循环前移一位
+            length--;
+            if (m == 0 || nums1[m - 1] < nums2[n - 1]) {//m=0表示只剩nums2的元素了，直接加入就好
+                n--;//从nums2最后一位开始
+                nums1[length] = nums2[n];
+            } else {//m != 0 &&　nums1[m - 1] > nums2[n - 1]
+                m--;//从nums1最后一位开始
+                nums1[length] = nums1[m];
+            }
         }
+        //这样写可以短一点: nums1[--length] = (m == 0 || nums[m - 1] < nums[n - 1]) ? nums2[--n] : nums1[--m];
     }
 }
