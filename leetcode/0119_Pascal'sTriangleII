@@ -1,21 +1,18 @@
 class Solution {
-    /*
-    http://blog.csdn.net/linhuanmars/article/details/23311629
-    这道题跟118-Pascal's Triangle很类似，只是这里只需要求出某一行的结果。Pascal's Triangle中因为是求出全部结果，所以我们需要上一行的数据就很自然的可以去取。而这里我们只需要一行数据，就得考虑一下是不是能只用一行的空间来存储结果而不需要额外的来存储上一行呢？这里确实是可以实现的。对于每一行我们知道如果从前往后扫，第i个元素的值等于上一行的res[i]+res[i+1]，可以看到数据是往前看的，如果我们只用一行空间，那么需要的数据就会被覆盖掉。所以这里采取的方法是从后往前扫，这样每次需要的数据就是res[i]+res[i-1]，我们需要的数据不会被覆盖，因为需要的res[i]只在当前步用，下一步就不需要了。这个技巧在动态规划省空间时也经常使用，主要就是看我们需要的数据是原来的数据还是新的数据来决定我们遍历的方向。时间复杂度还是O(n^2)，而空间这里是O(k)来存储结果，仍然不需要额外空间。
-    */
     public List<Integer> getRow(int rowIndex) {
-        List<Integer> res = new ArrayList<Integer>();
-        if (rowIndex < 0) {
-            return res;
+        List<Integer> result = new ArrayList<>();
+        if (rowIndex < 0) {//rowIndex可以等于0
+            return result;
         }
-        res.add(1);
-        for (int i = 1; i <= rowIndex; i++) {
-            for (int j = res.size() - 2; j >= 0; j--) {
-                res.set(j+1, res.get(j)+res.get(j+1));
+        
+        result.add(1);//先初始化为一行的值
+        for (int i = 1; i <= rowIndex; i++) {//注意rowIndex是从0开始数，到rowIndex结束；上一题的numRows是共多少行，从1开始数
+            //这里loop到rowIndex之前不用创建一个array来保存当前的行了
+            for (int j = result.size() - 2; j >= 0; j--) {//从前一行的倒数第二个开始计算，而前一行的倒数第一个数由倒数第二个数可以知道
+                result.set(j+1, result.get(j) + result.get(j+1));//将j+1位置上(通过j得知)的元素替换成前一行j+1相对应的两个值相加
             }
-            res.add(1);
+            result.add(1);//加上当前行的最后一个元素
         }
-        return res;
+        return result;
     }
-    //因为有一个考点就是能否省去额外空间，在面试中出现的可能性大一些，不过总体比较简单，电面中比较合适。
 }
