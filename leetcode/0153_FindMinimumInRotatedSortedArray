@@ -1,8 +1,4 @@
 class Solution {
-    /*
-    https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/discuss/48487/Java-solution-with-binary-search
-    The minimum element must satisfy one of two conditions: 1) If rotate, A[min] < A[min - 1]; 2) If not, A[0]. Therefore, we can use binary search: check the middle element, if it is less than previous one, then it is minimum. If not, there are 2 conditions as well: If it is greater than both left and right element, then minimum element should be on its right, otherwise on its left.
-    */
     public int findMin(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
@@ -10,18 +6,20 @@ class Solution {
         if (nums.length == 1) {
             return nums[0];
         }
-        int start = 0, end = nums.length - 1;
+        int start = 0, end = nums.length - 1;//Binary Search
         while (start < end) {
             int mid = start + (end - start)/2;
-            if (mid > 0 && nums[mid] < nums[mid-1]) {
-                return nums[mid];
+            if (mid > 0 && nums[mid] < nums[mid - 1]) {//mid>0为了不溢出
+                return nums[mid]; //Binary Search的终止条件，找到了
             }
-            if (nums[start] <= nums[mid] && nums[mid] > nums[end]) {
+            if (nums[mid] >= nums[start] && nums[mid] > nums[end]) {//在最后只剩两个元素的时候，向下取整mid等于start，所以这里数组虽然没有重复值，但是需要>=来确定“nums[mid]比它左右两边都‘大’”
                 start = mid + 1;
             } else {
                 end = mid - 1;
             }
         }
+
+        //如果到这里了还没有找到，那最小值一定就是剩下的那个start到达大于end的值
         return nums[start];
     }
 }
