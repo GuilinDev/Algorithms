@@ -1,27 +1,13 @@
 class Solution {
     public boolean isPalindrome(int x) {
-        // negative number are not palindrom
-        if (x < 0) {
+        if (x < 0 || (x != 0 && x % 10 == 0)) { //负数和除0之外的能整除10的数肯定不是
             return false;
         }
-        
-        // count how many zeros for left
-        int div = 1;
-        while (x/div >= 10) {
-            div *= 10;
+        int halfReverse = 0;
+        while (x > halfReverse) {//到达一半，比如1221这样的数，或者超过一半，比如12321这样的数
+            halfReverse = halfReverse * 10 + x % 10;//从x最后一个数字当作halfReverse的第一个数字开始算
+            x /= 10;
         }
-        
-        int left = 0, right = 0;
-        while (x != 0) {
-            left = x/div;
-            right = x%10;
-            if (left != right) {
-                return false;
-            }
-            
-            x = (x%div)/10; //exclude left and 1 right position
-            div /= 100; // then change div value
-        }
-        return true;
+        return (x == halfReverse || x == halfReverse / 10);//偶数位两个数字就相同，奇数位就把x中原来中间的那个数 - halfReverse中末尾的那个数去掉再判断
     }
 }
