@@ -7,41 +7,72 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+ //层序遍历二叉树是典型的广度优先搜索BFS的应用，图遍历中也经常用到，但是这里稍微复杂一点的是，我们要把各个层的数分开，存到一个二维向量里面，大体思路还是基本相同的,实现的方式是，同样是维护一个队列，只是对于每个结点我们知道它的邻接点只有可能是左孩子和右孩子。算法的复杂度是就结点的数量，O(n)，空间复杂度是一层的结点数，也是O(n)。
+ //DFS则就是正常做法
+ //时空都是O(n)
+ /**
+ DFS
+ */
 class Solution {
-    /*
-    层序遍历二叉树是典型的广度优先搜索BFS的应用，图遍历中也经常用到，但是这里稍微复杂一点的是，我们要把各个层的数分开，存到一个二维向量里面，大体思路还是基本相同的,实现的方式是，同样是维护一个队列，只是对于每个结点我们知道它的邻接点只有可能是左孩子和右孩子。算法的复杂度是就结点的数量，O(n)，空间复杂度是一层的结点数，也是O(n)。
-    http://blog.csdn.net/linhuanmars/article/details/23404111
-    */
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
         if (root == null) {
-            return res;
+            return result;
         }
-        LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
-        queue.add(root);
-        
-        int curNum = 0;
-        int lastNum = 1;
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        levelOrderHelper(result, root, 0);
+        return result;
+    }
+    private void levelOrderHelper(List<List<Integer>> result, TreeNode current, int level) {
+        if (current == null) {
+            return;
+        }
+        if (result.size() == level) {//先DFS一条路走到底把每一层的arraylist创建好，然后回溯的时候在call stack中取到level的值，把对应的层的值传进去
+            result.add(new ArrayList<Integer>());
+        }
+        result.get(level).add(current.val);
+
+        levelOrderHelper(result, current.left, level + 1);
+        levelOrderHelper(result, current.right, level + 1);
+    }
+}
+
+/**
+ BFS
+ */
+ /**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
         while (!queue.isEmpty()) {
-            TreeNode cur = queue.poll();//获取但移除此表的头，peek()则是获取并移除此表的头
-            lastNum--;
-            list.add(cur.val);
-            if (cur.left != null) {
-                queue.add(cur.left);
-                curNum++;
+            int size = queue.size();
+            List<Integer> oneLevel = new ArrayList<>();
+            while (size > 0) {
+                TreeNode node = queue.poll();
+                oneLevel.add(node.val);
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+                size--;
             }
-            if (cur.right != null) {
-                queue.add(cur.right);
-                curNum++;
-            }
-            if (lastNum == 0) {
-                lastNum = curNum;
-                curNum = 0;
-                res.add(list);
-                list = new ArrayList<Integer>();
-            }
+            result.add(oneLevel);//跟107唯一的不同点
         }
-        return res;
+        return result;
     }
 }
