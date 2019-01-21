@@ -7,45 +7,71 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+ //和102比类似，只是从底到顶层序遍历，方法类似，只是加每层元素的时候加在result前面，另外DFS的方法在递归中建立子ArrayList的时候，取得层的index为result.size() - 1 - level
+ //时空都是O(n)
+ /**
+ DFS
+ */
 class Solution {
-    /*
-    这道题和102 Binary Tree Level Order Traversal很类似，都是层序遍历一棵树，只是这道题要求从最底层往最上层遍历。进行Binary Tree Level Order Traversal中的遍历，然后对结果进行一次reverse。时间上和空间上仍是O(n)。
-    */
-    public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
         if (root == null) {
-            return res;
+            return result;
         }
-        LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
-        queue.add(root);
-        
-        int curNum = 0;
-        int lastNum = 1;
-        int level = 0;
-        
+        levelOrderHelper(result, root, 0);
+        return result;
+    }
+    private void levelOrderHelper(List<List<Integer>> result, TreeNode current, int level) {
+        if (current == null) {
+            return;
+        }
+        if (result.size() == level) {//先DFS一条路走到底把每一层的arraylist创建好，然后回溯的时候在call stack中取到level的值，把对应的层的值传进去
+            result.add(new ArrayList<Integer>());
+        }
+        result.get(result.size() - 1 - level).add(current.val);
+
+        levelOrderHelper(result, current.left, level + 1);
+        levelOrderHelper(result, current.right, level + 1);
+    }
+}
+
+/**
+ BFS
+ */
+ /**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
         while (!queue.isEmpty()) {
-            TreeNode cur = queue.pop();//弹出当前的TreeNode分析
-            if (res.size() <= level) {
-                res.add(new ArrayList<Integer>());
+            int size = queue.size();
+            List<Integer> oneLevel = new ArrayList<>();
+            while (size > 0) {
+                TreeNode node = queue.poll();
+                oneLevel.add(node.val);
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+                size--;
             }
-            res.get(level).add(cur.val);
-            lastNum--;
-            if (cur.left != null) {
-                queue.add(cur.left);
-                curNum++;
-            }
-            if (cur.right != null) {
-                queue.add(cur.right);
-                curNum++;
-            }
-            
-            if (lastNum == 0) {
-                level++;
-                lastNum = curNum;
-                curNum = 0;
-            }
+            result.add(0, oneLevel);//跟102唯一的不同点
         }
-        Collections.reverse(res);
-        return res;
+        return result;
     }
 }
