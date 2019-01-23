@@ -29,7 +29,7 @@ public class Solution {
                     queue.add(node.right);
                 }
                 size--;
-                if (size == 0) {
+                if (size == 0) {//层序遍历中，本层的结点已经遍历完，最后一个指向null
                     node.next = null;
                 }
             }
@@ -38,5 +38,57 @@ public class Solution {
 }
 
 /**
-* 题目要求是指使用常数空间
+* 题目要求使用常数空间，因此使用三个变量，一个指向当前遍历的结点，一个记录下一层的最左边结点，一个记录下一层连接到的上一个结点，再循环本层时，连结好下一层
 */
+/**
+ * Definition for binary tree with next pointer.
+ * public class TreeLinkNode {
+ *     int val;
+ *     TreeLinkNode left, right, next;
+ *     TreeLinkNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public void connect(TreeLinkNode root) {
+        if (root == null) {
+            return;
+        }
+
+        TreeLinkNode cur = root;//层序遍历中的当前结点
+        TreeLinkNode childHead = null;//下一层的头结点,一直是最左边的那个node
+        TreeLinkNode child = null;//下一层的结点，从最左边到最右边
+
+        while (cur != null) {//从上到下
+            while (cur != null) {//从左到右
+
+                if (cur.left != null) {
+                    if (childHead != null) {
+                        child.next = cur.left;
+                        //child = cur.left;
+                    } else {
+                        childHead = cur.left;//child，把child设为当前结点的左儿子
+                        //child = cur.left;
+                    }
+                    child = cur.left;
+                }
+                if (cur.right != null) {
+                    if (childHead != null) {
+                        child.next = cur.right;
+                        //child = cur.right;
+                    } else {
+                        childHead = cur.right;//child（上面的），把child设为当前结点的左儿子
+                        //child = cur.right;
+                    }
+                    child = cur.right;
+                }
+                //移动到本层的下一个结点
+                cur = cur.next;
+            }
+            //移动到下一层
+            cur = childHead;//当前结点移动到下一层的第一个结点
+            childHead = null;
+            child = null;
+        }
+    }
+}
+
