@@ -1,21 +1,36 @@
+//讨论区的总结：https://leetcode.com/problems/powx-n/discuss/19544
+//迭代
 class Solution {
-    
-    //面试的考察点：https://leetcode.com/problems/powx-n/discuss/19544
-    //思路：利用递归或者迭代，注意n可能是负数
     public double myPow(double x, int n) {
-        if (n == 0) {
+        double result = 1.0;
+        for (int i = n; i != 0; i /= 2) {//n 有可能是负数，每次减半最终为0
+            if (i % 2 != 0) {//i为奇数，result需要乘以x补上，否则下一轮地板触发就会少一次幂，比如n=3
+                result *= x;
+            }
+            x *= x;//每缩小一半，就幂一次
+        }
+        return (n < 0) ? 1 / result : result;
+    }
+}
+
+//递归
+class Solution {
+    /**
+     * 用递归来折半计算，每次把n缩小一半，这样n最终会缩小到0，任何数的0次方都为1，这时候再往回乘，如果此时n是偶数，直接把上次递归得到的值算个平方返回即可(因为递归基于上次的值)，如果是奇数，则还需要乘上个x的值(因为上次除法地板除法少了一个)。
+     还有一点需要引起我们的注意的是n有可能为负数，对于n是负数的情况，在递归中处理正负问题。
+     */
+    public double myPow(double x, int n) {
+        if (n == 0) {//递归出口，无论正负都会归0
             return 1;
         }
-        if (n < 0) {
-            if (n == Integer.MIN_VALUE) {
-                n++;//转换-2147483648成-2147483647，防止溢出
-                if (x < 0) {
-                    x = -x;//指数原本是最大负值，是偶数，结果为正数；加1后结果会为负数，所以要换回来（如果x本身是正数那就无所谓指数n为正为负了）
-                }
-            }
-            n = -n;
-            x = 1/x;//指数是负数的求幂
+        double half = myPow(x, n / 2);
+        //相当于处理最后一个case，并在递归中处理正负问题
+        if (n % 2 == 0) {
+            return half * half;
         }
-        return (n%2==0) ? myPow(x*x, n/2) : x*myPow(x*x,n/2);//注意奇数的情况下会向下取整
+        if (n > 0) {//如果n为正数，正常乘法
+            return half * half * x;
+        }
+        return half * half / x;//n为负数就每轮递归取倒数
     }
 }
