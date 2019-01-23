@@ -7,32 +7,35 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+ /**
+ * 我的gitbook分析：https://guilindev.gitbook.io/interview/~/drafts/-LVq8UaGUYPqFOPszOvo/primary/leetcode/ji-chu-shu-ju-jie-gou-zai-suan-fa-zhong-de-ying-yong/untitled-1#124-binary-tree-maximum-path-sum
+ */
 class Solution {
-    /*
-    http://blog.csdn.net/linhuanmars/article/details/22969069
-    这道题是求树的路径和的题目，不过和平常不同的是这里的路径不仅可以从根到某一个结点，而且路径可以从左子树某一个结点，然后到达右子树的结点，就像题目中所说的可以起始和终结于任何结点。在这里树没有被看成有向图，而是被当成无向图来寻找路径。因为这个路径的灵活性，我们需要对递归返回值进行一些调整，而不是通常的返回要求的结果。在这里，函数的返回值定义为以自己为根的一条从根到子结点的最长路径（这里路径就不是当成无向图了，必须往单方向走）。这个返回值是为了提供给它的父结点计算自身的最长路径用，而结点自身的最长路径（也就是可以从左到右那种）则只需计算然后更新即可。这样一来，一个结点自身的最长路径就是它的左子树返回值（如果大于0的话），加上右子树的返回值（如果大于0的话），再加上自己的值。而返回值则是自己的值加上左子树返回值，右子树返回值或者0（注意这里是“或者”，而不是“加上”，因为返回值只取一支的路径和）。在过程中求得当前最长路径时比较一下是不是目前最长的，如果是则更新。算法的本质还是一次树的遍历，所以复杂度是O(n)。而空间上仍然是栈大小O(logn)。
-    */
+    int result;
     public int maxPathSum(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        ArrayList<Integer> res = new ArrayList<Integer>();
-        res.add(Integer.MIN_VALUE);
-        helper(root, res);
-        return res.get(0);
+        result = Integer.MIN_VALUE;
+        dfs(root);//dfs中无需记录每一次递归的返回值，只需要每次选出最大值
+        return result;
     }
-    
-    private int helper(TreeNode root, ArrayList<Integer> res) {
+    private int dfs (TreeNode root) {
         if (root == null) {
             return 0;
         }
-        int left = helper(root.left, res);
-        int right = helper(root.right, res);
-        int cur = root.val + (left>0?left:0) + (right>0?right:0);
-        if (cur > res.get(0)) {
-            res.set(0, cur);
+        int left = dfs(root.left);
+        int right = dfs(root.right);
+
+        //路径的和（不是某个结点的值）跟0相比较，不需要和为负数的路径，因此如果是负数就设为0
+        if (left < 0) {
+            left = 0;
         }
-        return root.val + Math.max(left, Math.max(right, 0));
+        if (right < 0) {
+            right = 0;
+        }
+        result = Math.max(result, left + right + root.val);//当前回溯到的结点的子树的和vs之前的子树的和
+
+        return root.val += Math.max(left, right);//左右子树中挑一个比较大的路径（前面已经把left和right的负值路径去掉了）
     }
-    //树的题目大多是用递归方式，但是根据要求的量还是比较灵活多变的，这道题是比较有难度的，他要用返回值去维护一个中间量，而结果值则通过参数来维护，需要一点技巧。
 }
