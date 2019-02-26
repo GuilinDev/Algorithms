@@ -1,0 +1,32 @@
+class Solution {
+    public int totalFruit(int[] tree) {
+        int firstFruit = -1;
+        int secondFruit = -1;
+        
+        int lastFruitCount = 0;
+        
+        int currentMax = 0;
+        int globalMax = 0;
+        
+        for (int i = 0; i < tree.length; i++) {
+            if (tree[i] == firstFruit || tree[i]  == secondFruit) {
+                currentMax++;
+            } else {
+                currentMax = lastFruitCount + 1;
+            }
+            
+            if (tree[i]  == secondFruit) {
+                lastFruitCount++;//
+            } else {
+                lastFruitCount = 1;
+                firstFruit = secondFruit;//把第一个篮子里的水果替换成第二种水果
+                secondFruit = tree[i];//把第二个篮子里的水果替换成新的水果
+            }
+            
+            globalMax = Math.max(globalMax, currentMax);
+            
+        }
+        
+        return globalMax;
+    }
+}
