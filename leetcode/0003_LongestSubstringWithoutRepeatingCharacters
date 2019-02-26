@@ -1,32 +1,36 @@
+//HashMap 解法
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        /*
-             Think: Brute Force: O(N^3); DP: O(N^2); this two pointer: O(2*N) = O(N)
-        */
-        if (s == null || s.length() == 0) {
-            return 0;
+        int result = 0;
+        if (s.isEmpty()) {
+            return result;
         }
-        
-        int max = 0, leftPointer = 0, rightPointer = 0;
-        HashSet <Character> set = new HashSet<Character>(); // store longest substring
-        
-        while (rightPointer < s.length()) {
-            if (set.contains(s.charAt(rightPointer))) {// meet the repeating character on the right
-                if (max < rightPointer - leftPointer) {
-                    max = rightPointer - leftPointer;
-                }
-                while (s.charAt(leftPointer) != s.charAt(rightPointer)) {// remove the current substring, until leftPointer catch up with rightPointer
-                    set.remove(s.charAt(leftPointer));
-                    leftPointer++;
-                }
-                
-                leftPointer++;
-            } else {
-                set.add(s.charAt(rightPointer)); // rightPointer starts from position 0
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (int left = 0, right = 0; right < s.length(); right++) {
+            if (map.containsKey(s.charAt(right))) {
+                left = Math.max(left, map.get(s.charAt(right)) + 1);
             }
-            rightPointer++;
+            map.put(s.charAt(right), right);//更新
+            result = Math.max(result, right - left + 1);
         }
-        max = Math.max(rightPointer-leftPointer, max); // compare substring on the right end
-        return max;
+        return result;
+    }
+}
+//HashSet解法，每次只删掉一个character
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int result = 0, left = 0, right = 0;
+        HashSet<Character> ch = new HashSet<>();
+        while (right < s.length()) {
+            if (!ch.contains(s.charAt(right))) {
+                ch.add(s.charAt(right));
+                right++;
+                result = Math.max(result, ch.size());
+            } else {
+                ch.remove(s.charAt(left));
+                left++;
+            }
+        }
+        return result;
     }
 }
