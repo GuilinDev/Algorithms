@@ -10,14 +10,24 @@
 class Solution {
     public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) {
-            return null;
+            return head;
         }
-        ListNode newLN;
-        while (head.next != null) {
-            newLN = head.next;
-            newLN.next = head;
+        //p3暂时记住当前节点（p2）的下一位，以p2为中心进行翻转
+        ListNode p1 = head;
+        ListNode p2 = head.next;
+        ListNode p3 = null;
+        while (p2 != null) {
+            p3 = p2.next;
+            p2.next = p1;
+            //p1和p2依次往后挪
+            p1 = p2;
+            p2 = p3;
         }
-        return newLN;
+        //将本来在最左边的head指向最右边
+        head.next = null;
+        head = p1;
+        
+        return head;
     }
 }
 
